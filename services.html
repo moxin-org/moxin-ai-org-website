@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services - Moxin-Org</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a1d29;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1d29 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background: rgba(26, 29, 41, 0.8);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-blue);
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .deployment-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .deployment-option.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border-color: var(--accent-blue);
+        }
+        
+        .service-tier {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .service-tier.featured {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border-color: var(--accent-blue);
+            transform: scale(1.05);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 60px;
+            bottom: -20px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-blue), transparent);
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <img src="resources/moxin-org-logo.png" alt="Moxin-Org" class="w-8 h-8">
+                <span class="text-white font-bold text-xl">Moxin-Org</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="solutions.html" class="text-gray-300 hover:text-white transition-colors">Solutions</a>
+                <a href="#services" class="text-white">Services</a>
+                <a href="developer.html" class="text-gray-300 hover:text-white transition-colors">Developers</a>
+            </div>
+            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                Get Demo
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-6 tech-grid">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                Professional
+                <span class="gradient-text">Services</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                End-to-end AI implementation services from architecture design to production deployment. 
+                Expert guidance at every stage of your AI transformation journey.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Offerings -->
+    <section id="services" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Service Offerings
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive services designed to accelerate your AI adoption and ensure successful implementation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Architecture Design -->
+                <div class="card-hover service-tier p-8 rounded-2xl scroll-reveal">
+                    <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Architecture Design</h3>
+                    <p class="text-gray-300 mb-6">
+                        Custom AI architecture design tailored to your enterprise requirements, scalability needs, and compliance constraints.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Infrastructure Assessment
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Scalability Planning
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Security & Compliance
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Cost Optimization
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">4-6 weeks</div>
+                        <div class="text-gray-400 text-sm">Typical engagement</div>
+                    </div>
+                </div>
+
+                <!-- Implementation & Deployment -->
+                <div class="card-hover service-tier featured p-8 rounded-2xl scroll-reveal">
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Implementation & Deployment</h3>
+                    <p class="text-gray-300 mb-6">
+                        End-to-end implementation services from development to production deployment with ongoing monitoring and optimization.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Model Integration
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            System Deployment
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Performance Tuning
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Monitoring Setup
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">8-12 weeks</div>
+                        <div class="text-gray-400 text-sm">Typical engagement</div>
+                    </div>
+                </div>
+
+                <!-- Training & Support -->
+                <div class="card-hover service-tier p-8 rounded-2xl scroll-reveal">
+                    <div class="w-16 h-16 bg-teal-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Training & Support</h3>
+                    <p class="text-gray-300 mb-6">
+                        Comprehensive training programs and ongoing support to ensure your team can effectively manage and optimize AI systems.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Team Training
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Documentation
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            24/7 Support
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            System Updates
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-teal-400 mb-2">Ongoing</div>
+                        <div class="text-gray-400 text-sm">Support contract</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Options -->
+    <section class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Deployment Architecture
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Choose the deployment model that best fits your security, compliance, and performance requirements.
+                </p>
+            </div>
+
+            <!-- Deployment Selector -->
+            <div class="flex flex-wrap justify-center mb-12 scroll-reveal">
+                <button class="deployment-option active px-6 py-4 rounded-lg mr-4 mb-4 bg-gray-800 border border-gray-700 text-gray-300" data-deployment="onpremises">
+                    On-Premises
+                </button>
+                <button class="deployment-option px-6 py-4 rounded-lg mr-4 mb-4 bg-gray-800 border border-gray-700 text-gray-300" data-deployment="hybrid">
+                    Hybrid Cloud
+                </button>
+                <button class="deployment-option px-6 py-4 rounded-lg mr-4 mb-4 bg-gray-800 border border-gray-700 text-gray-300" data-deployment="edge">
+                    Edge-First
+                </button>
+            </div>
+
+            <!-- Deployment Visualization -->
+            <div class="bg-gray-900/50 rounded-2xl p-8 mb-8 scroll-reveal">
+                <div id="deploymentVisualization">
+                    <!-- On-Premises Architecture -->
+                    <div id="onpremises-arch" class="deployment-arch">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-center">On-Premises Enterprise Deployment</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Application Tier</h4>
+                                <p class="text-gray-400 text-sm">MolyKit Apps, Moly Proxy, Moly Server</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">AI Infrastructure</h4>
+                                <p class="text-gray-400 text-sm">KTransformers Cluster, Moxin Edge</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Data Storage</h4>
+                                <p class="text-gray-400 text-sm">PostgreSQL, Redis, MinIO, Qdrant</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hybrid Cloud Architecture -->
+                    <div id="hybrid-arch" class="deployment-arch hidden">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-center">Hybrid Cloud Deployment</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Enterprise Data Center</h4>
+                                <p class="text-gray-400 text-sm">Local Applications, Security Gateway</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Public Cloud</h4>
+                                <p class="text-gray-400 text-sm">Cloud AI Services, CDN, Monitoring</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Edge Devices</h4>
+                                <p class="text-gray-400 text-sm">User Devices, Branch Offices, IoT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Edge-First Architecture -->
+                    <div id="edge-arch" class="deployment-arch hidden">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-center">Edge-First Distributed Deployment</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Central Control</h4>
+                                <p class="text-gray-400 text-sm">Control Plane, Model Registry</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Regional Clusters</h4>
+                                <p class="text-gray-400 text-sm">Edge Nodes, Local Inference</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Global Users</h4>
+                                <p class="text-gray-400 text-sm">Low Latency, Data Residency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Implementation Process
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Our proven methodology ensures successful AI deployment with minimal risk and maximum ROI.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-item mb-12 scroll-reveal">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Discovery & Assessment</h3>
+                            <p class="text-gray-400 mb-4">
+                                Comprehensive analysis of your current infrastructure, business requirements, and AI readiness. 
+                                We identify opportunities and create a detailed implementation roadmap.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm">Infrastructure Audit</span>
+                                <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm">Requirements Gathering</span>
+                                <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm">ROI Analysis</span>
+                            </div>
+                        </div>
+                        <div class="text-right text-gray-400 text-sm ml-4">
+                            Week 1-2
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item mb-12 scroll-reveal">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Architecture Design</h3>
+                            <p class="text-gray-400 mb-4">
+                                Custom AI architecture design optimized for your specific use cases, performance requirements, 
+                                and compliance needs. Includes detailed technical specifications and deployment plans.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-600/20 text-purple-400 px-3 py-1 rounded-full text-sm">System Design</span>
+                                <span class="bg-purple-600/20 text-purple-400 px-3 py-1 rounded-full text-sm">Security Planning</span>
+                                <span class="bg-purple-600/20 text-purple-400 px-3 py-1 rounded-full text-sm">Integration Strategy</span>
+                            </div>
+                        </div>
+                        <div class="text-right text-gray-400 text-sm ml-4">
+                            Week 3-4
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item mb-12 scroll-reveal">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Implementation & Testing</h3>
+                            <p class="text-gray-400 mb-4">
+                                Agile implementation with iterative testing and validation. We ensure all components work 
+                                seamlessly together and meet performance benchmarks.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-teal-600/20 text-teal-400 px-3 py-1 rounded-full text-sm">Development</span>
+                                <span class="bg-teal-600/20 text-teal-400 px-3 py-1 rounded-full text-sm">Integration Testing</span>
+                                <span class="bg-teal-600/20 text-teal-400 px-3 py-1 rounded-full text-sm">Performance Tuning</span>
+                            </div>
+                        </div>
+                        <div class="text-right text-gray-400 text-sm ml-4">
+                            Week 5-10
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item mb-12 scroll-reveal">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Deployment & Optimization</h3>
+                            <p class="text-gray-400 mb-4">
+                                Production deployment with comprehensive monitoring, performance optimization, and 
+                                continuous improvement processes to maximize system effectiveness.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm">Production Deploy</span>
+                                <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm">Monitoring Setup</span>
+                                <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm">Team Training</span>
+                            </div>
+                        </div>
+                        <div class="text-right text-gray-400 text-sm ml-4">
+                            Week 11-12
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Tiers -->
+    <section class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Support & Maintenance
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Choose the support level that matches your operational requirements and business criticality.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Standard Support -->
+                <div class="card-hover service-tier p-8 rounded-2xl scroll-reveal">
+                    <h3 class="text-2xl font-bold text-white mb-4">Standard Support</h3>
+                    <div class="text-4xl font-bold text-blue-400 mb-2">$2,500<span class="text-lg text-gray-400">/month</span></div>
+                    <p class="text-gray-400 mb-6">Essential support for non-critical systems</p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Business hours support
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            48-hour response time
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Monthly system updates
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Email support channel
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Knowledge base access
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-blue-600/20 border border-blue-500/30 text-blue-400 py-3 rounded-lg hover:bg-blue-600/30 transition-all">
+                        Choose Standard
+                    </button>
+                </div>
+
+                <!-- Premium Support -->
+                <div class="card-hover service-tier featured p-8 rounded-2xl scroll-reveal">
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        Recommended
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Premium Support</h3>
+                    <div class="text-4xl font-bold text-purple-400 mb-2">$5,000<span class="text-lg text-gray-400">/month</span></div>
+                    <p class="text-gray-400 mb-6">Comprehensive support for business-critical systems</p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            24/7 support coverage
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            4-hour response time
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Weekly system updates
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Phone & email support
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Dedicated support engineer
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Proactive monitoring
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-purple-600/20 border border-purple-500/30 text-purple-400 py-3 rounded-lg hover:bg-purple-600/30 transition-all">
+                        Choose Premium
+                    </button>
+                </div>
+
+                <!-- Enterprise Support -->
+                <div class="card-hover service-tier p-8 rounded-2xl scroll-reveal">
+                    <h3 class="text-2xl font-bold text-white mb-4">Enterprise Support</h3>
+                    <div class="text-4xl font-bold text-teal-400 mb-2">Custom</div>
+                    <p class="text-gray-400 mb-6">Tailored support for mission-critical deployments</p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Custom SLA agreements
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            1-hour response time
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Daily system updates
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Multiple support channels
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Dedicated support team
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            On-site support available
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-teal-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Custom integrations
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-teal-600/20 border border-teal-500/30 text-teal-400 py-3 rounded-lg hover:bg-teal-600/30 transition-all">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Start Your AI Journey?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Get expert guidance from our AI specialists. Schedule a consultation to discuss your specific requirements 
+                and create a tailored implementation plan.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                    Schedule Consultation
+                </button>
+                <button class="border border-gray-600 text-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:border-blue-500 hover:text-blue-400 transition-all">
+                    Download Service Guide
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <img src="resources/moxin-org-logo.png" alt="Moxin-Org" class="w-6 h-6">
+                <span class="text-white font-semibold">Moxin-Org</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Moxin-Org. Open-source enterprise AI platform. Built for the future.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScrollReveal();
+            initializeDeploymentSelector();
+            initializeInteractions();
+        });
+
+        // Scroll reveal animation
+        function initializeScrollReveal() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Deployment architecture selector
+        function initializeDeploymentSelector() {
+            const deploymentOptions = document.querySelectorAll('.deployment-option');
+            const architectures = document.querySelectorAll('.deployment-arch');
+
+            deploymentOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remove active class from all options
+                    deploymentOptions.forEach(opt => {
+                        opt.classList.remove('active');
+                        opt.classList.remove('border-blue-500');
+                    });
+
+                    // Add active class to clicked option
+                    option.classList.add('active');
+                    option.classList.add('border-blue-500');
+
+                    // Hide all architectures
+                    architectures.forEach(arch => {
+                        arch.classList.add('hidden');
+                    });
+
+                    // Show selected architecture
+                    const deploymentType = option.getAttribute('data-deployment');
+                    const selectedArch = document.getElementById(`${deploymentType}-arch`);
+                    if (selectedArch) {
+                        selectedArch.classList.remove('hidden');
+                        
+                        // Animate architecture appearance
+                        anime({
+                            targets: selectedArch,
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            duration: 500,
+                            easing: 'easeOutCubic'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize interactions
+        function initializeInteractions() {
+            // Card hover effects
+            document.querySelectorAll('.card-hover').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: card,
+                        scale: card.classList.contains('featured') ? 1.05 : 1.02,
+                        translateY: -4,
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: card,
+                        scale: card.classList.contains('featured') ? 1.05 : 1,
+                        translateY: 0,
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                });
+            });
+
+            // Button interactions
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const buttonText = e.target.textContent.trim();
+                    
+                    // Animate button click
+                    anime({
+                        targets: e.target,
+                        scale: [1, 0.95, 1],
+                        duration: 200,
+                        easing: 'easeOutCubic'
+                    });
+
+                    // Handle different button actions
+                    if (buttonText.includes('Consultation')) {
+                        showDemoModal();
+                    } else if (buttonText.includes('Choose') || buttonText.includes('Contact')) {
+                        showComingSoon(buttonText);
+                    } else if (buttonText.includes('Guide')) {
+                        downloadServiceGuide();
+                    }
+                });
+            });
+        }
+
+        // Show coming soon message
+        function showComingSoon(feature) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-blue-600 text-white px-6 py-3 rounded-lg z-50';
+            notification.textContent = `${feature} - Coming Soon!`;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
+
+            anime({
+                targets: notification,
+                translateX: [300, 0],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutCubic'
+            });
+        }
+
+        // Download service guide
+        function downloadServiceGuide() {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg z-50';
+            notification.textContent = 'Service guide download will be available soon!';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
+
+            anime({
+                targets: notification,
+                translateX: [300, 0],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutCubic'
+            });
+        }
+
+        // Demo modal (reuse from main.js)
+        function showDemoModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-gray-900 rounded-2xl p-8 max-w-md w-full border border-blue-500/30">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Schedule Consultation</h3>
+                        <p class="text-gray-400">Get expert guidance for your AI implementation</p>
+                    </div>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Full Name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none">
+                        <input type="email" placeholder="Work Email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none">
+                        <input type="text" placeholder="Company" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none">
+                        <select class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none">
+                            <option>Select Service Type</option>
+                            <option>Architecture Design</option>
+                            <option>Implementation & Deployment</option>
+                            <option>Training & Support</option>
+                            <option>Custom Solution</option>
+                        </select>
+                        <div class="flex space-x-3 pt-4">
+                            <button type="submit" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all">
+                                Schedule Consultation
+                            </button>
+                            <button type="button" class="close-modal flex-1 border border-gray-600 text-gray-300 py-3 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-400 transition-all">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    document.body.removeChild(modal);
+                }
+            });
+
+            anime({
+                targets: modal.querySelector('div'),
+                scale: [0.8, 1],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutCubic'
+            });
+        }
+    </script>
+</body>
+</html>

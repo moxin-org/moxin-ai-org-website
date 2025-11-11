@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moxin-Org - Enterprise AI Solution Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a1d29;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1d29 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .hero-bg {
+            background: url('resources/hero-ai-architecture.png') center/cover;
+            position: relative;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 29, 41, 0.8) 0%, rgba(30, 41, 59, 0.7) 50%, rgba(15, 23, 42, 0.9) 100%);
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background: rgba(26, 29, 41, 0.8);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-blue);
+        }
+        
+        .floating-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .architecture-node {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .architecture-node:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 20px var(--accent-blue));
+        }
+        
+        .performance-counter {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <img src="resources/moxin-org-logo.png" alt="Moxin-Org" class="w-8 h-8">
+                <span class="text-white font-bold text-xl">Moxin-Org</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#solutions" class="text-gray-300 hover:text-white transition-colors">Solutions</a>
+                <a href="#performance" class="text-gray-300 hover:text-white transition-colors">Performance</a>
+                <a href="#architecture" class="text-gray-300 hover:text-white transition-colors">Architecture</a>
+                <a href="solutions.html" class="text-gray-300 hover:text-white transition-colors">Platform</a>
+                <a href="services.html" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="developer.html" class="text-gray-300 hover:text-white transition-colors">Developers</a>
+            </div>
+            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                Get Demo
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden tech-grid">
+        <!-- Floating Particles -->
+        <div class="floating-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-particle" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+        <div class="floating-particle" style="top: 30%; left: 70%; animation-delay: 4s;"></div>
+        <div class="floating-particle" style="top: 80%; left: 20%; animation-delay: 1s;"></div>
+        <div class="floating-particle" style="top: 40%; left: 90%; animation-delay: 3s;"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                Enterprise AI
+                <span class="gradient-text block">Solution Platform</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Complete open-source technology stack for building, deploying, and operating AI-native applications at enterprise scale. 
+                From edge inference to datacenter-scale models.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                    Explore Solutions
+                </button>
+                <button class="border border-blue-500 text-blue-400 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-500 hover:text-white transition-all">
+                    View Architecture
+                </button>
+            </div>
+            
+            <!-- Performance Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="performance-counter" data-target="227.85">0</div>
+                    <div class="text-gray-400 text-sm">tokens/sec</div>
+                    <div class="text-gray-500 text-xs mt-1">DeepSeek-R1</div>
+                </div>
+                <div class="text-center">
+                    <div class="performance-counter" data-target="30">0</div>
+                    <div class="text-gray-400 text-sm">x faster</div>
+                    <div class="text-gray-500 text-xs mt-1">Prefill latency</div>
+                </div>
+                <div class="text-center">
+                    <div class="performance-counter" data-target="671">0</div>
+                    <div class="text-gray-400 text-sm">B parameters</div>
+                    <div class="text-gray-500 text-xs mt-1">Model support</div>
+                </div>
+                <div class="text-center">
+                    <div class="performance-counter" data-target="500">0</div>
+                    <div class="text-gray-400 text-sm">ms response</div>
+                    <div class="text-gray-500 text-xs mt-1">Real-time AI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Architecture Section -->
+    <section id="architecture" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Complete AI Stack
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    From foundational models to edge deployment, our comprehensive platform delivers 
+                    enterprise-grade AI capabilities across every layer of the technology stack.
+                </p>
+            </div>
+            
+            <!-- Interactive System Architecture Chart -->
+            <div class="bg-gray-900/50 rounded-2xl p-8 mb-12 scroll-reveal">
+                <div id="systemArchitectureChart" style="height: 600px;"></div>
+            </div>
+
+            <!-- Architecture Summary Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Application Layer -->
+                <div class="card-hover bg-gradient-to-br from-blue-600/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">MolyKit Apps</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Cross-platform AI applications with native performance</p>
+                    <div class="space-y-2">
+                        <div class="text-xs text-blue-400">• Desktop & Mobile</div>
+                        <div class="text-xs text-blue-400">• Web Applications</div>
+                        <div class="text-xs text-blue-400">• Enterprise Systems</div>
+                    </div>
+                </div>
+
+                <!-- Agent Framework -->
+                <div class="card-hover bg-gradient-to-br from-purple-600/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">MoFA Framework</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Dataflow-driven multi-agent orchestration</p>
+                    <div class="space-y-2">
+                        <div class="text-xs text-purple-400">• Stateless Architecture</div>
+                        <div class="text-xs text-purple-400">• Real-time Streaming</div>
+                        <div class="text-xs text-purple-400">• Cloud Native</div>
+                    </div>
+                </div>
+
+                <!-- Inference Layer -->
+                <div class="card-hover bg-gradient-to-br from-teal-600/20 to-teal-800/20 p-6 rounded-xl border border-teal-500/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Inference Engines</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">High-performance model inference optimization</p>
+                    <div class="space-y-2">
+                        <div class="text-xs text-teal-400">• KTransformers</div>
+                        <div class="text-xs text-teal-400">• Omnix Edge</div>
+                        <div class="text-xs text-teal-400">• Heterogeneous Compute</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Proven Performance
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Industry-leading performance benchmarks across inference speed, 
+                    scalability, and resource efficiency.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Performance Chart -->
+                <div class="bg-gray-900/50 rounded-2xl p-8 scroll-reveal">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Inference Performance</h3>
+                    <div id="performanceChart" style="height: 300px;"></div>
+                </div>
+
+                <!-- Key Benefits -->
+                <div class="space-y-6 scroll-reveal">
+                    <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">30x Latency Reduction</h4>
+                                <p class="text-gray-400">KTransformers delivers unprecedented inference speed with intelligent CPU-GPU scheduling and MoE optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Enterprise Security</h4>
+                                <p class="text-gray-400">Built-in SSO, prompt injection prevention, and privacy-preserving computation for enterprise compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Cross-Platform</h4>
+                                <p class="text-gray-400">Deploy seamlessly across desktop, mobile, web, and edge devices with a single codebase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Technology Stack
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive open-source ecosystem built on proven technologies 
+                    and cutting-edge AI research.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="card-hover text-center p-6 bg-gray-900/50 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">RS</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">Rust</h4>
+                    <p class="text-gray-400 text-sm">Memory-safe systems programming</p>
+                </div>
+
+                <div class="card-hover text-center p-6 bg-gray-900/50 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">AI</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">OpenAI</h4>
+                    <p class="text-gray-400 text-sm">Compatible API ecosystem</p>
+                </div>
+
+                <div class="card-hover text-center p-6 bg-gray-900/50 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">K8s</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">Kubernetes</h4>
+                    <p class="text-gray-400 text-sm">Cloud-native orchestration</p>
+                </div>
+
+                <div class="card-hover text-center p-6 bg-gray-900/50 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">DS</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">DeepSeek</h4>
+                    <p class="text-gray-400 text-sm">State-of-art foundation models</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Enterprise?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join industry leaders who trust Moxin-Org for their mission-critical AI applications. 
+                Get started with a personalized demo and consultation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                    Schedule Demo
+                </button>
+                <button class="border border-gray-600 text-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:border-blue-500 hover:text-blue-400 transition-all">
+                    Download Whitepaper
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <img src="resources/moxin-org-logo.png" alt="Moxin-Org" class="w-6 h-6">
+                <span class="text-white font-semibold">Moxin-Org</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Moxin-Org. Open-source enterprise AI platform. Built for the future.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="architecture-charts.js"></script>
+</body>
+</html>
