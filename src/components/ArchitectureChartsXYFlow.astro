@@ -10,7 +10,7 @@ const { chartType = 'system', height = '500px' } = Astro.props;
 ---
 
 <div style={{ height }} class="w-full rounded-2xl border border-gray-700 bg-gray-900/50">
-  <ArchitectureChartsXYFlow chartType={chartType} client:load />
+  <ArchitectureChartsXYFlow chartType={chartType} client:only="react" />
 </div>
 
 <style>
