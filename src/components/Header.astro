@@ -1,0 +1,50 @@
+---
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { text: 'Solutions', href: '/solutions/' },
+  { text: 'Performance', href: '/solutions/#performance' },
+  { text: 'Architecture', href: '/solutions/#architecture' },
+  { text: 'Platform', href: '/solutions/' },
+  { text: 'Services', href: '/services/' },
+  { text: 'Developers', href: '/developer.html' },
+];
+---
+
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <img src="/images/moxin.png" alt="Moxin-Org" class="w-8 h-8" />
+      <span class="text-white font-bold text-xl">Moxin-Org</span>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-8">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`text-gray-300 hover:text-white transition-colors ${
+            currentPath === link.href ? 'text-white font-semibold' : ''
+          }`}
+        >
+          {link.text}
+        </a>
+      ))}
+    </div>
+
+    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+      Get Demo
+    </button>
+  </div>
+</nav>
+
+<style is:global>
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    background: rgba(26, 29, 41, 0.8);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  }
+</style>

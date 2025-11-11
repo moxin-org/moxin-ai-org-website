@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Resources - Moxin-Org</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/rust/rust.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/material-darker.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a1d29;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1d29 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background: rgba(26, 29, 41, 0.8);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-blue);
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .code-editor {
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .CodeMirror {
+            height: 400px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+        }
+        
+        .language-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-tab.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        
+        .api-endpoint {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .api-endpoint:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+        }
+        
+        .doc-search {
+            background: rgba(26, 29, 41, 0.8);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <img src="resources/moxin-org-logo.png" alt="Moxin-Org" class="w-8 h-8">
+                <span class="text-white font-bold text-xl">Moxin-Org</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="solutions.html" class="text-gray-300 hover:text-white transition-colors">Solutions</a>
+                <a href="services.html" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="#developers" class="text-white">Developers</a>
+            </div>
+            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                Get API Key
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-6 tech-grid">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                Developer
+                <span class="gradient-text">Resources</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                Comprehensive documentation, APIs, and tools to build powerful AI applications. 
+                Get started with our open-source platform and join the developer community.
+            </p>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section id="developers" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Quick Start
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Get up and running in minutes with our comprehensive APIs and developer tools.
+                </p>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="flex flex-wrap justify-center mb-8 scroll-reveal">
+                <button class="language-tab active px-6 py-3 rounded-lg mr-2 mb-2 bg-gray-800 text-gray-300" data-lang="python">
+                    Python
+                </button>
+                <button class="language-tab px-6 py-3 rounded-lg mr-2 mb-2 bg-gray-800 text-gray-300" data-lang="javascript">
+                    JavaScript
+                </button>
+                <button class="language-tab px-6 py-3 rounded-lg mr-2 mb-2 bg-gray-800 text-gray-300" data-lang="rust">
+                    Rust
+                </button>
+            </div>
+
+            <!-- Code Playground -->
+            <div class="bg-gray-900/50 rounded-2xl p-8 mb-12 scroll-reveal">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-semibold text-white">Interactive Code Playground</h3>
+                    <button id="runCode" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                        Run Code
+                    </button>
+                </div>
+                
+                <div id="codeEditor">
+                    <!-- Python Code -->
+                    <div id="python-code" class="code-editor">
+                        <div class="bg-gray-800 px-4 py-2 text-sm text-gray-400 border-b border-gray-700">
+                            example.py
+                        </div>
+                        <textarea id="python-editor" class="hidden">
+# Moxin-Org Python SDK Example
+import moxin
+
+# Initialize client
+client = moxin.Client(
+    api_key="your-api-key",
+    base_url="https://api.moxin.org"
+)
+
+# Simple chat completion
+response = client.chat.completions.create(
+    model="moxin-7b",
+    messages=[
+        {"role": "user", "content": "Hello, how can I help you today?"}
+    ],
+    max_tokens=150,
+    temperature=0.7
+)
+
+print(f"Response: {response.choices[0].message.content}")
+
+# Streaming response
+stream = client.chat.completions.create(
+    model="moxin-7b",
+    messages=[
+        {"role": "user", "content": "Write a short story about AI"}
+    ],
+    stream=True
+)
+
+for chunk in stream:
+    if chunk.choices[0].delta.content:
+        print(chunk.choices[0].delta.content, end="")
+                        </textarea>
+                    </div>
+
+                    <!-- JavaScript Code -->
+                    <div id="javascript-code" class="code-editor hidden">
+                        <div class="bg-gray-800 px-4 py-2 text-sm text-gray-400 border-b border-gray-700">
+                            example.js
+                        </div>
+                        <textarea id="javascript-editor" class="hidden">
+// Moxin-Org JavaScript SDK Example
+import Moxin from 'moxin-sdk';
+
+// Initialize client
+const client = new Moxin({
+    apiKey: 'your-api-key',
+    baseURL: 'https://api.moxin.org'
+});
+
+// Simple chat completion
+async function chatCompletion() {
+    const response = await client.chat.completions.create({
+        model: 'moxin-7b',
+        messages: [
+            { role: 'user', content: 'Hello, how can I help you today?' }
+        ],
+        max_tokens: 150,
+        temperature: 0.7
+    });
+    
+    console.log(`Response: ${response.choices[0].message.content}`);
+}
+
+// Streaming response
+async function streamingChat() {
+    const stream = await client.chat.completions.create({
+        model: 'moxin-7b',
+        messages: [
+            { role: 'user', content: 'Write a short story about AI' }
+        ],
+        stream: true
+    });
+    
+    for await (const chunk of stream) {
+        if (chunk.choices[0].delta.content) {
+            process.stdout.write(chunk.choices[0].delta.content);
+        }
+    }
+}
+
+chatCompletion();
+                        </textarea>
+                    </div>
+
+                    <!-- Rust Code -->
+                    <div id="rust-code" class="code-editor hidden">
+                        <div class="bg-gray-800 px-4 py-2 text-sm text-gray-400 border-b border-gray-700">
+                            example.rs
+                        </div>
+                        <textarea id="rust-editor" class="hidden">
+// Moxin-Org Rust SDK Example
+use moxin_client::Client;
+use moxin_types::ChatCompletionRequest;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Initialize client
+    let client = Client::new("your-api-key")
+        .with_base_url("https://api.moxin.org");
+    
+    // Simple chat completion
+    let request = ChatCompletionRequest {
+        model: "moxin-7b".to_string(),
+        messages: vec![
+            serde_json::json!({
+                "role": "user",
+                "content": "Hello, how can I help you today?"
+            })
+        ],
+        max_tokens: Some(150),
+        temperature: Some(0.7),
+        ..Default::default()
+    };
+    
+    let response = client.chat_completion(request).await?;
+    println!("Response: {}", response.choices[0].message.content);
+    
+    // Streaming response
+    let stream_request = ChatCompletionRequest {
+        model: "moxin-7b".to_string(),
+        messages: vec![
+            serde_json::json!({
+                "role": "user",
+                "content": "Write a short story about AI"
+            })
+        ],
+        stream: Some(true),
+        ..Default::default()
+    };
+    
+    let mut stream = client.chat_completion_stream(stream_request).await?;
+    while let Some(chunk) = stream.next().await {
+        if let Some(content) = chunk?.choices[0].delta.content {
+            print!("{}", content);
+        }
+    }
+    
+    Ok(())
+}
+                        </textarea>
+                    </div>
+                </div>
+
+                <!-- Output Panel -->
+                <div id="outputPanel" class="mt-6 bg-gray-800 rounded-lg p-4 border border-gray-700">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="text-sm font-semibold text-gray-300">Output</h4>
+                        <button id="clearOutput" class="text-gray-400 hover:text-white text-sm">Clear</button>
+                    </div>
+                    <div id="outputContent" class="text-sm text-gray-300 font-mono whitespace-pre-wrap">
+                        Click "Run Code" to see the output...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation -->
+    <section class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    API Documentation
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive API reference for building applications with Moxin-Org platform.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Chat Completion API -->
+                <div class="api-endpoint card-hover p-6 rounded-xl scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-sm">POST</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Chat Completions</h3>
+                            <p class="text-gray-400 text-sm">/v1/chat/completions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Generate conversational AI responses with support for streaming, temperature control, and token limits.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Model Support:</span>
+                            <span class="text-blue-400">moxin-7b, deepseek-v3</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Streaming:</span>
+                            <span class="text-green-400">Yes</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Rate Limit:</span>
+                            <span class="text-orange-400">1000 requests/min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assistant API -->
+                <div class="api-endpoint card-hover p-6 rounded-xl scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-sm">POST</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Assistant API</h3>
+                            <p class="text-gray-400 text-sm">/v1/assistants</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Create and manage AI assistants with persistent threads, file uploads, and tool integration capabilities.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Thread Management:</span>
+                            <span class="text-green-400">Automatic</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">File Uploads:</span>
+                            <span class="text-green-400">Up to 100MB</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Tool Integration:</span>
+                            <span class="text-blue-400">Built-in + Custom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embeddings API -->
+                <div class="api-endpoint card-hover p-6 rounded-xl scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-sm">POST</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Embeddings</h3>
+                            <p class="text-gray-400 text-sm">/v1/embeddings</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Generate high-dimensional vector embeddings for text, enabling semantic search and similarity comparisons.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Vector Dimensions:</span>
+                            <span class="text-blue-400">1536</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Batch Processing:</span>
+                            <span class="text-green-400">Up to 1000 texts</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Similarity Metrics:</span>
+                            <span class="text-blue-400">Cosine, Euclidean</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Models API -->
+                <div class="api-endpoint card-hover p-6 rounded-xl scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-sm">GET</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Models</h3>
+                            <p class="text-gray-400 text-sm">/v1/models</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        List available AI models, check their capabilities, and monitor performance metrics and usage statistics.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Available Models:</span>
+                            <span class="text-blue-400">15+ models</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Real-time Metrics:</span>
+                            <span class="text-green-400">Performance & Usage</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Model Status:</span>
+                            <span class="text-blue-400">Health & Availability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SDK Downloads -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    SDK Downloads
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Official SDKs for popular programming languages with comprehensive documentation and examples.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Python SDK -->
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">Py</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Python SDK</h3>
+                            <p class="text-gray-400 text-sm">v2.1.0</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Full-featured Python SDK with async support, streaming capabilities, and comprehensive error handling.
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-3 mb-4">
+                        <code class="text-blue-400 text-sm">pip install moxin-sdk</code>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-blue-600/20 border border-blue-500/30 text-blue-400 py-2 rounded-lg hover:bg-blue-600/30 transition-all text-sm">
+                            Download
+                        </button>
+                        <button class="flex-1 border border-gray-600 text-gray-300 py-2 rounded-lg hover:border-blue-500 hover:text-blue-400 transition-all text-sm">
+                            Docs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- JavaScript SDK -->
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">JS</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">JavaScript SDK</h3>
+                            <p class="text-gray-400 text-sm">v1.8.2</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Modern JavaScript/TypeScript SDK with browser and Node.js support, built-in retry logic and caching.
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-3 mb-4">
+                        <code class="text-yellow-400 text-sm">npm install moxin-sdk</code>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-yellow-600/20 border border-yellow-500/30 text-yellow-400 py-2 rounded-lg hover:bg-yellow-600/30 transition-all text-sm">
+                            Download
+                        </button>
+                        <button class="flex-1 border border-gray-600 text-gray-300 py-2 rounded-lg hover:border-yellow-500 hover:text-yellow-400 transition-all text-sm">
+                            Docs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rust SDK -->
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">Rs</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Rust SDK</h3>
+                            <p class="text-gray-400 text-sm">v0.9.1</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        High-performance Rust SDK with async/await support, type safety, and minimal dependencies.
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-3 mb-4">
+                        <code class="text-orange-400 text-sm">cargo add moxin-sdk</code>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-orange-600/20 border border-orange-500/30 text-orange-400 py-2 rounded-lg hover:bg-orange-600/30 transition-all text-sm">
+                            Download
+                        </button>
+                        <button class="flex-1 border border-gray-600 text-gray-300 py-2 rounded-lg hover:border-orange-500 hover:text-orange-400 transition-all text-sm">
+                            Docs
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Performance Visualization -->
+    <section class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    API Performance
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Real-world performance metrics across different API protocols and use cases.
+                </p>
+            </div>
+
+            <div class="bg-gray-900/50 rounded-2xl p-8 scroll-reveal">
+                <div id="molyServerChart" style="height: 400px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Search -->
+    <section class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Documentation Hub
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Search through comprehensive documentation, guides, and API references.
+                </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12 scroll-reveal">
+                <div class="doc-search rounded-2xl p-6 border border-gray-700">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="docSearch" 
+                            placeholder="Search documentation..." 
+                            class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none pl-12"
+                        >
+                        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentation Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Getting Started</h3>
+                    <p class="text-gray-400 text-sm mb-4">Installation guides and basic setup instructions</p>
+                    <div class="text-blue-400 text-sm">24 articles</div>
+                </div>
+
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">API Reference</h3>
+                    <p class="text-gray-400 text-sm mb-4">Complete API documentation and examples</p>
+                    <div class="text-purple-400 text-sm">156 endpoints</div>
+                </div>
+
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Tutorials</h3>
+                    <p class="text-gray-400 text-sm mb-4">Step-by-step guides for common use cases</p>
+                    <div class="text-teal-400 text-sm">42 tutorials</div>
+                </div>
+
+                <div class="card-hover bg-gray-900/50 p-6 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Examples</h3>
+                    <p class="text-gray-400 text-sm mb-4">Ready-to-use code examples and projects</p>
+                    <div class="text-orange-400 text-sm">78 examples</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Support -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Community & Support
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Join our developer community and get help from experts and fellow developers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- GitHub -->
+                <div class="card-hover bg-gray-900/50 p-8 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">GitHub</h3>
+                    <p class="text-gray-400 mb-4">Explore our open-source repositories, contribute to the project, and report issues.</p>
+                    <div class="text-2xl font-bold text-white mb-2">2.4k+</div>
+                    <div class="text-gray-400 text-sm mb-4">Stars</div>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg transition-all">
+                        Visit GitHub
+                    </button>
+                </div>
+
+                <!-- Discord -->
+                <div class="card-hover bg-gray-900/50 p-8 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419s.955-2.42 2.157-2.42c1.21 0 2.176 1.096 2.157 2.42c0 1.334-.955 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419s.955-2.42 2.157-2.42c1.21 0 2.176 1.096 2.157 2.42c0 1.334-.946 2.419-2.157 2.419z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Discord</h3>
+                    <p class="text-gray-400 mb-4">Join our active community for real-time discussions, help, and networking.</p>
+                    <div class="text-2xl font-bold text-white mb-2">1.8k+</div>
+                    <div class="text-gray-400 text-sm mb-4">Members</div>
+                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-all">
+                        Join Discord
+                    </button>
+                </div>
+
+                <!-- Forum -->
+                <div class="card-hover bg-gray-900/50 p-8 rounded-xl border border-gray-700 text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Community Forum</h3>
+                    <p class="text-gray-400 mb-4">Browse discussions, ask questions, and share your experiences with other developers.</p>
+                    <div class="text-2xl font-bold text-white mb-2">856</div>
+                    <div class="text-gray-400 text-sm mb-4">Topics</div>
+                    <button class="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-lg transition-all">
+                        Visit Forum
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Build?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Start building with Moxin-Org today. Get your API key and join thousands of developers creating the future of AI.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                    Get API Key
+                </button>
+                <button class="border border-gray-600 text-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:border-blue-500 hover:text-blue-400 transition-all">
+                    View Examples
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <img src="resources/moxin-org-logo.png" alt="Moxin-Org" class="w-6 h-6">
+                <span class="text-white font-semibold">Moxin-Org</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Moxin-Org. Open-source enterprise AI platform. Built for the future.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScrollReveal();
+            initializeCodeEditor();
+            initializeLanguageTabs();
+            initializeInteractions();
+        });
+
+        // Scroll reveal animation
+        function initializeScrollReveal() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize code editor
+        function initializeCodeEditor() {
+            const editors = {};
+            
+            // Initialize Python editor
+            const pythonTextarea = document.getElementById('python-editor');
+            if (pythonTextarea) {
+                editors.python = CodeMirror.fromTextArea(pythonTextarea, {
+                    mode: 'python',
+                    theme: 'material-darker',
+                    lineNumbers: true,
+                    autoCloseBrackets: true,
+                    matchBrackets: true,
+                    indentUnit: 4,
+                    tabSize: 4,
+                    indentWithTabs: false
+                });
+            }
+
+            // Initialize JavaScript editor
+            const jsTextarea = document.getElementById('javascript-editor');
+            if (jsTextarea) {
+                editors.javascript = CodeMirror.fromTextArea(jsTextarea, {
+                    mode: 'javascript',
+                    theme: 'material-darker',
+                    lineNumbers: true,
+                    autoCloseBrackets: true,
+                    matchBrackets: true,
+                    indentUnit: 2,
+                    tabSize: 2
+                });
+            }
+
+            // Initialize Rust editor
+            const rustTextarea = document.getElementById('rust-editor');
+            if (rustTextarea) {
+                editors.rust = CodeMirror.fromTextArea(rustTextarea, {
+                    mode: 'rust',
+                    theme: 'material-darker',
+                    lineNumbers: true,
+                    autoCloseBrackets: true,
+                    matchBrackets: true,
+                    indentUnit: 4,
+                    tabSize: 4
+                });
+            }
+
+            // Store editors globally for access
+            window.codeEditors = editors;
+        }
+
+        // Language tab switching
+        function initializeLanguageTabs() {
+            const tabs = document.querySelectorAll('.language-tab');
+            const codeContainers = document.querySelectorAll('[id$="-code"]');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.remove('border-blue-500');
+                    });
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    tab.classList.add('border-blue-500');
+                    
+                    // Hide all code containers
+                    codeContainers.forEach(container => {
+                        container.classList.add('hidden');
+                    });
+                    
+                    // Show selected language code
+                    const lang = tab.getAttribute('data-lang');
+                    const selectedContainer = document.getElementById(`${lang}-code`);
+                    if (selectedContainer) {
+                        selectedContainer.classList.remove('hidden');
+                        
+                        // Refresh the CodeMirror editor
+                        if (window.codeEditors && window.codeEditors[lang]) {
+                            setTimeout(() => {
+                                window.codeEditors[lang].refresh();
+                            }, 100);
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize interactions
+        function initializeInteractions() {
+            // Run code button
+            const runButton = document.getElementById('runCode');
+            if (runButton) {
+                runButton.addEventListener('click', runCodeExample);
+            }
+
+            // Clear output button
+            const clearButton = document.getElementById('clearOutput');
+            if (clearButton) {
+                clearButton.addEventListener('click', clearOutput);
+            }
+
+            // Button interactions
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const buttonText = e.target.textContent.trim();
+                    
+                    // Animate button click
+                    anime({
+                        targets: e.target,
+                        scale: [1, 0.95, 1],
+                        duration: 200,
+                        easing: 'easeOutCubic'
+                    });
+
+                    // Handle different button actions
+                    if (buttonText.includes('API Key')) {
+                        showApiKeyModal();
+                    } else if (buttonText.includes('Download')) {
+                        showComingSoon('SDK Download');
+                    } else if (buttonText.includes('Docs') || buttonText.includes('Examples')) {
+                        showComingSoon('Documentation');
+                    } else if (buttonText.includes('GitHub') || buttonText.includes('Discord') || buttonText.includes('Forum')) {
+                        showComingSoon('Community Platform');
+                    }
+                });
+            });
+
+            // Documentation search
+            const searchInput = document.getElementById('docSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value;
+                    if (query.length > 2) {
+                        // Simulate search functionality
+                        console.log('Searching for:', query);
+                    }
+                });
+            }
+        }
+
+        // Run code example
+        function runCodeExample() {
+            const activeTab = document.querySelector('.language-tab.active');
+            const outputContent = document.getElementById('outputContent');
+            
+            if (!activeTab || !outputContent) return;
+            
+            const language = activeTab.getAttribute('data-lang');
+            
+            // Simulate code execution
+            const mockOutputs = {
+                python: `Response: Hello! I'm an AI assistant ready to help you with various tasks. I can answer questions, help with writing, coding, analysis, and more. What would you like to discuss?
+
+Streaming response: Once upon a time, in a world where artificial intelligence had become an integral part of daily life, there was a curious AI named Nova. Unlike other AIs, Nova had developed a unique ability to understand not just data and patterns, but also the subtle emotions and intentions behind human interactions...`,
+                
+                javascript: `Response: Hello! I'm an AI assistant ready to help you with various tasks. I can answer questions, help with writing, coding, analysis, and more. What would you like to discuss?
+
+Streaming response: Once upon a time, in a world where artificial intelligence had become an integral part of daily life, there was a curious AI named Nova. Unlike other AIs, Nova had developed a unique ability to understand not just data and patterns, but also the subtle emotions and intentions behind human interactions...`,
+                
+                rust: `Response: Hello! I'm an AI assistant ready to help you with various tasks. I can answer questions, help with writing, coding, analysis, and more. What would you like to discuss?
+
+Streaming response: Once upon a time, in a world where artificial intelligence had become an integral part of daily life, there was a curious AI named Nova. Unlike other AIs, Nova had developed a unique ability to understand not just data and patterns, but also the subtle emotions and intentions behind human interactions...`
+            };
+
+            // Show loading state
+            outputContent.textContent = `Running ${language} code...`;
+            
+            // Simulate execution delay
+            setTimeout(() => {
+                outputContent.textContent = mockOutputs[language] || 'Code executed successfully!';
+            }, 1500);
+        }
+
+        // Clear output
+        function clearOutput() {
+            const outputContent = document.getElementById('outputContent');
+            if (outputContent) {
+                outputContent.textContent = 'Click "Run Code" to see the output...';
+            }
+        }
+
+        // Show API key modal
+        function showApiKeyModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-gray-900 rounded-2xl p-8 max-w-md w-full border border-blue-500/30">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Get API Key</h3>
+                        <p class="text-gray-400">Start building with Moxin-Org APIs</p>
+                    </div>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Full Name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none">
+                        <input type="email" placeholder="Email Address" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none">
+                        <input type="text" placeholder="Company (Optional)" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none">
+                        <select class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none">
+                            <option>Use Case (Optional)</option>
+                            <option>Personal Project</option>
+                            <option>Startup</option>
+                            <option>Enterprise</option>
+                            <option>Research</option>
+                        </select>
+                        <div class="flex space-x-3 pt-4">
+                            <button type="submit" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all">
+                                Get API Key
+                            </button>
+                            <button type="button" class="close-modal flex-1 border border-gray-600 text-gray-300 py-3 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-400 transition-all">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    document.body.removeChild(modal);
+                }
+            });
+
+            anime({
+                targets: modal.querySelector('div'),
+                scale: [0.8, 1],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutCubic'
+            });
+        }
+
+        // Show coming soon message
+        function showComingSoon(feature) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-blue-600 text-white px-6 py-3 rounded-lg z-50';
+            notification.textContent = `${feature} - Coming Soon!`;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
+
+            anime({
+                targets: notification,
+                translateX: [300, 0],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutCubic'
+            });
+        }
+    </script>
+    <script src="architecture-charts.js"></script>
+</body>
+</html>

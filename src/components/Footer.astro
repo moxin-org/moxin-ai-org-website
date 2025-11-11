@@ -1,0 +1,19 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<footer class={`py-12 px-6 border-t border-gray-800 ${className}`}>
+  <div class="max-w-7xl mx-auto text-center">
+    <div class="flex items-center justify-center space-x-2 mb-4">
+      <img src="/images/moxin.png" alt="Moxin-Org" class="w-6 h-6" />
+      <span class="text-white font-semibold">Moxin-Org</span>
+    </div>
+    <p class="text-gray-400 text-sm">
+      © 2024 Moxin-Org. Open-source enterprise AI platform. Built for the future.
+    </p>
+  </div>
+</footer>
