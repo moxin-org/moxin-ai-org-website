@@ -1,6 +1,7 @@
 ---
 // Solutions page
 import '../styles/global.css';
+import ArchitectureChartsXYFlow from '../components/ArchitectureChartsXYFlow.astro';
 ---
 
 <html lang="en">
@@ -10,7 +11,7 @@ import '../styles/global.css';
     <title>AI Solutions Platform - Moxin-Org</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <!-- XYFlow for architecture charts -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -206,6 +207,10 @@ import '../styles/global.css';
                             <span class="text-teal-400 font-semibold">On-device</span>
                         </div>
                     </div>
+                    <!-- Edge AI Chart -->
+                    <div class="mt-6 mb-4">
+                        <ArchitectureChartsXYFlow chartType="edge" client:load />
+                    </div>
                     <button class="w-full bg-teal-600/20 border border-teal-500/30 text-teal-400 py-3 rounded-lg hover:bg-teal-600/30 transition-all">
                         Explore Edge AI
                     </button>
@@ -240,6 +245,10 @@ import '../styles/global.css';
                             <span class="text-gray-400">Deployment</span>
                             <span class="text-purple-400 font-semibold">Cloud Native</span>
                         </div>
+                    </div>
+                    <!-- MoFA Framework Chart -->
+                    <div class="mt-6 mb-4">
+                        <ArchitectureChartsXYFlow chartType="mofa" client:load />
                     </div>
                     <button class="w-full bg-purple-600/20 border border-purple-500/30 text-purple-400 py-3 rounded-lg hover:bg-purple-600/30 transition-all">
                         Build Agents
@@ -277,8 +286,8 @@ import '../styles/global.css';
             <!-- Benchmark Content -->
             <div class="bg-gray-900/50 rounded-2xl p-8 scroll-reveal">
                 <div id="benchmarkContent">
-                    <!-- Inference Performance Chart -->
-                    <div id="inferenceChart" style="height: 400px;"></div>
+                    <!-- XYFlow Architecture Charts -->
+                    <ArchitectureChartsXYFlow chartType="inference" client:load />
                 </div>
             </div>
 
@@ -287,20 +296,20 @@ import '../styles/global.css';
                 <!-- KTransformers Chart -->
                 <div class="bg-gray-900/50 rounded-2xl p-6 scroll-reveal">
                     <h3 class="text-2xl font-semibold text-white mb-4">KTransformers Optimization</h3>
-                    <div id="ktransformersChart" style="height: 350px;"></div>
+                    <ArchitectureChartsXYFlow chartType="ktransformers" client:load />
                 </div>
 
                 <!-- Edge Models Chart -->
                 <div class="bg-gray-900/50 rounded-2xl p-6 scroll-reveal">
                     <h3 class="text-2xl font-semibold text-white mb-4">Edge AI Deployment Flow</h3>
-                    <div id="edgeModelsChart" style="height: 350px;"></div>
+                    <ArchitectureChartsXYFlow chartType="edge" client:load />
                 </div>
             </div>
 
             <!-- MoFA Framework Chart -->
             <div class="bg-gray-900/50 rounded-2xl p-8 mt-8 scroll-reveal">
                 <h3 class="text-2xl font-semibold text-white mb-6 text-center">MoFA Agent Framework</h3>
-                <div id="mofaFrameworkChart" style="height: 500px;"></div>
+                <ArchitectureChartsXYFlow chartType="mofa" client:load />
             </div>
         </div>
     </section>
@@ -533,260 +542,23 @@ import '../styles/global.css';
             });
         }
 
-        // Update benchmark chart based on tab
+        // XYFlow charts are handled by React components
         function updateBenchmarkChart(tabType) {
-            const chartElement = document.getElementById('inferenceChart');
-            if (!chartElement) return;
-
-            const chart = echarts.init(chartElement);
-            let option = {};
-
-            switch(tabType) {
-                case 'inference':
-                    option = getInferenceChartOption();
-                    break;
-                case 'application':
-                    option = getApplicationChartOption();
-                    break;
-                case 'agent':
-                    option = getAgentChartOption();
-                    break;
-            }
-
-            chart.setOption(option, true);
+            // XYFlow charts update automatically based on React state
+            console.log('Benchmark chart type:', tabType);
         }
 
-        // Initialize charts
+        // XYFlow charts initialize automatically
         function initializeCharts() {
-            const chartElement = document.getElementById('inferenceChart');
-            if (!chartElement) return;
-
-            const chart = echarts.init(chartElement);
-            const option = getInferenceChartOption();
-            chart.setOption(option);
-
-            // Resize chart on window resize
-            window.addEventListener('resize', () => {
-                chart.resize();
-            });
+            // XYFlow components handle their own initialization
+            console.log('XYFlow charts initialized');
         }
 
         // Inference performance chart option
-        function getInferenceChartOption() {
-            return {
-                backgroundColor: 'transparent',
-                textStyle: { color: '#94a3b8' },
-                tooltip: {
-                    trigger: 'axis',
-                    backgroundColor: 'rgba(26, 29, 41, 0.9)',
-                    borderColor: '#3b82f6',
-                    textStyle: { color: '#ffffff' }
-                },
-                legend: {
-                    data: ['KTransformers', 'Standard Inference', 'Edge Optimization'],
-                    textStyle: { color: '#94a3b8' },
-                    top: 10
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'category',
-                    data: ['DeepSeek-R1', 'DeepSeek-V3', 'Qwen Series', 'Mixtral MoE', 'Kimi K2'],
-                    axisLine: { lineStyle: { color: '#334155' } },
-                    axisLabel: { color: '#94a3b8' }
-                },
-                yAxis: {
-                    type: 'value',
-                    name: 'Tokens/sec',
-                    nameTextStyle: { color: '#94a3b8' },
-                    axisLine: { lineStyle: { color: '#334155' } },
-                    axisLabel: { color: '#94a3b8' },
-                    splitLine: { lineStyle: { color: '#334155', type: 'dashed' } }
-                },
-                series: [
-                    {
-                        name: 'KTransformers',
-                        type: 'line',
-                        data: [227.85, 40, 180, 95, 150],
-                        lineStyle: { color: '#3b82f6', width: 3 },
-                        itemStyle: { color: '#3b82f6' },
-                        areaStyle: {
-                            color: {
-                                type: 'linear',
-                                x: 0, y: 0, x2: 0, y2: 1,
-                                colorStops: [
-                                    { offset: 0, color: 'rgba(59, 130, 246, 0.3)' },
-                                    { offset: 1, color: 'rgba(59, 130, 246, 0.05)' }
-                                ]
-                            }
-                        },
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 8
-                    },
-                    {
-                        name: 'Standard Inference',
-                        type: 'line',
-                        data: [45, 12, 65, 35, 55],
-                        lineStyle: { color: '#64748b', width: 2 },
-                        itemStyle: { color: '#64748b' },
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 6
-                    },
-                    {
-                        name: 'Edge Optimization',
-                        type: 'line',
-                        data: [120, 80, 95, 60, 85],
-                        lineStyle: { color: '#14b8a6', width: 2 },
-                        itemStyle: { color: '#14b8a6' },
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 6
-                    }
-                ],
-                animationDuration: 2000,
-                animationEasing: 'cubicOut'
-            };
-        }
 
         // Application performance chart option
-        function getApplicationChartOption() {
-            return {
-                backgroundColor: 'transparent',
-                textStyle: { color: '#94a3b8' },
-                tooltip: {
-                    trigger: 'axis',
-                    backgroundColor: 'rgba(26, 29, 41, 0.9)',
-                    borderColor: '#8b5cf6',
-                    textStyle: { color: '#ffffff' }
-                },
-                legend: {
-                    data: ['Binary Size (MB)', 'Startup Time (s)', 'Memory Usage (MB)'],
-                    textStyle: { color: '#94a3b8' },
-                    top: 10
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'category',
-                    data: ['MolyKit', 'Electron', 'React Native', 'Native'],
-                    axisLine: { lineStyle: { color: '#334155' } },
-                    axisLabel: { color: '#94a3b8' }
-                },
-                yAxis: {
-                    type: 'value',
-                    name: 'Performance Metrics',
-                    nameTextStyle: { color: '#94a3b8' },
-                    axisLine: { lineStyle: { color: '#334155' } },
-                    axisLabel: { color: '#94a3b8' },
-                    splitLine: { lineStyle: { color: '#334155', type: 'dashed' } }
-                },
-                series: [
-                    {
-                        name: 'Binary Size (MB)',
-                        type: 'bar',
-                        data: [25, 150, 45, 15],
-                        itemStyle: { color: '#3b82f6' }
-                    },
-                    {
-                        name: 'Startup Time (s)',
-                        type: 'bar',
-                        data: [0.8, 3.2, 1.5, 0.5],
-                        itemStyle: { color: '#8b5cf6' }
-                    },
-                    {
-                        name: 'Memory Usage (MB)',
-                        type: 'bar',
-                        data: [180, 450, 280, 150],
-                        itemStyle: { color: '#14b8a6' }
-                    }
-                ],
-                animationDuration: 2000,
-                animationEasing: 'cubicOut'
-            };
-        }
 
         // Agent framework performance chart option
-        function getAgentChartOption() {
-            return {
-                backgroundColor: 'transparent',
-                textStyle: { color: '#94a3b8' },
-                tooltip: {
-                    trigger: 'axis',
-                    backgroundColor: 'rgba(26, 29, 41, 0.9)',
-                    borderColor: '#14b8a6',
-                    textStyle: { color: '#ffffff' }
-                },
-                legend: {
-                    data: ['Requests/sec', 'P95 Latency (ms)'],
-                    textStyle: { color: '#94a3b8' },
-                    top: 10
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'category',
-                    data: ['1 Instance', '4 Instances', '16 Instances'],
-                    axisLine: { lineStyle: { color: '#334155' } },
-                    axisLabel: { color: '#94a3b8' }
-                },
-                yAxis: [
-                    {
-                        type: 'value',
-                        name: 'Requests/sec',
-                        nameTextStyle: { color: '#94a3b8' },
-                        axisLine: { lineStyle: { color: '#334155' } },
-                        axisLabel: { color: '#94a3b8' },
-                        splitLine: { lineStyle: { color: '#334155', type: 'dashed' } }
-                    },
-                    {
-                        type: 'value',
-                        name: 'Latency (ms)',
-                        nameTextStyle: { color: '#94a3b8' },
-                        axisLine: { lineStyle: { color: '#334155' } },
-                        axisLabel: { color: '#94a3b8' }
-                    }
-                ],
-                series: [
-                    {
-                        name: 'Requests/sec',
-                        type: 'line',
-                        data: [50, 195, 780],
-                        lineStyle: { color: '#3b82f6', width: 3 },
-                        itemStyle: { color: '#3b82f6' },
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 8
-                    },
-                    {
-                        name: 'P95 Latency (ms)',
-                        type: 'line',
-                        yAxisIndex: 1,
-                        data: [200, 210, 220],
-                        lineStyle: { color: '#14b8a6', width: 3 },
-                        itemStyle: { color: '#14b8a6' },
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 8
-                    }
-                ],
-                animationDuration: 2000,
-                animationEasing: 'cubicOut'
-            };
-        }
 
         // Initialize interactions
         function initializeInteractions() {

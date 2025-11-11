@@ -1,0 +1,51 @@
+---
+import ArchitectureChartsXYFlow from './ArchitectureChartsXYFlow.jsx';
+
+export interface Props {
+  chartType?: 'system' | 'ktransformers' | 'edge' | 'mofa';
+  height?: string;
+}
+
+const { chartType = 'system', height = '500px' } = Astro.props;
+---
+
+<div style={{ height }} class="w-full rounded-2xl border border-gray-700 bg-gray-900/50">
+  <ArchitectureChartsXYFlow chartType={chartType} client:load />
+</div>
+
+<style>
+  :global(.react-flow__node) {
+    transition: all 0.3s ease;
+  }
+
+  :global(.react-flow__node:hover) {
+    transform: scale(1.05);
+  }
+
+  :global(.react-flow__edge) {
+    transition: all 0.3s ease;
+  }
+
+  :global(.react-flow__edge:hover) {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+  }
+
+  :global(.react-flow__controls) {
+    background: rgba(26, 29, 41, 0.9) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 8px !important;
+    backdrop-filter: blur(10px);
+  }
+
+  :global(.react-flow__controls button) {
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  :global(.react-flow__controls button:hover) {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #3b82f6 !important;
+  }
+</style>
