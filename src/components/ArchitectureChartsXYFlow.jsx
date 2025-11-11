@@ -2,67 +2,67 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ReactFlow, Controls, Background, useNodesState, useEdgesState, Position } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-// Custom node styles
+// Custom node styles matching exact mermaid colors
 const nodeStyles = {
+  // End User Applications - #7f8c8d from mermaid
   application: {
-    background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-    border: '2px solid rgba(59, 130, 246, 0.3)',
+    background: '#7f8c8d',
+    border: '2px solid #707b7c',
     borderRadius: '12px',
     padding: '12px',
     minWidth: '160px',
     textAlign: 'center',
-    color: 'white',
+    color: '#fff',
     fontWeight: '600',
-    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)',
-    backdropFilter: 'blur(10px)',
+    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
   },
+  // MolyKit - #f39c12 from mermaid
   middleware: {
-    background: 'linear-gradient(135deg, #14b8a6, #10b981)',
-    border: '2px solid rgba(20, 184, 166, 0.3)',
+    background: '#f39c12',
+    border: '2px solid #d68910',
     borderRadius: '12px',
     padding: '12px',
     minWidth: '140px',
     textAlign: 'center',
-    color: 'white',
+    color: '#fff',
     fontWeight: '600',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
-    backdropFilter: 'blur(10px)',
   },
+  // Moly Proxy - #d35400 from mermaid
   infrastructure: {
-    background: 'linear-gradient(135deg, #f59e0b, #f97316)',
-    border: '2px solid rgba(245, 158, 11, 0.3)',
+    background: '#d35400',
+    border: '2px solid #ba4a00',
     borderRadius: '12px',
     padding: '12px',
     minWidth: '140px',
     textAlign: 'center',
-    color: 'white',
+    color: '#fff',
     fontWeight: '600',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
-    backdropFilter: 'blur(10px)',
   },
+  // Moly Server - #9b59b6 from mermaid
   data: {
-    background: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
-    border: '2px solid rgba(139, 92, 246, 0.3)',
+    background: '#9b59b6',
+    border: '2px solid #8e44ad',
     borderRadius: '12px',
     padding: '12px',
     minWidth: '120px',
     textAlign: 'center',
-    color: 'white',
+    color: '#fff',
     fontWeight: '600',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
-    backdropFilter: 'blur(10px)',
   },
+  // MoFA - #e74c3c from mermaid
   edge: {
-    background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
-    border: '2px solid rgba(6, 182, 212, 0.3)',
+    background: '#e74c3c',
+    border: '2px solid #c0392b',
     borderRadius: '12px',
     padding: '12px',
     minWidth: '120px',
     textAlign: 'center',
-    color: 'white',
+    color: '#fff',
     fontWeight: '600',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
-    backdropFilter: 'blur(10px)',
   },
 };
 
@@ -110,115 +110,375 @@ const nodeTypes = {
   edge: EdgeNode,
 };
 
-// System Architecture Chart
+// System Architecture Chart - Matching exact mermaid structure
 const SystemArchitectureFlow = () => {
   const initialNodes = [
-    // Application Layer
+    // End User Applications (matching mermaid exactly)
     {
-      id: '1',
+      id: 'A1',
       type: 'application',
-      position: { x: 250, y: 50 },
-      data: { label: 'End User Applications', description: 'Web, Mobile, Desktop' },
+      position: { x: 100, y: 50 },
+      data: { label: 'Desktop Apps', description: 'Windows/macOS/Linux' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '2',
+      id: 'A2',
       type: 'application',
-      position: { x: 50, y: 150 },
-      data: { label: 'CRM Systems', description: 'Salesforce, HubSpot' },
+      position: { x: 300, y: 50 },
+      data: { label: 'Mobile Apps', description: 'iOS/Android/HarmonyOS' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '3',
+      id: 'A3',
       type: 'application',
-      position: { x: 450, y: 150 },
-      data: { label: 'Enterprise Apps', description: 'ERP, HRM, Finance' },
+      position: { x: 500, y: 50 },
+      data: { label: 'Web Applications', description: 'Browser-based' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'A4',
+      type: 'application',
+      position: { x: 700, y: 50 },
+      data: { label: 'Enterprise Systems', description: 'CRM/Call Center' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
 
-    // Middleware Layer
+    // MolyKit Application Framework
     {
-      id: '4',
+      id: 'MK1',
       type: 'middleware',
-      position: { x: 250, y: 250 },
-      data: { label: 'API Gateway', description: 'Authentication & Routing' },
+      position: { x: 150, y: 200 },
+      data: { label: 'API Crates', description: 'API interfaces' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '5',
+      id: 'MK2',
       type: 'middleware',
-      position: { x: 50, y: 350 },
-      data: { label: 'MoFA Framework', description: 'Multi-Agent Orchestration' },
+      position: { x: 300, y: 200 },
+      data: { label: 'Client Crates', description: 'Client libraries' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '6',
+      id: 'MK3',
       type: 'middleware',
-      position: { x: 450, y: 350 },
-      data: { label: 'KTransformers', description: 'Datacenter Inference' },
+      position: { x: 450, y: 200 },
+      data: { label: 'UI Components', description: 'UI framework' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MK4',
+      type: 'middleware',
+      position: { x: 600, y: 200 },
+      data: { label: 'MPC Crates', description: 'Multi-party computation' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MK5',
+      type: 'middleware',
+      position: { x: 750, y: 200 },
+      data: { label: 'Moly App Implementation', description: 'App implementation' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
 
-    // Infrastructure Layer
+    // Moly Proxy & Middleware
     {
-      id: '7',
-      type: 'infrastructure',
-      position: { x: 250, y: 450 },
-      data: { label: 'Kubernetes Cluster', description: 'Container Orchestration' },
+      id: 'MP1',
+      type: 'middleware',
+      position: { x: 200, y: 350 },
+      data: { label: 'Configuration Management', description: 'Config management' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '8',
-      type: 'infrastructure',
-      position: { x: 50, y: 550 },
-      data: { label: 'GPU Servers', description: 'NVIDIA A100/H100' },
+      id: 'MP2',
+      type: 'middleware',
+      position: { x: 350, y: 350 },
+      data: { label: 'Privacy Memory Manager', description: 'Privacy management' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '9',
-      type: 'infrastructure',
-      position: { x: 450, y: 550 },
-      data: { label: 'Edge Devices', description: 'CPU-Only Inference' },
+      id: 'MP3',
+      type: 'middleware',
+      position: { x: 500, y: 350 },
+      data: { label: 'SSO Authentication', description: 'Single sign-on' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MP4',
+      type: 'middleware',
+      position: { x: 650, y: 350 },
+      data: { label: 'Prompt Injection Prevention', description: 'Security layer' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MP5',
+      type: 'middleware',
+      position: { x: 800, y: 350 },
+      data: { label: 'MPC Connector', description: 'MPC connector' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
 
-    // Data Layer
+    // Moly Server - OpenAI Compatible API
     {
-      id: '10',
-      type: 'data',
-      position: { x: 150, y: 650 },
-      data: { label: 'PostgreSQL', description: 'Transactional Data' },
+      id: 'MS1',
+      type: 'middleware',
+      position: { x: 200, y: 500 },
+      data: { label: 'Chat Completion API', description: 'OpenAI compatible' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
     {
-      id: '11',
-      type: 'data',
+      id: 'MS2',
+      type: 'middleware',
+      position: { x: 350, y: 500 },
+      data: { label: 'Response API', description: 'Response handling' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MS3',
+      type: 'middleware',
+      position: { x: 500, y: 500 },
+      data: { label: 'Assistant API', description: 'Assistant interface' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MS4',
+      type: 'middleware',
+      position: { x: 650, y: 500 },
+      data: { label: 'WebSocket/RTC/SIP', description: 'Real-time communication' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+
+    // Agent Framework - MoFA
+    {
+      id: 'MOFA1',
+      type: 'middleware',
+      position: { x: 200, y: 650 },
+      data: { label: 'Dataflow Engine', description: 'Dataflow processing' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MOFA2',
+      type: 'middleware',
       position: { x: 350, y: 650 },
-      data: { label: 'Vector DB', description: 'Embeddings & Search' },
+      data: { label: 'Multi-Agent Orchestration', description: 'Agent coordination' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MOFA3',
+      type: 'middleware',
+      position: { x: 500, y: 650 },
+      data: { label: 'Stateless Architecture', description: 'Stateless design' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MOFA4',
+      type: 'middleware',
+      position: { x: 650, y: 650 },
+      data: { label: 'Real-time Streaming', description: 'Stream processing' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'MOFA5',
+      type: 'middleware',
+      position: { x: 800, y: 650 },
+      data: { label: 'Cloud Native Deployment', description: 'Kubernetes ready' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+
+    // Model Inference Layer
+    {
+      id: 'FM1',
+      type: 'data',
+      position: { x: 150, y: 800 },
+      data: { label: 'DeepSeek V3/R1', description: '671B Parameters' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'FM2',
+      type: 'data',
+      position: { x: 300, y: 800 },
+      data: { label: 'Kimi K2', description: 'Strong Reasoning' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'FM3',
+      type: 'data',
+      position: { x: 450, y: 800 },
+      data: { label: 'Qwen Series', description: 'Multilingual' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'FM4',
+      type: 'data',
+      position: { x: 600, y: 800 },
+      data: { label: 'Other STOA Models', description: 'State-of-the-art' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+
+    // Edge Models
+    {
+      id: 'EM1',
+      type: 'edge',
+      position: { x: 250, y: 950 },
+      data: { label: 'Small Language Models', description: 'Edge optimized' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'EM2',
+      type: 'edge',
+      position: { x: 400, y: 950 },
+      data: { label: 'Multi-Modal Models', description: 'Vision + Text' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'EM3',
+      type: 'edge',
+      position: { x: 550, y: 950 },
+      data: { label: 'TTS/ASR Models', description: 'Voice processing' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'EM4',
+      type: 'edge',
+      position: { x: 700, y: 950 },
+      data: { label: 'Voice Cloning', description: 'Voice synthesis' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+
+    // Inference Engines
+    {
+      id: 'IE1',
+      type: 'infrastructure',
+      position: { x: 300, y: 1100 },
+      data: { label: 'KTransformers', description: 'Datacenter Optimized' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'IE2',
+      type: 'infrastructure',
+      position: { x: 500, y: 1100 },
+      data: { label: 'Omnix Edge', description: 'Edge Optimized' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+
+    // Hardware Platforms
+    {
+      id: 'HW1',
+      type: 'infrastructure',
+      position: { x: 100, y: 1250 },
+      data: { label: 'Enterprise GPU Clusters', description: 'L20/H100/A100' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'HW2',
+      type: 'infrastructure',
+      position: { x: 300, y: 1250 },
+      data: { label: 'AI PCs & Workstations', description: 'Desktop AI' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'HW3',
+      type: 'infrastructure',
+      position: { x: 500, y: 1250 },
+      data: { label: 'Embedded Edge Processors', description: 'Edge computing' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'HW4',
+      type: 'infrastructure',
+      position: { x: 700, y: 1250 },
+      data: { label: 'Mobile Devices', description: 'Smartphones/Tablets' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'HW5',
+      type: 'infrastructure',
+      position: { x: 900, y: 1250 },
+      data: { label: 'Cloud Infrastructure', description: 'AWS/Azure/GCP' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
   ];
 
   const initialEdges = [
-    { id: 'e1-4', source: '1', target: '4', animated: true, style: { stroke: '#3b82f6', strokeWidth: 2 } },
-    { id: 'e2-5', source: '2', target: '5', animated: true, style: { stroke: '#3b82f6', strokeWidth: 2 } },
-    { id: 'e3-6', source: '3', target: '6', animated: true, style: { stroke: '#3b82f6', strokeWidth: 2 } },
-    { id: 'e4-7', source: '4', target: '7', animated: true, style: { stroke: '#14b8a6', strokeWidth: 2 } },
-    { id: 'e5-8', source: '5', target: '8', animated: true, style: { stroke: '#14b8a6', strokeWidth: 2 } },
-    { id: 'e6-9', source: '6', target: '9', animated: true, style: { stroke: '#14b8a6', strokeWidth: 2 } },
-    { id: 'e7-10', source: '7', target: '10', animated: true, style: { stroke: '#f59e0b', strokeWidth: 2 } },
-    { id: 'e7-11', source: '7', target: '11', animated: true, style: { stroke: '#f59e0b', strokeWidth: 2 } },
+    // From End User Applications to MolyKit (matching mermaid exactly)
+    { id: 'A1-MK1', source: 'A1', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'A2-MK1', source: 'A2', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'A3-MK1', source: 'A3', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'A4-MK1', source: 'A4', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+
+    // From MolyKit to Moly Proxy (matching mermaid exactly)
+    { id: 'MK1-MP1', source: 'MK1', target: 'MP1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MK1-MP3', source: 'MK1', target: 'MP3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MK1-MP4', source: 'MK1', target: 'MP4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+
+    // From Moly Proxy to Moly Server (matching mermaid exactly)
+    { id: 'MP1-MS1', source: 'MP1', target: 'MS1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MP3-MS1', source: 'MP3', target: 'MS1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MP4-MS1', source: 'MP4', target: 'MS1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+
+    // From Moly Server to MoFA (matching mermaid exactly)
+    { id: 'MS1-MOFA1', source: 'MS1', target: 'MOFA1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MS2-MOFA2', source: 'MS2', target: 'MOFA2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MS3-MOFA3', source: 'MS3', target: 'MOFA3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MS4-MOFA4', source: 'MS4', target: 'MOFA4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+
+    // From MoFA to Models (matching mermaid exactly)
+    { id: 'MOFA1-FM1', source: 'MOFA1', target: 'FM1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MOFA1-EM1', source: 'MOFA1', target: 'EM1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'MOFA1-EM2', source: 'MOFA1', target: 'EM2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+
+    // From Models to Inference Engines (matching mermaid exactly)
+    { id: 'FM1-IE1', source: 'FM1', target: 'IE1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'FM2-IE1', source: 'FM2', target: 'IE1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'FM3-IE1', source: 'FM3', target: 'IE1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'EM1-IE2', source: 'EM1', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'EM2-IE2', source: 'EM2', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'EM3-IE2', source: 'EM3', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'EM4-IE2', source: 'EM4', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+
+    // From Inference Engines to Hardware (matching mermaid exactly)
+    { id: 'IE1-HW1', source: 'IE1', target: 'HW1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'IE1-HW5', source: 'IE1', target: 'HW5', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'IE2-HW2', source: 'IE2', target: 'HW2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'IE2-HW3', source: 'IE2', target: 'HW3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    { id: 'IE2-HW4', source: 'IE2', target: 'HW4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
   ];
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
@@ -243,53 +503,108 @@ const SystemArchitectureFlow = () => {
   );
 };
 
-// KTransformers Optimization Flow
+// KTransformers Optimization Flow - Matching exact mermaid structure
 const KTransformersFlow = () => {
   const initialNodes = [
+    // Pretrained Models
     {
-      id: '1',
+      id: 'DS',
       type: 'data',
       position: { x: 100, y: 50 },
-      data: { label: 'Input Prompt', description: 'User Query' },
+      data: { label: 'DeepSeek-V3/R1', description: '671B Parameters' },
     },
     {
-      id: '2',
-      type: 'middleware',
+      id: 'Kimi',
+      type: 'data',
       position: { x: 300, y: 50 },
-      data: { label: 'MoE Router', description: 'Expert Selection' },
+      data: { label: 'Kimi K2', description: 'Strong Reasoning' },
     },
     {
-      id: '3',
-      type: 'infrastructure',
+      id: 'Qwen',
+      type: 'data',
       position: { x: 500, y: 50 },
-      data: { label: 'GPU Memory', description: 'Expert Weights' },
+      data: { label: 'Qwen Series', description: 'Multilingual' },
     },
     {
-      id: '4',
-      type: 'infrastructure',
-      position: { x: 500, y: 200 },
-      data: { label: 'CPU Memory', description: 'Inactive Experts' },
+      id: 'Mixtral',
+      type: 'data',
+      position: { x: 700, y: 50 },
+      data: { label: 'Mixtral MoE', description: 'Sparse Architecture' },
+    },
+
+    // KTransformers Features
+    {
+      id: 'CPU',
+      type: 'middleware',
+      position: { x: 100, y: 200 },
+      data: { label: 'CPU', description: 'Infer AMX/AVX Optimized' },
     },
     {
-      id: '5',
+      id: 'GPU',
       type: 'middleware',
       position: { x: 300, y: 200 },
-      data: { label: 'KV Cache', description: 'Attention States' },
+      data: { label: 'GPU Acceleration', description: 'Marlin Kernels' },
     },
     {
-      id: '6',
-      type: 'application',
-      position: { x: 100, y: 200 },
-      data: { label: 'Generated Text', description: 'Model Output' },
+      id: 'MEM',
+      type: 'middleware',
+      position: { x: 500, y: 200 },
+      data: { label: 'Memory Management', description: 'Intelligent Caching' },
+    },
+    {
+      id: 'MOE',
+      type: 'middleware',
+      position: { x: 700, y: 200 },
+      data: { label: 'MoE Optimization', description: 'Expert Routing' },
+    },
+    {
+      id: 'QUANT',
+      type: 'middleware',
+      position: { x: 900, y: 200 },
+      data: { label: 'Quantization', description: 'INT4/INT8/GPTQ' },
+    },
+
+    // Performance Metrics
+    {
+      id: 'PERF1',
+      type: 'data',
+      position: { x: 100, y: 350 },
+      data: { label: '227.85 tokens/s', description: '8-way Concurrent' },
+    },
+    {
+      id: 'PERF2',
+      type: 'data',
+      position: { x: 300, y: 350 },
+      data: { label: '40 tokens/s', description: 'SFT Fine-tuning' },
+    },
+    {
+      id: 'PERF3',
+      type: 'data',
+      position: { x: 500, y: 350 },
+      data: { label: '30x Prefill', description: 'Latency Reduction' },
+    },
+    {
+      id: 'PERF4',
+      type: 'data',
+      position: { x: 700, y: 350 },
+      data: { label: '3x Generation', description: 'Speed Improvement' },
     },
   ];
 
   const initialEdges = [
-    { id: 'e1-2', source: '1', target: '2', animated: true, label: 'Route' },
-    { id: 'e2-3', source: '2', target: '3', animated: true, label: 'Load' },
-    { id: 'e2-4', source: '2', target: '4', animated: true, label: 'Offload' },
-    { id: 'e3-5', source: '3', target: '5', animated: true, label: 'Cache' },
-    { id: 'e5-6', source: '5', target: '6', animated: true, label: 'Generate' },
+    // From Pretrained Models to KTransformers Features
+    { id: 'DS-CPU', source: 'DS', target: 'CPU', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'Kimi-GPU', source: 'Kimi', target: 'GPU', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'Qwen-MEM', source: 'Qwen', target: 'MEM', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'Mixtral-MOE', source: 'Mixtral', target: 'MOE', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'Mixtral-QUANT', source: 'Mixtral', target: 'QUANT', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+
+    // From KTransformers Features to Performance Metrics
+    { id: 'CPU-PERF1', source: 'CPU', target: 'PERF1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'GPU-PERF2', source: 'GPU', target: 'PERF2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'MEM-PERF3', source: 'MEM', target: 'PERF3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'MOE-PERF4', source: 'MOE', target: 'PERF4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'QUANT-PERF4', source: 'QUANT', target: 'PERF4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
   ];
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
@@ -484,47 +799,187 @@ const EdgeFlow = () => {
   );
 };
 
-// MoFA Framework Flow
+// MoFA Framework Flow - Matching exact mermaid structure
 const MoFAFlow = () => {
   const initialNodes = [
+    // Agent Composition
     {
-      id: '1',
+      id: 'A',
       type: 'application',
-      position: { x: 250, y: 50 },
-      data: { label: 'User Request', description: 'Task Input' },
+      position: { x: 100, y: 50 },
+      data: { label: 'Simple Agent', description: 'Single Function' },
     },
     {
-      id: '2',
+      id: 'B',
+      type: 'application',
+      position: { x: 300, y: 50 },
+      data: { label: 'Composite Agent', description: 'Multiple Agents' },
+    },
+    {
+      id: 'C',
+      type: 'application',
+      position: { x: 500, y: 50 },
+      data: { label: 'Super Agent', description: 'Hierarchical' },
+    },
+    {
+      id: 'D',
+      type: 'application',
+      position: { x: 700, y: 50 },
+      data: { label: 'Meta Agent', description: 'Agent Orchestration' },
+    },
+
+    // Dataflow Architecture
+    {
+      id: 'DF1',
       type: 'middleware',
-      position: { x: 100, y: 150 },
-      data: { label: 'Agent 1', description: 'Data Processing' },
+      position: { x: 100, y: 200 },
+      data: { label: 'Nodes', description: 'Functional Units' },
     },
     {
-      id: '3',
+      id: 'DF2',
       type: 'middleware',
-      position: { x: 400, y: 150 },
-      data: { label: 'Agent 2', description: 'Analysis & Reasoning' },
+      position: { x: 300, y: 200 },
+      data: { label: 'Edges', description: 'Data Streams' },
     },
     {
-      id: '4',
+      id: 'DF3',
+      type: 'middleware',
+      position: { x: 500, y: 200 },
+      data: { label: 'Graphs', description: 'Computation Flow' },
+    },
+    {
+      id: 'DF4',
+      type: 'middleware',
+      position: { x: 700, y: 200 },
+      data: { label: 'Shared Memory', description: 'Zero-Copy IPC' },
+    },
+    {
+      id: 'DF5',
+      type: 'middleware',
+      position: { x: 900, y: 200 },
+      data: { label: 'TCP Communication', description: 'Distributed' },
+    },
+
+    // Development Experience
+    {
+      id: 'DEV1',
       type: 'data',
-      position: { x: 250, y: 250 },
-      data: { label: 'State Store', description: 'Shared Context' },
+      position: { x: 100, y: 350 },
+      data: { label: 'YAML Configuration', description: 'Declarative' },
     },
     {
-      id: '5',
-      type: 'application',
-      position: { x: 250, y: 350 },
-      data: { label: 'Final Result', description: 'Coordinated Output' },
+      id: 'DEV2',
+      type: 'data',
+      position: { x: 300, y: 350 },
+      data: { label: 'Stage GUI', description: 'Drag & Drop' },
+    },
+    {
+      id: 'DEV3',
+      type: 'data',
+      position: { x: 500, y: 350 },
+      data: { label: 'Python SDK', description: '3.10+ Support' },
+    },
+    {
+      id: 'DEV4',
+      type: 'data',
+      position: { x: 700, y: 350 },
+      data: { label: 'Rust SDK', description: 'Native Performance' },
+    },
+    {
+      id: 'DEV5',
+      type: 'data',
+      position: { x: 900, y: 350 },
+      data: { label: 'Package Ecosystem', description: 'pip/cargo' },
+    },
+
+    // Enterprise Features
+    {
+      id: 'ENT1',
+      type: 'infrastructure',
+      position: { x: 200, y: 500 },
+      data: { label: 'Stateless Design', description: 'Horizontally Scalable' },
+    },
+    {
+      id: 'ENT2',
+      type: 'infrastructure',
+      position: { x: 400, y: 500 },
+      data: { label: 'OpenTelemetry', description: 'Full Observability' },
+    },
+    {
+      id: 'ENT3',
+      type: 'infrastructure',
+      position: { x: 600, y: 500 },
+      data: { label: 'Hot-Swap Agents', description: 'Zero Downtime' },
+    },
+    {
+      id: 'ENT4',
+      type: 'infrastructure',
+      position: { x: 800, y: 500 },
+      data: { label: 'Cloud Native', description: 'Kubernetes Ready' },
+    },
+    {
+      id: 'ENT5',
+      type: 'infrastructure',
+      position: { x: 1000, y: 500 },
+      data: { label: 'ROS2 Integration', description: 'Robotic Systems' },
+    },
+
+    // Pre-built Nodes
+    {
+      id: 'NODE1',
+      type: 'edge',
+      position: { x: 100, y: 650 },
+      data: { label: 'LLM API Calls', description: 'OpenAI/Local' },
+    },
+    {
+      id: 'NODE2',
+      type: 'edge',
+      position: { x: 300, y: 650 },
+      data: { label: 'Tool Integration', description: 'APIs/Functions' },
+    },
+    {
+      id: 'NODE3',
+      type: 'edge',
+      position: { x: 500, y: 650 },
+      data: { label: 'Terminal I/O', description: 'Shell Commands' },
+    },
+    {
+      id: 'NODE4',
+      type: 'edge',
+      position: { x: 700, y: 650 },
+      data: { label: 'Data Processing', description: 'ETL Pipelines' },
+    },
+    {
+      id: 'NODE5',
+      type: 'edge',
+      position: { x: 900, y: 650 },
+      data: { label: 'CRM Integration', description: 'Salesforce/HubSpot' },
     },
   ];
 
   const initialEdges = [
-    { id: 'e1-2', source: '1', target: '2', animated: true, label: 'Delegate' },
-    { id: 'e1-3', source: '1', target: '3', animated: true, label: 'Delegate' },
-    { id: 'e2-4', source: '2', target: '4', animated: true, label: 'Update' },
-    { id: 'e3-4', source: '3', target: '4', animated: true, label: 'Update' },
-    { id: 'e4-5', source: '4', target: '5', animated: true, label: 'Finalize' },
+    // From Agent Composition to Dataflow Architecture
+    { id: 'A-DF1', source: 'A', target: 'DF1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'B-DF3', source: 'B', target: 'DF3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'C-DF3', source: 'C', target: 'DF3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'D-DF3', source: 'D', target: 'DF3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+
+    // From Dataflow Architecture to Development Experience
+    { id: 'DF1-DEV1', source: 'DF1', target: 'DEV1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'DF3-DEV2', source: 'DF3', target: 'DEV2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'DF1-DEV3', source: 'DF1', target: 'DEV3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'DF1-DEV4', source: 'DF1', target: 'DEV4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+
+    // From Dataflow Architecture to Enterprise Features
+    { id: 'DF4-ENT1', source: 'DF4', target: 'ENT1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'DF5-ENT1', source: 'DF5', target: 'ENT1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+
+    // From Enterprise Features to Pre-built Nodes
+    { id: 'ENT1-NODE1', source: 'ENT1', target: 'NODE1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'ENT2-NODE2', source: 'ENT2', target: 'NODE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'ENT3-NODE3', source: 'ENT3', target: 'NODE3', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'ENT4-NODE4', source: 'ENT4', target: 'NODE4', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
+    { id: 'ENT5-NODE5', source: 'ENT5', target: 'NODE5', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2 } },
   ];
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
