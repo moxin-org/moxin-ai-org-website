@@ -1,4 +1,8 @@
 ---
+// Components
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+
 export interface Props {
   title: string;
   description?: string;
@@ -10,27 +14,14 @@ const { title, description } = Astro.props;
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content={description || "Enterprise AI Solution Platform"}>
-    <title>{title}</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
-    <link rel="stylesheet" href="/src/styles/global.css">
-
-    <!-- Scripts loaded via CDN -->
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script is:inline src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
-    <script is:inline src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <Seo title={title} description={description || "Enterprise AI Solution Platform"} />
   </head>
 
   <body class="font-inter bg-gradient-to-br from-primary-navy via-slate-800 to-slate-900 min-h-screen overflow-x-hidden text-white">
-    <slot />
+    <Header />
+    <main>
+      <slot />
+    </main>
 
     <style is:inline>
       .gradient-text {

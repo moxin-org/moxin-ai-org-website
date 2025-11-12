@@ -1,14 +1,9 @@
 ---
-export interface Props {
-  currentPath?: string;
-}
-
-const { currentPath = '/' } = Astro.props;
+const currentPath = Astro.url.pathname;
 
 const navLinks = [
+  { text: 'Home', href: '/' },
   { text: 'Solutions', href: '/solutions/' },
-  { text: 'Performance', href: '/solutions/#performance' },
-  { text: 'Architecture', href: '/solutions/#architecture' },
   { text: 'Platform', href: '/solutions/' },
   { text: 'Services', href: '/services/' },
   { text: 'Developers', href: '/developer.html' },

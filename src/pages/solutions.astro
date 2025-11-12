@@ -1,119 +1,15 @@
 ---
 // Solutions page
+import Layout from "../layouts/Layout.astro";
 import '../styles/global.css';
-import ArchitectureChartsXYFlow from '../components/ArchitectureChartsXYFlow.astro';
+import ArchitectureChartsXYFlow from '../components/ArchitectureChartsXYFlow.jsx';
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Solutions Platform - Moxin-Org</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <!-- XYFlow for architecture charts -->
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-navy: #1a1d29;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
-            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
+<Layout
+  title="AI Solutions Platform - Moxin-Org"
+  description="Comprehensive enterprise AI solutions from edge inference to datacenter-scale deployment."
+>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #1a1d29 0%, #1e293b 50%, #0f172a 100%);
-            min-height: 100vh;
-        }
-
-        .glass-nav {
-            backdrop-filter: blur(20px);
-            background: rgba(26, 29, 41, 0.8);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-blue);
-        }
-
-        .tech-grid {
-            background-image:
-                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .benchmark-tab {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .benchmark-tab.active {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-        }
-
-        .use-case-card {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .use-case-card:hover {
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <img src="/images/moxin.png" alt="Moxin-Org" class="w-8 h-8">
-                <span class="text-white font-bold text-xl">Moxin-Org</span>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
-                <a href="#solutions" class="text-white">Solutions</a>
-                <a href="/solutions/#performance" class="text-gray-300 hover:text-white transition-colors">Performance</a>
-                <a href="/solutions/#architecture" class="text-gray-300 hover:text-white transition-colors">Architecture</a>
-                <a href="/services/" class="text-gray-300 hover:text-white transition-colors">Services</a>
-                <a href="/developer.html" class="text-gray-300 hover:text-white transition-colors">Developers</a>
-            </div>
-            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
-                Get Demo
-            </button>
-        </div>
-    </nav>
 
     <!-- Hero Section -->
     <section class="pt-24 pb-16 px-6 tech-grid">
@@ -259,7 +155,7 @@ import ArchitectureChartsXYFlow from '../components/ArchitectureChartsXYFlow.ast
     </section>
 
     <!-- Interactive Performance Dashboard -->
-    <section id="performance" class="py-20 px-6 bg-gray-900/30">
+    <section class="py-20 px-6 bg-gray-900/30">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 scroll-reveal">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -685,5 +581,5 @@ import ArchitectureChartsXYFlow from '../components/ArchitectureChartsXYFlow.ast
         }
     </script>
     <script src="../../architecture-charts.js"></script>
-</body>
-</html>
+
+</Layout>
