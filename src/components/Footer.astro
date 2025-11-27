@@ -4,12 +4,17 @@ export interface Props {
 }
 
 const { className = "" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const mkPath = (path) => {
+  const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  return `${cleanBase}${path.startsWith('/') ? path : '/' + path}`;
+};
 ---
 
 <footer class={`py-12 px-6 border-t border-gray-800 ${className}`}>
   <div class="max-w-7xl mx-auto text-center">
     <div class="flex items-center justify-center space-x-2 mb-4">
-      <img src="/images/moxin.png" alt="Moxin Intelligence" class="h-6 w-auto" />
+      <img src={mkPath("/images/moxin.png")} alt="Moxin Intelligence" class="h-6 w-auto" />
       <span class="text-white font-semibold">Moxin Intelligence</span>
     </div>
     <p class="text-gray-400 text-sm">

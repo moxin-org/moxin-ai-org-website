@@ -1,5 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+const mkPath = (path) => {
+  const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  return `${cleanBase}${path.startsWith('/') ? path : '/' + path}`;
+};
 ---
 
 <Layout title="Moly - The Universal Client">
@@ -28,7 +34,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <div class="bg-white border border-gray-200 rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto bg-gray-50">
         <video class="w-full h-auto" autoplay loop muted playsinline>
-          <source src="/images/moly-chat-demo.DP8cZCTz.mov" type="video/mp4">
+          <source src={mkPath("/images/moly-chat-demo.DP8cZCTz.mov")} type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>

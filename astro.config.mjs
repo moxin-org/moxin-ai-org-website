@@ -11,5 +11,6 @@ export default defineConfig({
     sitemap(),
     react()
   ],
-  site: "https://moxin.org",
+  site: "https://moxin-org.github.io",
+  base: "/moxin-ai-org-website",
 });

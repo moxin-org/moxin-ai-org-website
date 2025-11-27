@@ -4,6 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 import InteractiveStack from '../../components/InteractiveStack.jsx';
 import LiveMetrics from '../../components/LiveMetrics.jsx';
 import HeroBackground from '../../components/HeroBackground.astro';
+
+const base = import.meta.env.BASE_URL;
+const mkPath = (path) => {
+  const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  return `${cleanBase}${path.startsWith('/') ? path : '/' + path}`;
+};
 ---
 
 <Layout title="Moxin - 主权 AI 的开放生态系统">
@@ -39,7 +45,7 @@ import HeroBackground from '../../components/HeroBackground.astro';
                 GitHub
               </a>
               <a href="https://huggingface.co/moxin-org" target="_blank" class="bg-white text-text-primary border-4 border-[#FFD21E] px-8 py-4 rounded-full font-medium transition-all hover:bg-[#FFD21E] hover:scale-105 flex items-center gap-2">
-                <img src="/images/hf-logo.svg" class="w-6 h-6" alt="Hugging Face" />
+                <img src={mkPath("/images/hf-logo.svg")} class="w-6 h-6" alt="Hugging Face" />
                 Hugging Face
               </a>
             </div>
