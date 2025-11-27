@@ -4,6 +4,8 @@ import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
+import NeuralBackground from '../components/NeuralBackground.jsx';
+
 export interface Props {
   title: string;
   description?: string;
@@ -18,7 +20,8 @@ const { title, description } = Astro.props;
     <Seo title={title} description={description || "Enterprise AI Solution Platform"} />
   </head>
 
-  <body class="font-inter bg-canvas-white text-text-primary min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased">
+  <body class="font-inter bg-canvas-white text-text-primary min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased relative">
+    <NeuralBackground client:only="react" />
     <Header />
     <ErrorBoundary client:load>
       <main>
