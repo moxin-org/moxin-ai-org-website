@@ -4,7 +4,6 @@ import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
-import NeuralBackground from '../components/NeuralBackground.jsx';
 import '../styles/global.css';
 
 export interface Props {
@@ -23,10 +22,28 @@ const defaultDesc = isZh ? "企业级 AI 解决方案平台" : "Enterprise AI So
 <html lang={lang}>
   <head>
     <Seo title={title} description={description || defaultDesc} />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+    
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    
+      window.localStorage.setItem('theme', theme);
+    </script>
   </head>
 
-  <body class="font-inter bg-canvas-white text-text-primary min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased relative">
-    <NeuralBackground client:only="react" />
+  <body class="font-inter text-text-primary dark:text-text-inverse min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased relative transition-colors duration-300">
     <Header />
     <ErrorBoundary client:load>
       <main>
@@ -39,6 +56,10 @@ const defaultDesc = isZh ? "企业级 AI 解决方案平台" : "Enterprise AI So
         background: rgba(255, 255, 255, 0.8);
         backdrop-filter: saturate(180%) blur(20px);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      :global(.dark) .glass-nav {
+        background: rgba(0, 0, 0, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
     </style>
   </body>

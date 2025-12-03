@@ -112,6 +112,29 @@ const nodeTypes = {
 
 // System Architecture Chart - Matching exact mermaid structure
 const SystemArchitectureFlow = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkTheme();
+
+    const handleThemeChange = () => checkTheme();
+    window.addEventListener('theme-change', handleThemeChange);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') checkTheme();
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      window.removeEventListener('theme-change', handleThemeChange);
+      observer.disconnect();
+    };
+  }, []);
   const initialNodes = [
     // End User Applications (matching mermaid exactly)
     {
@@ -485,7 +508,7 @@ const SystemArchitectureFlow = () => {
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div style={{ height: '500px', background: 'transparent' }} className="rounded-2xl border border-gray-700">
+    <div style={{ height: '500px', background: 'transparent' }} className={`rounded-2xl border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -496,7 +519,7 @@ const SystemArchitectureFlow = () => {
         fitViewOptions={{ padding: 0.2 }}
         attributionPosition="bottom-left"
       >
-        <Background color="#334155" gap={16} />
+        <Background color={isDark ? '#334155' : '#e2e8f0'} gap={16} />
         <Controls position="top-right" />
       </ReactFlow>
     </div>
@@ -505,6 +528,29 @@ const SystemArchitectureFlow = () => {
 
 // Inference Optimization Flow - Matching exact mermaid structure
 const InferenceOptimizationFlow = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkTheme();
+
+    const handleThemeChange = () => checkTheme();
+    window.addEventListener('theme-change', handleThemeChange);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') checkTheme();
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      window.removeEventListener('theme-change', handleThemeChange);
+      observer.disconnect();
+    };
+  }, []);
   const initialNodes = [
     // Pretrained Models
     {
@@ -630,6 +676,29 @@ const InferenceOptimizationFlow = () => {
 
 // Benchmark Performance Chart
 const BenchmarkFlow = ({ chartType = 'inference' }) => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkTheme();
+
+    const handleThemeChange = () => checkTheme();
+    window.addEventListener('theme-change', handleThemeChange);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') checkTheme();
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      window.removeEventListener('theme-change', handleThemeChange);
+      observer.disconnect();
+    };
+  }, []);
   const getChartData = () => {
     switch (chartType) {
       case 'inference':
@@ -738,6 +807,29 @@ const ArchitectureChartsXYFlow = ({ chartType = 'system' }) => {
 
 // Edge AI Deployment Flow
 const EdgeFlow = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkTheme();
+
+    const handleThemeChange = () => checkTheme();
+    window.addEventListener('theme-change', handleThemeChange);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') checkTheme();
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      window.removeEventListener('theme-change', handleThemeChange);
+      observer.disconnect();
+    };
+  }, []);
   const initialNodes = [
     {
       id: '1',

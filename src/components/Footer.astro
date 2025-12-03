@@ -18,13 +18,13 @@ const footerText = isZh
   : "© 2024 Moxin Intelligence. Open-source enterprise AI platform. Built for the future.";
 ---
 
-<footer class={`py-12 px-6 border-t border-gray-800 ${className}`}>
+<footer class={`py-12 px-6 border-t border-gray-200 dark:border-white/10 ${className}`}>
   <div class="max-w-7xl mx-auto text-center">
     <div class="flex items-center justify-center space-x-2 mb-4">
       <img src={mkPath("/images/moxin.png")} alt="Moxin Intelligence" class="h-6 w-auto" />
-      <span class="text-white font-semibold">Moxin Intelligence</span>
+      <span class="text-text-primary dark:text-text-inverse font-semibold">Moxin Intelligence</span>
     </div>
-    <p class="text-gray-400 text-sm">
+    <p class="text-text-secondary dark:text-text-secondary-inverse text-sm">
       {footerText}
     </p>
   </div>

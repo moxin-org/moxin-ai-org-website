@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
@@ -7,14 +8,19 @@ module.exports = {
     extend: {
       colors: {
         'canvas-white': '#FFFFFF',
+        'canvas-black': '#000000', // Dark mode background
         'canvas-grey': '#F5F5F7', // Apple-like light grey
+        'canvas-dark-grey': '#1c1c1e', // Apple dark mode grey
         'text-primary': '#1D1D1F', // Almost black
+        'text-inverse': '#F5F5F7', // Almost white for dark mode
         'text-secondary': '#86868B', // Apple grey
+        'text-secondary-inverse': '#A1A1A6', // Lighter grey for dark mode
         'accent-blue': '#0071E3', // Apple blue
         'accent-purple': '#5E5CE6', // Apple purple (for highlights)
         'accent-pink': '#FF2D55', // Apple pink
         'accent-cyan': '#30B0C7', // Apple cyan
         'border-color': '#D2D2D7',
+        'border-color-dark': '#38383A', // Dark mode border
       },
       fontFamily: {
         'inter': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],

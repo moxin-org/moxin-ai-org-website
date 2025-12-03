@@ -53,10 +53,33 @@ const initialEdges = [
 export default function InteractiveStack({ lang = 'en' }) {
     const [nodes, setNodes] = useState(getNodes(lang));
     const [edges, setEdges] = useState(initialEdges);
+    const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
         setNodes(getNodes(lang));
     }, [lang]);
+
+    useEffect(() => {
+        const checkTheme = () => {
+            setIsDark(document.documentElement.classList.contains('dark'));
+        };
+        checkTheme();
+
+        const handleThemeChange = () => checkTheme();
+        window.addEventListener('theme-change', handleThemeChange);
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') checkTheme();
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+
+        return () => {
+            window.removeEventListener('theme-change', handleThemeChange);
+            observer.disconnect();
+        };
+    }, []);
 
     const onNodeClick = (event, node) => {
         if (node.data.url) {
@@ -65,7 +88,14 @@ export default function InteractiveStack({ lang = 'en' }) {
     };
 
     return (
-        <div style={{ height: '400px', width: '100%', background: '#F5F5F7', borderRadius: '20px', border: '1px solid #D2D2D7' }}>
+        <div style={{
+            height: '400px',
+            width: '100%',
+            background: isDark ? '#1c1c1e' : '#F5F5F7',
+            borderRadius: '20px',
+            border: isDark ? '1px solid #38383A' : '1px solid #D2D2D7',
+            transition: 'background-color 0.3s, border-color 0.3s'
+        }}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -79,7 +109,7 @@ export default function InteractiveStack({ lang = 'en' }) {
                 panOnDrag={false}
                 preventScrolling={false}
             >
-                <Background color="#D2D2D7" gap={16} />
+                <Background color={isDark ? '#555' : '#D2D2D7'} gap={16} />
             </ReactFlow>
         </div>
     );

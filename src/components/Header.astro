@@ -39,59 +39,103 @@ const switchLangPath = isZh
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href={mkPath(langPrefix + "/")} class="flex items-center space-x-2 group">
       <img src={mkPath("/images/moxin.png")} alt="Moxin Intelligence" class="h-8 w-auto" />
-      <span class="text-text-primary font-semibold text-xl tracking-tight">Moxin Organization</span>
+      <span class="text-text-primary dark:text-text-inverse font-semibold text-xl tracking-tight">Moxin Organization</span>
     </a>
 
     <div class="hidden md:flex items-center space-x-8">
       <div class="relative group">
-        <button class="text-text-secondary hover:text-text-primary transition-colors flex items-center space-x-1 text-base font-medium">
+        <button class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors flex items-center space-x-1 text-base font-medium">
           <span>{productsText}</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <!-- Dropdown -->
-        <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left p-2">
-          <a href={getLink("/products/applications")} class="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
-            <div class="text-text-primary font-semibold text-sm">{appText}</div>
-            <div class="text-xs text-text-secondary">{appDesc}</div>
+        <div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-900 border border-gray-100 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left p-2">
+          <a href={getLink("/products/applications")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
+            <div class="text-text-primary dark:text-text-inverse font-semibold text-sm">{appText}</div>
+            <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">{appDesc}</div>
           </a>
-          <a href={getLink("/products/agents")} class="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
-            <div class="text-text-primary font-semibold text-sm">{agentsText}</div>
-            <div class="text-xs text-text-secondary">{agentsDesc}</div>
+          <a href={getLink("/products/agents")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
+            <div class="text-text-primary dark:text-text-inverse font-semibold text-sm">{agentsText}</div>
+            <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">{agentsDesc}</div>
           </a>
-          <a href={getLink("/products/models")} class="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
-            <div class="text-text-primary font-semibold text-sm">{modelsText}</div>
-            <div class="text-xs text-text-secondary">{modelsDesc}</div>
+          <a href={getLink("/products/models")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
+            <div class="text-text-primary dark:text-text-inverse font-semibold text-sm">{modelsText}</div>
+            <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">{modelsDesc}</div>
           </a>
-          <a href={getLink("/products/compute")} class="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
-            <div class="text-text-primary font-semibold text-sm">{computeText}</div>
-            <div class="text-xs text-text-secondary">{computeDesc}</div>
+          <a href={getLink("/products/compute")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
+            <div class="text-text-primary dark:text-text-inverse font-semibold text-sm">{computeText}</div>
+            <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">{computeDesc}</div>
           </a>
         </div>
       </div>
       
       {navLinks.slice(1).map(link => (
-        <a href={link.href} class="text-text-secondary hover:text-text-primary transition-colors text-base font-medium">{link.text}</a>
+        <a href={link.href} class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors text-base font-medium">{link.text}</a>
       ))}
     </div>
 
     <div class="flex items-center space-x-4">
-      <a href={mkPath(switchLangPath)} class="text-text-secondary hover:text-text-primary transition-colors font-medium text-sm border border-gray-200 rounded-lg px-3 py-1 hover:bg-gray-50">
+      <a href={mkPath(switchLangPath)} class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors font-medium text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-1 hover:bg-gray-50 dark:hover:bg-white/10">
         {isZh ? 'EN' : '中文'}
       </a>
-      <a href="https://github.com/moxin-org" target="_blank" class="text-text-secondary hover:text-text-primary transition-colors">
+      
+      <button id="theme-toggle" class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10" aria-label="Toggle Dark Mode">
+        <!-- Sun icon -->
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h1a1 1 0 100 2h-1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        <!-- Moon icon -->
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+      </button>
+
+      <script is:inline>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            // toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // if set via local storage previously
+            if (localStorage.getItem('theme')) {
+                if (localStorage.getItem('theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+
+            // if NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+            
+            // Dispatch a custom event for React components to listen to
+            window.dispatchEvent(new Event('theme-change'));
+        });
+      </script>
+      <a href="https://github.com/moxin-org" target="_blank" class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
       </a>
-      <a href="https://huggingface.co/moxin-org" target="_blank" class="text-text-secondary hover:text-text-primary transition-colors">
+      <a href="https://huggingface.co/moxin-org" target="_blank" class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors">
         <img src={mkPath("/images/hf-logo-pirate.svg")} alt="Hugging Face" class="w-5 h-5" />
       </a>
     </div>
   </div>
 </nav>
 
-<style is:global>
-  .glass-nav {
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-</style>
+

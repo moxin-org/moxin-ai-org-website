@@ -17,7 +17,7 @@ const mkPath = (path) => {
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <div class="space-y-8 animate-fade-in">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm text-text-secondary font-medium backdrop-blur-sm bg-opacity-80">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-sm text-text-secondary dark:text-text-secondary-inverse font-medium backdrop-blur-sm bg-opacity-80">
               <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-blue opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-blue"></span>
@@ -25,23 +25,23 @@ const mkPath = (path) => {
               全栈开放 AI 生态系统
             </div>
             
-            <h1 class="text-5xl font-bold tracking-tight leading-tight text-text-primary">
+            <h1 class="text-5xl font-bold tracking-tight leading-tight text-text-primary dark:text-text-inverse">
               真正开放，<br />
               <span class="text-accent-blue">
                 <TypingEffect client:only="react" words={["边缘优先的 AI 生态", "主权智能", "高效计算"]} />
               </span>
             </h1>
             
-            <p class="text-xl text-text-secondary max-w-xl leading-relaxed font-light">
+            <p class="text-xl text-text-secondary dark:text-text-secondary-inverse max-w-xl leading-relaxed font-light">
               我们正在构建一个开放、高效且自主的 AI 未来。从边缘到云端。
             </p>
 
             <div class="flex flex-wrap gap-4">
-              <a href="https://github.com/moxin-org" target="_blank" class="bg-white/80 backdrop-blur-sm text-text-primary border-4 border-black px-8 py-4 rounded-full font-medium transition-all hover:bg-black hover:text-white hover:scale-105 flex items-center gap-2">
+              <a href="https://github.com/moxin-org" target="_blank" class="bg-white/80 dark:bg-white/10 backdrop-blur-sm text-text-primary dark:text-text-inverse border-4 border-black dark:border-white/20 px-8 py-4 rounded-full font-medium transition-all hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:scale-105 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
                 GitHub
               </a>
-              <a href="https://huggingface.co/moxin-org" target="_blank" class="bg-white/80 backdrop-blur-sm text-text-primary border-4 border-[#FFD21E] px-8 py-4 rounded-full font-medium transition-all hover:bg-[#FFD21E] hover:scale-105 flex items-center gap-2">
+              <a href="https://huggingface.co/moxin-org" target="_blank" class="bg-white/80 dark:bg-white/10 backdrop-blur-sm text-text-primary dark:text-text-inverse border-4 border-[#FFD21E] px-8 py-4 rounded-full font-medium transition-all hover:bg-[#FFD21E] hover:text-black dark:hover:bg-[#FFD21E] dark:hover:text-black hover:scale-105 flex items-center gap-2">
                 <img src={mkPath("/images/hf-logo.svg")} class="w-6 h-6" alt="Hugging Face" />
                 Hugging Face
               </a>
@@ -51,7 +51,7 @@ const mkPath = (path) => {
           </div>
 
           <div class="relative animate-slide-up">
-            <div class="relative bg-white/80 backdrop-blur-md border border-gray-200 rounded-3xl p-2 shadow-2xl">
+            <div class="relative bg-white/80 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-3xl p-2 shadow-2xl">
               <InteractiveStack client:only="react" lang="zh" />
             </div>
           </div>
@@ -60,16 +60,16 @@ const mkPath = (path) => {
     </section>
 
     <!-- Moxin LM Section -->
-    <section class="py-24 bg-white border-b border-gray-100">
+    <section class="relative pt-32 lg:pb-32">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row gap-16 items-center">
           <div class="flex-1 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-accent-purple text-sm font-bold">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-accent-purple text-sm font-bold">
               <span class="w-2 h-2 rounded-full bg-accent-purple"></span>
               核心技术
             </div>
-            <h2 class="text-4xl font-bold text-text-primary">Moxin LM</h2>
-            <p class="text-xl text-text-secondary leading-relaxed">
+            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin LM</h2>
+            <p class="text-xl text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
               我们的旗舰开源语言模型系列，针对性能、效率和透明度进行了优化。
             </p>
             <ul class="space-y-4">
@@ -78,7 +78,7 @@ const mkPath = (path) => {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary">Moxin-7B 系列：</strong> 紧凑体积下的 SOTA 性能。提供 LLM 和 VLM 版本。
+                  <strong class="text-text-primary dark:text-text-inverse">Moxin-7B 系列：</strong> 紧凑体积下的 SOTA 性能。提供 LLM 和 VLM 版本。
                 </div>
               </li>
               <li class="flex items-start gap-3">
@@ -86,7 +86,7 @@ const mkPath = (path) => {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary">极致量化：</strong> 在消费级硬件上以最小的损失运行 70B+ 模型（如 Kimi K2）。
+                  <strong class="text-text-primary dark:text-text-inverse">极致量化：</strong> 在消费级硬件上以最小的损失运行 70B+ 模型（如 Kimi K2）。
                 </div>
               </li>
               <li class="flex items-start gap-3">
@@ -94,7 +94,7 @@ const mkPath = (path) => {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary">Moxin Voice：</strong> 本地、低延迟的 ASR 和 TTS，实现自然的人机交互。
+                  <strong class="text-text-primary dark:text-text-inverse">Moxin Voice：</strong> 本地、低延迟的 ASR 和 TTS，实现自然的人机交互。
                 </div>
               </li>
             </ul>
@@ -106,35 +106,35 @@ const mkPath = (path) => {
             </div>
           </div>
           <div class="flex-1 relative">
-            <div class="absolute -inset-4 bg-gradient-to-r from-purple-100 to-blue-50 rounded-full blur-3xl opacity-30"></div>
-            <div class="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-xl">
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-100 to-blue-50 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full blur-3xl opacity-30"></div>
+            <div class="relative bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-xl">
               <div class="space-y-6">
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">🧠</div>
+                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">🧠</div>
                     <div>
-                      <div class="font-bold text-text-primary">Moxin-7B-LLM</div>
-                      <div class="text-xs text-text-secondary">指令与代码</div>
+                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin-7B-LLM</div>
+                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">指令与代码</div>
                     </div>
                   </div>
                   <div class="text-accent-purple font-bold">SOTA</div>
                 </div>
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">👁️</div>
+                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">👁️</div>
                     <div>
-                      <div class="font-bold text-text-primary">Moxin-7B-VLM</div>
-                      <div class="text-xs text-text-secondary">视觉理解</div>
+                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin-7B-VLM</div>
+                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">视觉理解</div>
                     </div>
                   </div>
                   <div class="text-accent-purple font-bold">New</div>
                 </div>
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">🗣️</div>
+                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">🗣️</div>
                     <div>
-                      <div class="font-bold text-text-primary">Moxin Voice</div>
-                      <div class="text-xs text-text-secondary">实时 ASR 和 TTS</div>
+                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin Voice</div>
+                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">实时 ASR 和 TTS</div>
                     </div>
                   </div>
                   <div class="text-accent-purple font-bold">Local</div>
@@ -147,29 +147,29 @@ const mkPath = (path) => {
     </section>
 
     <!-- Value Props -->
-    <section class="py-24 bg-canvas-grey">
+    <section class="py-24 bg-canvas-grey dark:bg-canvas-dark-grey">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid md:grid-cols-3 gap-12">
-          <div class="space-y-4 p-6 rounded-2xl hover:bg-white transition-colors duration-300">
-            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent-blue mb-4">
+          <div class="space-y-4 p-6 rounded-2xl hover:bg-white dark:hover:bg-white/5 transition-colors duration-300">
+            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-accent-blue mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-primary">数据主权</h3>
-            <p class="text-text-secondary leading-relaxed">您的数据从未离开您的基础设施。在本地或私有云中运行完全私有的 AI 模型。</p>
+            <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">数据主权</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed">您的数据从未离开您的基础设施。在本地或私有云中运行完全私有的 AI 模型。</p>
           </div>
-          <div class="space-y-4 p-6 rounded-2xl hover:bg-white transition-colors duration-300">
-            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-accent-purple mb-4">
+          <div class="space-y-4 p-6 rounded-2xl hover:bg-white dark:hover:bg-white/5 transition-colors duration-300">
+            <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-accent-purple mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-primary">极致效率</h3>
-            <p class="text-text-secondary leading-relaxed">在消费级硬件上运行 70B+ 模型。Ominix Edge 优化推理，延迟降低高达 30 倍。</p>
+            <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">极致效率</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed">在消费级硬件上运行 70B+ 模型。Ominix Edge 优化推理，延迟降低高达 30 倍。</p>
           </div>
-          <div class="space-y-4 p-6 rounded-2xl hover:bg-white transition-colors duration-300">
-            <div class="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center text-accent-cyan mb-4">
+          <div class="space-y-4 p-6 rounded-2xl hover:bg-white dark:hover:bg-white/5 transition-colors duration-300">
+            <div class="w-12 h-12 bg-cyan-50 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center text-accent-cyan mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-primary">完全掌控</h3>
-            <p class="text-text-secondary leading-relaxed">从上到下的开源。修改模型、智能体框架或推理引擎以满足您的需求。</p>
+            <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">完全掌控</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed">从上到下的开源。修改模型、智能体框架或推理引擎以满足您的需求。</p>
           </div>
         </div>
       </div>
