@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import InteractiveStack from '../components/InteractiveStack.jsx';
-import TypingEffect from '../components/TypingEffect.jsx';
+import Layout from '../../layouts/Layout.astro';
+import InteractiveStack from '../../components/InteractiveStack.jsx';
+import TypingEffect from '../../components/TypingEffect.jsx';
 
 const base = import.meta.env.BASE_URL;
 const mkPath = (path) => {
@@ -10,7 +10,7 @@ const mkPath = (path) => {
 };
 ---
 
-<Layout title="Open Ecosystem for Sovereign AI - Moxin Org">
+<Layout title="Moxin Org - 主权 AI 的开放生态系统">
   <div class="relative overflow-hidden">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
@@ -22,18 +22,18 @@ const mkPath = (path) => {
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-blue opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-blue"></span>
               </span>
-              Full-Stack Open AI Ecosystem
+              全栈开放 AI 生态系统
             </div>
             
             <h1 class="text-5xl font-bold tracking-tight leading-tight text-text-primary">
-              Truly Open, <br />
+              真正开放，<br />
               <span class="text-accent-blue">
-                <TypingEffect client:only="react" words={["Edge-First AI Ecosystem", "Sovereign Intelligence", "Efficient Computing"]} />
+                <TypingEffect client:only="react" words={["边缘优先的 AI 生态", "主权智能", "高效计算"]} />
               </span>
             </h1>
             
             <p class="text-xl text-text-secondary max-w-xl leading-relaxed font-light">
-              We are building a version of the AI future that is open, efficient, and sovereign. From Edge to Cloud.
+              我们正在构建一个开放、高效且自主的 AI 未来。从边缘到云端。
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -52,7 +52,7 @@ const mkPath = (path) => {
 
           <div class="relative animate-slide-up">
             <div class="relative bg-white/80 backdrop-blur-md border border-gray-200 rounded-3xl p-2 shadow-2xl">
-              <InteractiveStack client:only="react" lang="en" />
+              <InteractiveStack client:only="react" lang="zh" />
             </div>
           </div>
         </div>
@@ -66,11 +66,11 @@ const mkPath = (path) => {
           <div class="flex-1 space-y-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-accent-purple text-sm font-bold">
               <span class="w-2 h-2 rounded-full bg-accent-purple"></span>
-              Core Technology
+              核心技术
             </div>
             <h2 class="text-4xl font-bold text-text-primary">Moxin LM</h2>
             <p class="text-xl text-text-secondary leading-relaxed">
-              Our flagship series of open-source language models, optimized for what matters most: <span class="text-text-primary font-medium">performance, efficiency, and transparency</span>.
+              我们的旗舰开源语言模型系列，针对性能、效率和透明度进行了优化。
             </p>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
@@ -78,7 +78,7 @@ const mkPath = (path) => {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary">Moxin-7B Series:</strong> SOTA performance in a compact size. Available as LLM and VLM.
+                  <strong class="text-text-primary">Moxin-7B 系列：</strong> 紧凑体积下的 SOTA 性能。提供 LLM 和 VLM 版本。
                 </div>
               </li>
               <li class="flex items-start gap-3">
@@ -86,7 +86,7 @@ const mkPath = (path) => {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary">Extreme Quantization:</strong> Running 70B+ models (like Kimi K2) on consumer hardware with minimal loss.
+                  <strong class="text-text-primary">极致量化：</strong> 在消费级硬件上以最小的损失运行 70B+ 模型（如 Kimi K2）。
                 </div>
               </li>
               <li class="flex items-start gap-3">
@@ -94,13 +94,13 @@ const mkPath = (path) => {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary">Moxin Voice:</strong> Local, low-latency ASR and TTS for natural human-computer interaction.
+                  <strong class="text-text-primary">Moxin Voice：</strong> 本地、低延迟的 ASR 和 TTS，实现自然的人机交互。
                 </div>
               </li>
             </ul>
             <div class="pt-4">
               <a href={mkPath("/products/models")} class="inline-flex items-center gap-2 text-accent-purple font-bold hover:gap-3 transition-all">
-                Explore Models
+                探索模型
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
@@ -114,7 +114,7 @@ const mkPath = (path) => {
                     <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">🧠</div>
                     <div>
                       <div class="font-bold text-text-primary">Moxin-7B-LLM</div>
-                      <div class="text-xs text-text-secondary">Instruction & Coding</div>
+                      <div class="text-xs text-text-secondary">指令与代码</div>
                     </div>
                   </div>
                   <div class="text-accent-purple font-bold">SOTA</div>
@@ -124,7 +124,7 @@ const mkPath = (path) => {
                     <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">👁️</div>
                     <div>
                       <div class="font-bold text-text-primary">Moxin-7B-VLM</div>
-                      <div class="text-xs text-text-secondary">Visual Understanding</div>
+                      <div class="text-xs text-text-secondary">视觉理解</div>
                     </div>
                   </div>
                   <div class="text-accent-purple font-bold">New</div>
@@ -134,7 +134,7 @@ const mkPath = (path) => {
                     <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">🗣️</div>
                     <div>
                       <div class="font-bold text-text-primary">Moxin Voice</div>
-                      <div class="text-xs text-text-secondary">Real-time ASR and TTS</div>
+                      <div class="text-xs text-text-secondary">实时 ASR 和 TTS</div>
                     </div>
                   </div>
                   <div class="text-accent-purple font-bold">Local</div>
@@ -154,22 +154,22 @@ const mkPath = (path) => {
             <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent-blue mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-primary">Data Sovereignty</h3>
-            <p class="text-text-secondary leading-relaxed">Your data never leaves your infrastructure. Run fully private AI models on-premise or in your private cloud.</p>
+            <h3 class="text-xl font-bold text-text-primary">数据主权</h3>
+            <p class="text-text-secondary leading-relaxed">您的数据从未离开您的基础设施。在本地或私有云中运行完全私有的 AI 模型。</p>
           </div>
           <div class="space-y-4 p-6 rounded-2xl hover:bg-white transition-colors duration-300">
             <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-accent-purple mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-primary">Extreme Efficiency</h3>
-            <p class="text-text-secondary leading-relaxed">Run 70B+ models on consumer hardware. Ominix Edge optimizes inference for up to 30x lower latency.</p>
+            <h3 class="text-xl font-bold text-text-primary">极致效率</h3>
+            <p class="text-text-secondary leading-relaxed">在消费级硬件上运行 70B+ 模型。Ominix Edge 优化推理，延迟降低高达 30 倍。</p>
           </div>
           <div class="space-y-4 p-6 rounded-2xl hover:bg-white transition-colors duration-300">
             <div class="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center text-accent-cyan mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-primary">Full Control</h3>
-            <p class="text-text-secondary leading-relaxed">Open source from top to bottom. Modify the model, the agent framework, or the inference engine to fit your needs.</p>
+            <h3 class="text-xl font-bold text-text-primary">完全掌控</h3>
+            <p class="text-text-secondary leading-relaxed">从上到下的开源。修改模型、智能体框架或推理引擎以满足您的需求。</p>
           </div>
         </div>
       </div>

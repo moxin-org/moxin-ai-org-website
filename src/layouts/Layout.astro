@@ -13,12 +13,16 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isZh = currentPath.startsWith('/zh');
+const lang = isZh ? 'zh' : 'en';
+const defaultDesc = isZh ? "企业级 AI 解决方案平台" : "Enterprise AI Solution Platform";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
-    <Seo title={title} description={description || "Enterprise AI Solution Platform"} />
+    <Seo title={title} description={description || defaultDesc} />
   </head>
 
   <body class="font-inter bg-canvas-white text-text-primary min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased relative">
