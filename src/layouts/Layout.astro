@@ -2,6 +2,7 @@
 // Components
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
 import '../styles/global.css';
@@ -53,6 +54,7 @@ const defaultDesc = isZh ? "企业级 AI 解决方案平台" : "Enterprise AI So
         <slot />
       </main>
     </ErrorBoundary>
+    <Footer />
 
     <style is:global>
       .glass-nav {

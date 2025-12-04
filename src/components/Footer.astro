@@ -14,18 +14,18 @@ const mkPath = (path) => {
 };
 
 const footerText = isZh 
-  ? "© 2024 Moxin Intelligence. 开源企业级 AI 平台。构建未来。" 
-  : "© 2024 Moxin Intelligence. Open-source enterprise AI platform. Built for the future.";
+  ? "© 2025 Moxin Organization. 全栈开放 AI 生态系统，构建未来。" 
+  : "© 2025 Moxin Organization. Full-Stack Open AI Ecosystem. Built for the future.";
 ---
 
 <footer class={`py-12 px-6 border-t border-gray-200 dark:border-white/10 ${className}`}>
-  <div class="max-w-7xl mx-auto text-center">
-    <div class="flex items-center justify-center space-x-2 mb-4">
-      <img src={mkPath("/images/moxin.png")} alt="Moxin Intelligence" class="h-6 w-auto" />
-      <span class="text-text-primary dark:text-text-inverse font-semibold">Moxin Intelligence</span>
+  <div class="max-w-7xl mx-auto flex items-center justify-center gap-6">
+    <img src={mkPath("/images/moxin.png")} alt="Moxin Organization" class="h-16 w-auto" />
+    <div class="text-left">
+      <div class="text-text-primary dark:text-text-inverse font-semibold text-lg">Moxin Organization</div>
+      <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mt-1">
+        {footerText}
+      </p>
     </div>
-    <p class="text-text-secondary dark:text-text-secondary-inverse text-sm">
-      {footerText}
-    </p>
   </div>
 </footer>

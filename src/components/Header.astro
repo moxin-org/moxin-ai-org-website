@@ -38,7 +38,7 @@ const switchLangPath = isZh
 <nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href={mkPath(langPrefix + "/")} class="flex items-center space-x-2 group">
-      <img src={mkPath("/images/moxin.png")} alt="Moxin Intelligence" class="h-8 w-auto" />
+      <img src={mkPath("/images/moxin.png")} alt="Moxin Organization" class="h-8 w-auto" />
       <span class="text-text-primary dark:text-text-inverse font-semibold text-xl tracking-tight">Moxin Organization</span>
     </a>
 
@@ -49,47 +49,47 @@ const switchLangPath = isZh
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <!-- Dropdown -->
-        <div class="absolute top-full left-0 mt-2 w-96 bg-white dark:bg-gray-900 border border-gray-100 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left p-4 grid gap-4">
+        <div class="absolute top-full left-0 mt-2 w-96 bg-white dark:bg-[#1c1c1e] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left p-4 grid gap-4">
           
-          <!-- Application -->
+          <!-- Application (Pink #FF2D55) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
             <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '应用层 Application' : 'Application'}</div>
-            <a href={getLink("/products/applications")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
-              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1">Moly</div>
+            <a href={getLink("/products/applications")} class="block p-3 rounded-lg border border-transparent hover:border-[#FF2D55]/30 hover:bg-[#FF2D55]/5 transition-all group/app">
+              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/app:text-[#FF2D55] transition-colors">Moly</div>
               <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '用户界面 / "Super App" 客户端' : 'The User Interface / "Super App" Client'}</div>
             </a>
           </div>
 
-          <!-- Framework -->
+          <!-- Framework (Cyan #30B0C7 & Orange #FF9500) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
             <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '框架层 Framework' : 'Framework'}</div>
             <div class="grid grid-cols-2 gap-2">
-              <a href={getLink("/products/agents")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
-                <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1">MoFA</div>
+              <a href={getLink("/products/agents")} class="block p-3 rounded-lg hover:bg-[#30B0C7]/5 hover:border-[#30B0C7]/30 border border-transparent transition-all group/mofa">
+                <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/mofa:text-[#30B0C7] transition-colors">MoFA</div>
                 <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '智能体框架' : 'Agent Framework'}</div>
               </a>
-              <a href={getLink("/products/dora")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
-                <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1">DORA</div>
+              <a href={getLink("/products/dora")} class="block p-3 rounded-lg hover:bg-[#FF9500]/5 hover:border-[#FF9500]/30 border border-transparent transition-all group/dora">
+                <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/dora:text-[#FF9500] transition-colors">DORA</div>
                 <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '机器人数据流' : 'Robotic Flow'}</div>
               </a>
             </div>
              
           </div>
 
-          <!-- Models -->
+          <!-- Models (Purple #5E5CE6) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
              <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '模型层 Models' : 'Models'}</div>
-            <a href={getLink("/products/models")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
-              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1">Moxin LM</div>
+            <a href={getLink("/products/models")} class="block p-3 rounded-lg border border-transparent hover:border-[#5E5CE6]/30 hover:bg-[#5E5CE6]/5 transition-all group/models">
+              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/models:text-[#5E5CE6] transition-colors">Moxin LM</div>
               <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '智能核心 (权重, 语音模型, 微调)' : 'The Intelligence (Weights, Voice Models, Fine-tunes)'}</div>
             </a>
           </div>
 
-          <!-- Runtime -->
+          <!-- Runtime (Green #059669) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
              <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '运行时 Runtime' : 'Runtime'}</div>
-            <a href={getLink("/products/compute")} class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
-              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1">OminiX</div>
+            <a href={getLink("/products/compute")} class="block p-3 rounded-lg border border-transparent hover:border-[#059669]/30 hover:bg-[#059669]/5 transition-all group/runtime">
+              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/runtime:text-[#059669] transition-colors">OminiX</div>
               <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '边缘计算运行时 (本地)' : 'OminiX for Edge (Local)'}</div>
             </a>
           </div>

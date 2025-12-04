@@ -18,11 +18,11 @@ import Layout from '../../../layouts/Layout.astro';
     </div>
 
     <div class="max-w-3xl mx-auto mb-16 animate-fade-in relative z-10">
-      <div class="bg-white dark:bg-white/5 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-orange-500/20 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all cursor-pointer text-center transform hover:scale-105" onclick="window.open('https://dora-rs.ai', '_blank')">
-        <h3 class="text-2xl font-bold mb-3 text-text-primary dark:text-text-inverse">访问 DORA 官网</h3>
-        <p class="text-text-secondary dark:text-text-secondary-inverse mb-4 text-lg">探索文档、指南和API参考。</p>
+      <div class="bg-white dark:bg-white/5 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-orange-500/20 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all cursor-pointer text-center transform hover:scale-105" onclick="window.open('https://doracc.com/index.html', '_blank')">
+        <h3 class="text-2xl font-bold mb-3 text-text-primary dark:text-text-inverse">访问 DORA 中文社区</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse mb-4 text-lg">探索教程、示例和中文文档。</p>
         <span class="text-orange-500 font-bold text-lg flex items-center justify-center gap-2">
-          dora-rs.ai 
+          doracc.com 
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </span>
       </div>
@@ -33,34 +33,28 @@ import Layout from '../../../layouts/Layout.astro';
       <h2 class="text-3xl font-bold text-center mb-12 text-text-primary dark:text-text-inverse">为什么选择 DORA</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
-          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">极低延迟</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse">通过同一机器上的共享内存通信进行性能优化，消除了序列化开销。</p>
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">极致性能的零拷贝通信</h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">通过自研的共享内存服务器和标准化的 Apache Arrow 消息格式，在单机内部实现了真正的“零拷贝”数据传输，延迟极低。</p>
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
-          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">零拷贝数据传递</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse">基于 Apache Arrow 构建，支持跨语言的零拷贝读取，实现闪电般的数据访问速度。</p>
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">以数据流为核心的声明式架构</h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">通过简洁的 YAML 文件声明式地定义图结构。增强了应用的模块化、可组合性和可配置性，逻辑直观易管理。</p>
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
-          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">分布式与可扩展</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse">使用 TCP 在多台机器之间无缝扩展，非常适合分布式机器人系统。</p>
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">现代化的开发者体验</h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">支持热重载，运行时修改代码。提供大量开箱即用的预封装节点，助力快速搭建和验证原型系统。</p>
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
-          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">多语言支持</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse">使用 Python、Rust、C 或 C++ 编写节点。无需学习新语言即可构建强大的管道。</p>
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">强大的多语言与跨平台支持</h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">一流支持 Python、Rust、C 和 C++。解决 Python 性能瓶颈。原生支持 Linux、macOS 和 Windows。</p>
         </div>
-        <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all md:col-span-2 lg:col-span-2">
-          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">ROS2 桥接</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse mb-4">轻松集成现有的 ROS2 生态系统。</p>
-          <ul class="grid md:grid-cols-2 gap-4 text-sm text-text-secondary dark:text-text-secondary-inverse">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
-              免编译消息传递
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
-              自动 ROS2 &lt;-&gt; Arrow 转换
-            </li>
-          </ul>
+        <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">内置可观测性</h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">原生集成 OpenTelemetry，轻松收集日志、追踪和度量数据。兼容 Prometheus 等工具监控系统状态。</p>
+        </div>
+        <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">社区驱动与开放性</h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">完全开源。构建开放、活跃的开发者社区，汇集全球智慧，共同推动机器人技术的发展。</p>
         </div>
       </div>
     </section>
