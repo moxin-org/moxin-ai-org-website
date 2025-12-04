@@ -154,6 +154,11 @@ const switchLangPath = isZh
             
             // Dispatch a custom event for React components to listen to
             window.dispatchEvent(new Event('theme-change'));
+
+            // Force reflow for Safari to ensure background color updates
+            document.body.style.display = 'none';
+            document.body.offsetHeight; // Trigger reflow
+            document.body.style.display = '';
         });
       </script>
       <a href="https://github.com/moxin-org" target="_blank" class="text-text-secondary hover:text-text-primary dark:text-text-secondary-inverse dark:hover:text-text-inverse transition-colors">

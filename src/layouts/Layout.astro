@@ -6,6 +6,8 @@ import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
 import '../styles/global.css';
 
+import BackgroundAnimation from '../components/BackgroundAnimation.jsx';
+
 export interface Props {
   title: string;
   description?: string;
@@ -43,7 +45,8 @@ const defaultDesc = isZh ? "企业级 AI 解决方案平台" : "Enterprise AI So
     </script>
   </head>
 
-  <body class="font-inter text-text-primary dark:text-text-inverse min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased relative transition-colors duration-300">
+  <body class="bg-canvas-white dark:bg-canvas-black font-inter text-text-primary dark:text-text-inverse min-h-screen overflow-x-hidden selection:bg-accent-blue selection:text-white antialiased relative transition-colors duration-300">
+    <BackgroundAnimation client:only="react" />
     <Header />
     <ErrorBoundary client:load>
       <main>
