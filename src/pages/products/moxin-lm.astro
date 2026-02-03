@@ -137,16 +137,12 @@ const mkPath = (path) => {
         </p>
 
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white dark:bg-white/5 border border-accent-purple dark:border-accent-purple/30 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all relative overflow-hidden group">
-            <div class="absolute top-0 right-0 bg-accent-purple text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">NEW</div>
-            <h3 class="text-2xl font-bold mb-4 text-text-primary dark:text-text-inverse">Kimi K2</h3>
+          <!-- Kimi K2 -->
+          <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">Kimi K2 Thinking</h3>
             <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
-              Highly efficient, quantized version. Optimized for edge deployment.
+              Optimized GGUF version of Kimi K2 Thinking model.
             </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-accent-purple rounded-full text-[10px] font-medium">4-bit</span>
-              <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-accent-purple rounded-full text-[10px] font-medium">Marlin</span>
-            </div>
             <div class="flex gap-3">
               <a href="https://huggingface.co/moxin-org/Kimi-K2-Thinking-Moxin-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
                 <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
@@ -155,38 +151,86 @@ const mkPath = (path) => {
             </div>
           </div>
 
+          <!-- MiniMax M2 -->
           <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
-            <h3 class="text-2xl font-bold mb-4 text-text-primary dark:text-text-inverse">DeepSeek-R1</h3>
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">MiniMax M2</h3>
             <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
-              Reasoning model optimized for efficient deployment.
+              Efficient GGUF quantization for MiniMax M2.
             </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-accent-purple rounded-full text-[10px] font-medium">Q4_K_M</span>
-              <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-accent-purple rounded-full text-[10px] font-medium">Q8_0</span>
-            </div>
             <div class="flex gap-3">
-              <a href="https://huggingface.co/moxin-org/DeepSeek-R1-0528-Moxin-GGUF" target="_blank" class="flex-1 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
+              <a href="https://huggingface.co/moxin-org/MiniMax-M2-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
                 <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
                 Learn More
-              </a>
-              <a href="https://www.arxiv.org/abs/2509.25689" target="_blank" class="flex-1 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                Paper
               </a>
             </div>
           </div>
 
+          <!-- Qwen3 Next 80B -->
           <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
-            <h3 class="text-2xl font-bold mb-4 text-text-primary dark:text-text-inverse">DeepSeek-V3</h3>
-              Optimized for Ominix Edge.
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">Qwen3 Next 80B</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
+              A3B Instruct GGUF version of Qwen3 Next 80B.
+            </p>
             <div class="flex gap-3">
-              <a href="https://huggingface.co/moxin-org/DeepSeek-V3-0324-Moxin-GGUF" target="_blank" class="flex-1 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
+              <a href="https://huggingface.co/moxin-org/Qwen3-Next-80B-A3B-Instruct-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
                 <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
                 Learn More
               </a>
-              <a href="https://www.arxiv.org/abs/2509.25689" target="_blank" class="flex-1 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                Paper
+            </div>
+          </div>
+
+          <!-- Qwen3 235B -->
+          <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">Qwen3 235B</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
+              Massive 235B parameter model quantized for deployment.
+            </p>
+            <div class="flex gap-3">
+              <a href="https://huggingface.co/moxin-org/Qwen3-235B-A22B-Instruct-2507-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
+                <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- DeepSeek V3 -->
+          <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">DeepSeek V3</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
+              Latest DeepSeek V3 model optimized for Moxin.
+            </p>
+            <div class="flex gap-3">
+              <a href="https://huggingface.co/moxin-org/DeepSeek-V3-0324-Moxin-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
+                <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- GLM 4.6 -->
+          <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">GLM 4.6</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
+              General Language Model 4.6 GGUF quantization.
+            </p>
+            <div class="flex gap-3">
+              <a href="https://huggingface.co/moxin-org/GLM-4.6-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
+                <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- DeepSeek R1 -->
+          <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all">
+            <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse break-words">DeepSeek R1</h3>
+            <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-4">
+              Reasoning model optimized for efficient deployment.
+            </p>
+            <div class="flex gap-3">
+              <a href="https://huggingface.co/moxin-org/DeepSeek-R1-0528-Moxin-GGUF" target="_blank" class="w-full bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-text-primary dark:text-text-inverse px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 transition-all flex items-center justify-center gap-2">
+                <img src="/images/hf-logo.svg" class="w-4 h-4" alt="HF" />
+                Learn More
               </a>
             </div>
           </div>

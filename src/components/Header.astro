@@ -51,20 +51,26 @@ const switchLangPath = isZh
         <!-- Dropdown -->
         <div class="absolute top-full left-0 mt-2 w-96 bg-white dark:bg-[#1c1c1e] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left p-4 grid gap-4">
           
-          <!-- Application (Pink #FF2D55) -->
+          <!-- Application (Pink #FF2D55 & Cyan #30B0C7) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
             <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '应用层 Application' : 'Application'}</div>
-            <a href={getLink("/products/applications")} class="block p-3 rounded-lg border border-transparent hover:border-[#FF2D55]/30 hover:bg-[#FF2D55]/5 transition-all group/app">
-              <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/app:text-[#FF2D55] transition-colors">Moly</div>
-              <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '用户界面 / "Super App" 客户端' : 'The User Interface / "Super App" Client'}</div>
-            </a>
+            <div class="grid grid-cols-2 gap-2">
+              <a href={getLink("/products/moly")} class="block p-3 rounded-lg border border-transparent hover:border-[#FF2D55]/30 hover:bg-[#FF2D55]/5 transition-all group/app">
+                <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/app:text-[#FF2D55] transition-colors">Moly</div>
+                <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? 'AI 超级应用' : 'AI Super App'}</div>
+              </a>
+              <a href={getLink("/products/mofa")} class="block p-3 rounded-lg border border-transparent hover:border-[#30B0C7]/30 hover:bg-[#30B0C7]/5 transition-all group/studio">
+                <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/studio:text-[#30B0C7] transition-colors">MoFA Studio</div>
+                <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '智能体开发 IDE' : 'Agent Dev IDE'}</div>
+              </a>
+            </div>
           </div>
 
           <!-- Framework (Cyan #30B0C7 & Orange #FF9500) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
             <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '框架层 Framework' : 'Framework'}</div>
             <div class="grid grid-cols-2 gap-2">
-              <a href={getLink("/products/agents")} class="block p-3 rounded-lg hover:bg-[#30B0C7]/5 hover:border-[#30B0C7]/30 border border-transparent transition-all group/mofa">
+              <a href={getLink("/products/mofa")} class="block p-3 rounded-lg hover:bg-[#30B0C7]/5 hover:border-[#30B0C7]/30 border border-transparent transition-all group/mofa">
                 <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/mofa:text-[#30B0C7] transition-colors">MoFA</div>
                 <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '智能体框架' : 'Agent Framework'}</div>
               </a>
@@ -79,7 +85,7 @@ const switchLangPath = isZh
           <!-- Models (Purple #5E5CE6) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
              <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '模型层 Models' : 'Models'}</div>
-            <a href={getLink("/products/models")} class="block p-3 rounded-lg border border-transparent hover:border-[#5E5CE6]/30 hover:bg-[#5E5CE6]/5 transition-all group/models">
+            <a href={getLink("/products/moxin-lm")} class="block p-3 rounded-lg border border-transparent hover:border-[#5E5CE6]/30 hover:bg-[#5E5CE6]/5 transition-all group/models">
               <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/models:text-[#5E5CE6] transition-colors">Moxin LM</div>
               <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '智能核心 (权重, 语音模型, 微调)' : 'The Intelligence (Weights, Voice Models, Fine-tunes)'}</div>
             </a>
@@ -88,7 +94,7 @@ const switchLangPath = isZh
           <!-- Runtime (Green #059669) -->
           <div class="border border-gray-100 dark:border-white/5 rounded-xl p-2">
              <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 px-2">{isZh ? '运行时 Runtime' : 'Runtime'}</div>
-            <a href={getLink("/products/compute")} class="block p-3 rounded-lg border border-transparent hover:border-[#059669]/30 hover:bg-[#059669]/5 transition-all group/runtime">
+            <a href={getLink("/products/ominix")} class="block p-3 rounded-lg border border-transparent hover:border-[#059669]/30 hover:bg-[#059669]/5 transition-all group/runtime">
               <div class="text-text-primary dark:text-text-inverse font-semibold text-base mb-1 group-hover/runtime:text-[#059669] transition-colors">OminiX</div>
               <div class="text-sm text-text-secondary dark:text-text-secondary-inverse">{isZh ? '边缘计算运行时 (本地)' : 'OminiX for Edge (Local)'}</div>
             </a>

@@ -2,31 +2,59 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Agents - Moxin Org">
+<Layout title="MoFA - Moxin Org">
   <div class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
     <div class="text-center mb-16 animate-fade-in">
 
       <h1 class="text-5xl font-bold mb-6 leading-tight text-text-primary dark:text-text-inverse">
         MoFA <br />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-blue-500">
-          Composable Agent Framework
+          Make Ordinary Developers Full-stack AI Engineers
         </span>
       </h1>
       <p class="text-xl text-text-secondary dark:text-text-secondary-inverse max-w-3xl mx-auto font-light">
-        A modular framework for building complex agentic workflows. From debate to research, MoFA orchestrates the flow of intelligence with ease.
+        A modular framework designed to simplify AI agent development. Build, compose, and deploy intelligent agents through a composable, extensible architecture.
       </p>
     </div>
 
     <div class="max-w-3xl mx-auto mb-16 animate-fade-in relative z-10">
       <div class="bg-white dark:bg-white/5 bg-gradient-to-r from-accent-cyan/10 to-blue-500/10 border border-accent-cyan/20 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all cursor-pointer text-center transform hover:scale-105" onclick="window.open('https://mofa.ai', '_blank')">
-        <h3 class="text-2xl font-bold mb-3 text-text-primary dark:text-text-inverse">Visit MoFa Website</h3>
-        <p class="text-text-secondary dark:text-text-secondary-inverse mb-4 text-lg">Explore the full capabilities of the MoFa Agent Framework.</p>
+        <h3 class="text-2xl font-bold mb-3 text-text-primary dark:text-text-inverse">Visit MoFA Website</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse mb-4 text-lg">Get started in just 6 minutes with the MoFA Agent Framework.</p>
         <span class="text-accent-cyan font-bold text-lg flex items-center justify-center gap-2">
-          mofa.ai 
+          mofa.ai
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </span>
       </div>
     </div>
+
+    <!-- MoFA Projects -->
+    <section class="mb-24 animate-fade-in">
+      <h2 class="text-3xl font-bold text-center mb-12 text-text-primary dark:text-text-inverse">MoFA Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <a href="https://github.com/mofa-org/mofa" target="_blank" class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-lg hover:border-accent-cyan/50 transition-all group cursor-pointer">
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse group-hover:text-accent-cyan transition-colors flex items-center gap-2">
+            MoFA Framework
+            <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">The core framework providing the foundation for agent development. Features a composable architecture that allows connecting agents via YAML-defined flows, with built-in modules for RAG (embedding, splitting, vector stores), planning, and tool integration.</p>
+        </a>
+        <a href="https://mofa.ai" target="_blank" class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-lg hover:border-accent-cyan/50 transition-all group cursor-pointer">
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse group-hover:text-accent-cyan transition-colors flex items-center gap-2">
+            MoFA Stage
+            <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">A visual IDE for MoFA development. This web-based platform includes visual agent management, integrated web terminal with SSH access, Monaco-powered code editor with syntax highlighting, and real-time WebSocket communication.</p>
+        </a>
+        <a href="https://github.com/mofa-org/mofa-studio" target="_blank" class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-lg hover:border-accent-cyan/50 transition-all group cursor-pointer">
+          <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse group-hover:text-accent-cyan transition-colors flex items-center gap-2">
+            MoFA Studio
+            <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </h3>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">A desktop application for building and managing MoFA agents locally. Provides an intuitive interface for agent development, testing, and deployment workflows.</p>
+        </a>
+      </div>
+    </section>
 
     <!-- Why Choose MoFA -->
     <section class="mb-24 animate-fade-in">
@@ -38,11 +66,11 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
           <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">Rapid Agent Development</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse">Clear structure for agent development, reducing boilerplate. The MoFA Stage visual IDE accelerates the entire cycle from creation to debugging.</p>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">Get started in just 6 minutes with quick setup and visual IDE support. Clear structure for agent development reduces boilerplate significantly.</p>
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
           <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">Rich Agent Hub</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse">Access 100+ pre-built agents covering data connectors, LLM integrations, and specialized tools.</p>
+          <p class="text-text-secondary dark:text-text-secondary-inverse">Access 500+ pre-built agents covering data connectors, LLM integrations, and specialized tools from the Agent Hub.</p>
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
           <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">Highly Extensible</h3>
@@ -50,7 +78,7 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         <div class="bg-white dark:bg-white/5 p-8 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all md:col-span-2 lg:col-span-2">
           <h3 class="text-xl font-bold mb-4 text-text-primary dark:text-text-inverse">MoFA Stage IDE</h3>
-          <p class="text-text-secondary dark:text-text-secondary-inverse mb-4">A visual management platform for MoFA - your web-based IDE.</p>
+          <p class="text-text-secondary dark:text-text-secondary-inverse mb-4">A visual management platform for MoFA - your web-based IDE with full development capabilities.</p>
           <ul class="grid md:grid-cols-3 gap-4 text-sm text-text-secondary dark:text-text-secondary-inverse">
             <li class="flex items-center gap-2">
               <span class="w-2 h-2 bg-accent-cyan rounded-full"></span>
@@ -58,11 +86,23 @@ import Layout from '../../layouts/Layout.astro';
             </li>
             <li class="flex items-center gap-2">
               <span class="w-2 h-2 bg-accent-cyan rounded-full"></span>
-              Integrated Terminal
+              Integrated Terminal with SSH
             </li>
             <li class="flex items-center gap-2">
               <span class="w-2 h-2 bg-accent-cyan rounded-full"></span>
               Monaco Code Editor
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-accent-cyan rounded-full"></span>
+              Real-time WebSocket
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-accent-cyan rounded-full"></span>
+              500+ Pre-built Agents
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-accent-cyan rounded-full"></span>
+              Syntax Highlighting
             </li>
           </ul>
         </div>
