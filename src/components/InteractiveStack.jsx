@@ -57,7 +57,7 @@ const getNodes = (lang) => {
         {
             id: 'label-runtime',
             position: { x: -10, y: 335 },
-            data: { label: <LayerLabel title="RUNTIME" titleZh="运行时" /> },
+            data: { label: <LayerLabel title="INFERENCE" titleZh="推理层" /> },
             style: { background: 'transparent', border: 'none', width: 120, height: 40 },
             selectable: false,
             draggable: false,
@@ -73,7 +73,7 @@ const getNodes = (lang) => {
                 background: 'rgba(255, 45, 85, 0.08)',
                 border: '1px dashed rgba(255, 45, 85, 0.3)',
                 borderRadius: '16px',
-                width: 450,
+                width: 570,
                 height: 80,
             },
             selectable: false,
@@ -88,7 +88,7 @@ const getNodes = (lang) => {
                 background: 'rgba(48, 176, 199, 0.08)',
                 border: '1px dashed rgba(48, 176, 199, 0.3)',
                 borderRadius: '16px',
-                width: 450,
+                width: 570,
                 height: 80,
             },
             selectable: false,
@@ -103,7 +103,7 @@ const getNodes = (lang) => {
                 background: 'rgba(94, 92, 230, 0.08)',
                 border: '1px dashed rgba(94, 92, 230, 0.3)',
                 borderRadius: '16px',
-                width: 450,
+                width: 570,
                 height: 80,
             },
             selectable: false,
@@ -118,7 +118,7 @@ const getNodes = (lang) => {
                 background: 'rgba(5, 150, 105, 0.08)',
                 border: '1px dashed rgba(5, 150, 105, 0.3)',
                 borderRadius: '16px',
-                width: 450,
+                width: 570,
                 height: 80,
             },
             selectable: false,
@@ -126,10 +126,10 @@ const getNodes = (lang) => {
             connectable: false,
         },
 
-        // Application Layer - Moly and MoFA Studio
+        // Application Layer - Moly, MoFA Studio, OminiX Studio
         {
             id: 'app',
-            position: { x: 130, y: 25 },
+            position: { x: 125, y: 25 },
             data: {
                 label: <NodeLabel
                     title="Moly"
@@ -137,27 +137,40 @@ const getNodes = (lang) => {
                 />,
                 url: isZh ? '/zh/products/moly' : '/products/moly'
             },
-            style: { background: '#FF2D55', color: 'white', border: 'none', borderRadius: '14px', width: 200, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(255, 45, 85, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#FF2D55', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(255, 45, 85, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
         {
             id: 'mofa-studio',
-            position: { x: 350, y: 25 },
+            position: { x: 310, y: 25 },
             data: {
                 label: <NodeLabel
                     title="MoFA Studio"
-                    description={isZh ? '可视化智能体开发 IDE' : 'Visual Agent Development IDE'}
+                    description={isZh ? '可视化智能体开发 IDE' : 'Visual Agent Dev IDE'}
                 />,
                 url: isZh ? '/zh/products/mofa' : '/products/mofa'
             },
-            style: { background: '#30B0C7', color: 'white', border: 'none', borderRadius: '14px', width: 200, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(48, 176, 199, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#30B0C7', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(48, 176, 199, 0.3)', cursor: 'pointer', zIndex: 10 },
+            connectable: false,
+        },
+        {
+            id: 'ominix-studio',
+            position: { x: 495, y: 25 },
+            data: {
+                label: <NodeLabel
+                    title="OminiX Studio"
+                    description={isZh ? '原生多模态桌面应用' : 'Native Multimodal Desktop'}
+                />,
+                url: isZh ? '/zh/products/ominix' : '/products/ominix'
+            },
+            style: { background: '#059669', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(5, 150, 105, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
 
         // Framework Layer - MoFA and DORA
         {
             id: 'agents',
-            position: { x: 130, y: 125 },
+            position: { x: 125, y: 125 },
             data: {
                 label: <NodeLabel
                     title="MoFA"
@@ -165,12 +178,12 @@ const getNodes = (lang) => {
                 />,
                 url: isZh ? '/zh/products/mofa' : '/products/mofa'
             },
-            style: { background: '#30B0C7', color: 'white', border: 'none', borderRadius: '14px', width: 200, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(48, 176, 199, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#30B0C7', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(48, 176, 199, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
         {
             id: 'dora',
-            position: { x: 350, y: 125 },
+            position: { x: 310, y: 125 },
             data: {
                 label: <NodeLabel
                     title="DORA"
@@ -178,14 +191,14 @@ const getNodes = (lang) => {
                 />,
                 url: isZh ? '/zh/products/dora' : '/products/dora'
             },
-            style: { background: '#FF9500', color: 'white', border: 'none', borderRadius: '14px', width: 200, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(255, 149, 0, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#FF9500', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(255, 149, 0, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
 
         // Models Layer - Moxin LM
         {
             id: 'models',
-            position: { x: 240, y: 225 },
+            position: { x: 300, y: 225 },
             data: {
                 label: <NodeLabel
                     title="Moxin LM"
@@ -197,14 +210,27 @@ const getNodes = (lang) => {
             connectable: false,
         },
 
-        // Runtime Layer - OminiX
+        // Runtime Layer - OminiX-MLX and OminiX-API
         {
-            id: 'compute',
-            position: { x: 240, y: 325 },
+            id: 'ominix-mlx',
+            position: { x: 175, y: 325 },
             data: {
                 label: <NodeLabel
-                    title="OminiX"
-                    description={isZh ? '边缘计算运行时 (本地)' : 'Edge Computing Runtime (Local)'}
+                    title="OminiX-MLX"
+                    description={isZh ? '推理引擎 (Apple MLX)' : 'Inference Engine (Apple MLX)'}
+                />,
+                url: isZh ? '/zh/products/ominix' : '/products/ominix'
+            },
+            style: { background: '#059669', color: 'white', border: 'none', borderRadius: '14px', width: 200, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(5, 150, 105, 0.3)', cursor: 'pointer', zIndex: 10 },
+            connectable: false,
+        },
+        {
+            id: 'ominix-api',
+            position: { x: 420, y: 325 },
+            data: {
+                label: <NodeLabel
+                    title="OminiX-API"
+                    description={isZh ? 'OpenAI 兼容 API 服务' : 'OpenAI-Compatible API'}
                 />,
                 url: isZh ? '/zh/products/ominix' : '/products/ominix'
             },
@@ -216,16 +242,20 @@ const getNodes = (lang) => {
 
 const initialEdges = [
     // Clean vertical connections - top to bottom only
-    // Moly → MoFA (vertical left)
+    // Moly → MoFA
     { id: 'e-moly-mofa', source: 'app', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
-    // MoFA Studio → MoFA (connects to MoFA as user specified)
+    // MoFA Studio → MoFA
     { id: 'e-studio-mofa', source: 'mofa-studio', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
+    // OminiX Studio → OminiX-API (direct to runtime)
+    { id: 'e-ominix-studio-api', source: 'ominix-studio', target: 'ominix-api', animated: true, style: { stroke: '#059669', strokeWidth: 2 } },
     // MoFA → Moxin LM
     { id: 'e-mofa-models', source: 'agents', target: 'models', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
     // DORA → Moxin LM
     { id: 'e-dora-models', source: 'dora', target: 'models', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
-    // Moxin LM → OminiX
-    { id: 'e-models-compute', source: 'models', target: 'compute', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
+    // Moxin LM → OminiX-MLX
+    { id: 'e-models-mlx', source: 'models', target: 'ominix-mlx', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
+    // Moxin LM → OminiX-API
+    { id: 'e-models-api', source: 'models', target: 'ominix-api', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
 ];
 
 export default function InteractiveStack({ lang = 'en' }) {

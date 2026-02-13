@@ -169,6 +169,14 @@ const SystemArchitectureFlow = () => {
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
+    {
+      id: 'A5',
+      type: 'application',
+      position: { x: 900, y: 50 },
+      data: { label: 'OminiX Studio', description: 'Native AI Desktop' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
 
     // MolyKit Application Framework
     {
@@ -402,7 +410,7 @@ const SystemArchitectureFlow = () => {
     {
       id: 'IE1',
       type: 'infrastructure',
-      position: { x: 300, y: 1100 },
+      position: { x: 200, y: 1100 },
       data: { label: 'Server Inference', description: 'Datacenter Optimized' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
@@ -410,8 +418,16 @@ const SystemArchitectureFlow = () => {
     {
       id: 'IE2',
       type: 'infrastructure',
-      position: { x: 500, y: 1100 },
-      data: { label: 'OminiX Edge', description: 'Edge Optimized' },
+      position: { x: 400, y: 1100 },
+      data: { label: 'OminiX-MLX', description: 'Apple Silicon Inference' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
+    {
+      id: 'IE3',
+      type: 'infrastructure',
+      position: { x: 600, y: 1100 },
+      data: { label: 'OminiX-API', description: 'OpenAI-Compatible API' },
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
@@ -465,6 +481,8 @@ const SystemArchitectureFlow = () => {
     { id: 'A2-MK1', source: 'A2', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
     { id: 'A3-MK1', source: 'A3', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
     { id: 'A4-MK1', source: 'A4', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    // OminiX Studio connects directly to OminiX-API
+    { id: 'A5-IE3', source: 'A5', target: 'IE3', animated: true, style: { stroke: '#059669', strokeWidth: 2, strokeDasharray: '4 4' } },
 
     // From MolyKit to Moly Proxy (matching mermaid exactly)
     { id: 'MK1-MP1', source: 'MK1', target: 'MP1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
@@ -495,6 +513,8 @@ const SystemArchitectureFlow = () => {
     { id: 'EM2-IE2', source: 'EM2', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
     { id: 'EM3-IE2', source: 'EM3', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
     { id: 'EM4-IE2', source: 'EM4', target: 'IE2', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
+    // OminiX-MLX feeds into OminiX-API
+    { id: 'IE2-IE3', source: 'IE2', target: 'IE3', animated: true, style: { stroke: '#059669', strokeWidth: 2, strokeDasharray: '4 4' } },
 
     // From Inference Engines to Hardware (matching mermaid exactly)
     { id: 'IE1-HW1', source: 'IE1', target: 'HW1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
