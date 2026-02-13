@@ -198,7 +198,7 @@ const getNodes = (lang) => {
         // Models Layer - Moxin LM
         {
             id: 'models',
-            position: { x: 300, y: 225 },
+            position: { x: 200, y: 225 },
             data: {
                 label: <NodeLabel
                     title="Moxin LM"
@@ -210,27 +210,14 @@ const getNodes = (lang) => {
             connectable: false,
         },
 
-        // Runtime Layer - OminiX-MLX and OminiX-API
+        // Runtime Layer - OminiX
         {
-            id: 'ominix-mlx',
-            position: { x: 175, y: 325 },
+            id: 'ominix',
+            position: { x: 470, y: 325 },
             data: {
                 label: <NodeLabel
-                    title="OminiX-MLX"
-                    description={isZh ? '推理引擎 (Apple MLX)' : 'Inference Engine (Apple MLX)'}
-                />,
-                url: isZh ? '/zh/products/ominix' : '/products/ominix'
-            },
-            style: { background: '#059669', color: 'white', border: 'none', borderRadius: '14px', width: 200, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(5, 150, 105, 0.3)', cursor: 'pointer', zIndex: 10 },
-            connectable: false,
-        },
-        {
-            id: 'ominix-api',
-            position: { x: 420, y: 325 },
-            data: {
-                label: <NodeLabel
-                    title="OminiX-API"
-                    description={isZh ? 'OpenAI 兼容 API 服务' : 'OpenAI-Compatible API'}
+                    title="OminiX"
+                    description={isZh ? '边缘推理引擎' : 'Edge Inference Engine'}
                 />,
                 url: isZh ? '/zh/products/ominix' : '/products/ominix'
             },
@@ -246,16 +233,14 @@ const initialEdges = [
     { id: 'e-moly-mofa', source: 'app', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
     // MoFA Studio → MoFA
     { id: 'e-studio-mofa', source: 'mofa-studio', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
-    // OminiX Studio → OminiX-API (direct to runtime)
-    { id: 'e-ominix-studio-api', source: 'ominix-studio', target: 'ominix-api', animated: true, style: { stroke: '#059669', strokeWidth: 2 } },
+    // OminiX Studio → OminiX (direct to runtime)
+    { id: 'e-ominix-studio-runtime', source: 'ominix-studio', target: 'ominix', animated: true, style: { stroke: '#059669', strokeWidth: 2 } },
     // MoFA → Moxin LM
     { id: 'e-mofa-models', source: 'agents', target: 'models', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
     // DORA → Moxin LM
     { id: 'e-dora-models', source: 'dora', target: 'models', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
-    // Moxin LM → OminiX-MLX
-    { id: 'e-models-mlx', source: 'models', target: 'ominix-mlx', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
-    // Moxin LM → OminiX-API
-    { id: 'e-models-api', source: 'models', target: 'ominix-api', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
+    // Moxin LM → OminiX
+    { id: 'e-models-ominix', source: 'models', target: 'ominix', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
 ];
 
 export default function InteractiveStack({ lang = 'en' }) {

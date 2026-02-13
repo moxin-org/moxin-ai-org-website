@@ -14,7 +14,7 @@ const { title, description, noindex, pageTransitionName } = Astro.props;
 <meta name="description" content={description}>
 {noindex && <meta name="robots" content="noindex" />}
 <title>{title}</title>
-<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL}/images/moxin.png`} />
+<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL}/images/favicon.png`} />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
