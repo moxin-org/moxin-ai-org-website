@@ -6,6 +6,34 @@ const mkPath = (path) => {
   const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
   return `${cleanBase}${path.startsWith('/') ? path : '/' + path}`;
 };
+
+const voiceHighlights = [
+  {
+    title: 'Zero-Shot Voice Cloning',
+    description: 'Create a usable voice profile from just 5-10 seconds of reference audio for fast demos and personalized speech experiences.',
+  },
+  {
+    title: 'Few-Shot High-Fidelity Training',
+    description: 'Train a more stable and accurate custom voice model with 3-10 minutes of audio when quality matters most.',
+  },
+  {
+    title: 'Local TTS + ASR',
+    description: 'Keep text-to-speech, automatic speech recognition, recording, playback, and export inside a fully local pipeline.',
+  },
+  {
+    title: 'Native Performance Stack',
+    description: 'Built with Rust, Makepad, and GPT-SoVITS v2 to optimize privacy, responsiveness, and deployment flexibility.',
+  },
+];
+
+const voiceCapabilities = [
+  'Human-like text-to-speech and automatic speech recognition running entirely on-device',
+  'Recording, preview, and WAV export built into a workflow that is easy to demo and integrate',
+  '14+ preset voices with room to extend, fine-tune, and train custom voice profiles',
+  'Well-suited for desktop apps, edge devices, voice-enabled agents, and research workflows',
+];
+
+const voiceStats = ['Runs locally', '5-10s cloning', '3-10 min training', '14+ preset voices'];
 ---
 
 <Layout title="Models - Moxin Org">
@@ -245,78 +273,158 @@ const mkPath = (path) => {
           <div class="h-px flex-1 bg-gray-200 dark:bg-white/10"></div>
         </div>
 
-        <div class="max-w-2xl mx-auto">
-          <div class="bg-white dark:bg-white/5 border border-accent-purple dark:border-accent-purple/30 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-accent-purple transition-all relative overflow-hidden group">
-            <div class="absolute top-0 right-0 bg-accent-purple text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">NEW</div>
-            <h3 class="text-2xl font-bold mb-4 text-text-primary dark:text-text-inverse">Moxin Voice</h3>
-            <p class="text-text-secondary dark:text-text-secondary-inverse text-sm mb-6 leading-relaxed">
-              Human-like Text-to-Speech and Automatic Speech Recognition running entirely locally. No cloud APIs, no latency.
-            </p>
-            
-            <div class="grid grid-cols-4 gap-4 mb-6">
-              <!-- Waveform Visual -->
-              <div class="col-span-1 flex items-center justify-center gap-1 h-16 bg-gray-50 dark:bg-white/10 rounded-xl">
-                <div class="w-1.5 bg-accent-purple h-6 animate-pulse rounded-full"></div>
-                <div class="w-1.5 bg-accent-purple h-12 animate-pulse rounded-full" style="animation-delay: 0.1s"></div>
-                <div class="w-1.5 bg-accent-purple h-8 animate-pulse rounded-full" style="animation-delay: 0.2s"></div>
-                <div class="w-1.5 bg-accent-purple h-10 animate-pulse rounded-full" style="animation-delay: 0.3s"></div>
-                <div class="w-1.5 bg-accent-purple h-5 animate-pulse rounded-full" style="animation-delay: 0.4s"></div>
+        <p class="text-center text-text-secondary dark:text-text-secondary-inverse max-w-3xl mx-auto mb-10 leading-relaxed">
+          <span class="font-semibold text-text-primary dark:text-text-inverse">Moxin Voice</span>
+          brings speech synthesis, voice cloning, and speech recognition into a single fully local workflow for desktop products, edge devices, and research environments.
+        </p>
+
+        <div class="max-w-6xl mx-auto mb-10">
+          <div class="bg-white dark:bg-white/5 border border-accent-purple/20 dark:border-accent-purple/30 rounded-[2rem] p-6 md:p-8 shadow-[0_24px_60px_-28px_rgba(124,58,237,0.35)] relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.16),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.12),transparent_28%)] pointer-events-none"></div>
+            <div class="absolute top-0 right-0 bg-accent-purple text-white text-xs font-bold px-3 py-1.5 rounded-bl-2xl">NEW</div>
+
+            <div class="relative flex flex-col gap-8">
+              <div class="flex flex-col gap-6">
+                <div class="flex flex-wrap gap-2">
+                  {voiceStats.map((item) => (
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-accent-purple/10 text-accent-purple border border-accent-purple/15">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin Voice</h3>
+                <p class="text-base md:text-lg text-text-secondary dark:text-text-secondary-inverse leading-relaxed max-w-3xl">
+                  Text-to-speech and automatic speech recognition that run entirely on-device, with no cloud API dependency and a strong focus on speed, privacy, and flexible deployment.
+                </p>
+
+                <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+                  <div class="space-y-3">
+                    {voiceCapabilities.map((item) => (
+                      <div class="flex items-start gap-3">
+                        <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent-purple/10 text-accent-purple shrink-0">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        </span>
+                        <p class="text-sm md:text-base text-text-secondary dark:text-text-secondary-inverse leading-relaxed">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div class="flex items-center justify-center">
+                    <div class="w-full max-w-[320px] flex flex-col gap-3">
+                      <a href="https://github.com/moxin-org/Moxin-Voice" target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-accent-purple text-white font-semibold shadow-lg shadow-purple-500/20 hover:bg-purple-600 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.48.11-3.08 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.79.12 3.08.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.77 1.07.77 2.16 0 1.56-.01 2.82-.01 3.21 0 .31.21.67.8.56a11.53 11.53 0 007.85-10.96C23.5 5.66 18.35.5 12 .5z"></path></svg>
+                        View Moxin Voice on GitHub
+                      </a>
+                      <a href="https://github.com/moxin-org/Moxin-Voice#readme" target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-white/5 text-text-primary dark:text-text-inverse border border-gray-200 dark:border-white/10 font-semibold hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6m0 0v6m0-6L10 16l-5-5"></path></svg>
+                        Read the project docs
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-full rounded-[1.75rem] border border-gray-200 dark:border-white/10 bg-white/75 dark:bg-white/5 backdrop-blur-sm p-5 md:p-6 shadow-sm">
+                  <div class="flex items-center justify-between gap-4 mb-5">
+                    <p class="text-base font-semibold text-text-primary dark:text-text-inverse">Voice Sample</p>
+                    <span class="text-xs px-3 py-1 rounded-full bg-accent-purple/10 text-accent-purple border border-accent-purple/15">WAV / MP3</span>
+                  </div>
+
+                  <div class="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5">
+                    <div class="md:w-32 h-24 rounded-[1.5rem] bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 flex items-center justify-center shrink-0">
+                      <div class="flex items-center gap-1.5">
+                        <div class="w-1.5 bg-accent-purple h-8 animate-pulse rounded-full"></div>
+                        <div class="w-1.5 bg-accent-purple h-14 animate-pulse rounded-full" style="animation-delay: 0.1s"></div>
+                        <div class="w-1.5 bg-accent-purple h-10 animate-pulse rounded-full" style="animation-delay: 0.2s"></div>
+                        <div class="w-1.5 bg-accent-purple h-12 animate-pulse rounded-full" style="animation-delay: 0.3s"></div>
+                        <div class="w-1.5 bg-accent-purple h-7 animate-pulse rounded-full" style="animation-delay: 0.4s"></div>
+                      </div>
+                    </div>
+
+                    <div class="flex-1 bg-white dark:bg-white/10 rounded-[1.5rem] p-4 md:p-5 border border-gray-200 dark:border-white/10">
+                      <div class="flex items-center gap-4">
+                        <button id="voice-play-btn" aria-label="Play voice sample" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-accent-purple text-white rounded-full hover:bg-purple-600 transition-colors shrink-0 shadow-md shadow-purple-500/20">
+                          <svg id="voice-play-icon" class="w-5 h-5 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
+                          <svg id="voice-pause-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"></path></svg>
+                        </button>
+                        <div class="flex-1">
+                          <p class="text-base font-semibold text-text-primary dark:text-text-inverse mb-3">Moxin Voice Doubao sample</p>
+                          <input type="range" id="voice-seek-slider" class="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-accent-purple" value="0" max="100">
+                        </div>
+                        <audio id="voice-demo-audio" src={mkPath("/resources/moxin-voice-demo.mp3")} preload="metadata"></audio>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div class="col-span-3 bg-gray-50 dark:bg-white/10 rounded-xl p-3 flex items-center gap-3 border border-gray-100 dark:border-white/5 h-16">
-                <button id="play-btn" class="w-10 h-10 flex items-center justify-center bg-accent-purple text-white rounded-full hover:bg-purple-600 transition-colors shrink-0 shadow-md shadow-purple-500/20">
-                  <svg id="play-icon" class="w-5 h-5 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
-                  <svg id="pause-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"></path></svg>
-                </button>
-                <div class="flex-1">
-                  <input type="range" id="seek-slider" class="w-full h-1 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-accent-purple" value="0" max="100">
+              <div class="rounded-[2rem] border border-accent-purple/15 dark:border-accent-purple/25 bg-white/80 dark:bg-slate-950/35 backdrop-blur-sm p-3 md:p-4 shadow-[0_24px_60px_-28px_rgba(59,130,246,0.28)]">
+                <div class="rounded-[1.5rem] overflow-hidden border border-accent-purple/10 dark:border-white/10 bg-slate-100 dark:bg-slate-950/70">
+                  <video class="block w-full h-auto" autoplay loop muted playsinline preload="metadata">
+                    <source src={mkPath("/resources/moxin-voice-demo.mp4")} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
-                <audio id="demo-audio" src={mkPath("/resources/test30.wav")} preload="metadata"></audio>
               </div>
             </div>
-
-            
-            <script>
-              const audio = document.getElementById('demo-audio');
-              const playBtn = document.getElementById('play-btn');
-              const playIcon = document.getElementById('play-icon');
-              const pauseIcon = document.getElementById('pause-icon');
-              const seekSlider = document.getElementById('seek-slider');
-
-              if (audio && playBtn && seekSlider) {
-                playBtn.addEventListener('click', () => {
-                  if (audio.paused) {
-                    audio.play();
-                    playIcon.classList.add('hidden');
-                    pauseIcon.classList.remove('hidden');
-                  } else {
-                    audio.pause();
-                    playIcon.classList.remove('hidden');
-                    pauseIcon.classList.add('hidden');
-                  }
-                });
-
-                audio.addEventListener('timeupdate', () => {
-                  if (!audio.duration) return;
-                  const progress = (audio.currentTime / audio.duration) * 100;
-                  seekSlider.value = progress;
-                });
-
-                seekSlider.addEventListener('input', () => {
-                  if (!audio.duration) return;
-                  const time = (seekSlider.value / 100) * audio.duration;
-                  audio.currentTime = time;
-                });
-
-                audio.addEventListener('ended', () => {
-                  playIcon.classList.remove('hidden');
-                  pauseIcon.classList.add('hidden');
-                  seekSlider.value = 0;
-                });
-              }
-            </script>
           </div>
         </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {voiceHighlights.map((item) => (
+            <div class="bg-white dark:bg-white/5 p-6 rounded-3xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md hover:border-accent-purple/40 transition-all">
+              <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse">{item.title}</h3>
+              <p class="text-sm leading-relaxed text-text-secondary dark:text-text-secondary-inverse">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <script>
+          const audio = document.getElementById('voice-demo-audio');
+          const playBtn = document.getElementById('voice-play-btn');
+          const playIcon = document.getElementById('voice-play-icon');
+          const pauseIcon = document.getElementById('voice-pause-icon');
+          const seekSlider = document.getElementById('voice-seek-slider');
+
+          if (audio && playBtn && playIcon && pauseIcon && seekSlider) {
+            const syncIcons = () => {
+              if (audio.paused) {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+              } else {
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+              }
+            };
+
+            playBtn.addEventListener('click', () => {
+              if (audio.paused) {
+                audio.play();
+              } else {
+                audio.pause();
+              }
+              syncIcons();
+            });
+
+            audio.addEventListener('play', syncIcons);
+            audio.addEventListener('pause', syncIcons);
+
+            audio.addEventListener('timeupdate', () => {
+              if (!audio.duration) return;
+              seekSlider.value = String((audio.currentTime / audio.duration) * 100);
+            });
+
+            seekSlider.addEventListener('input', () => {
+              if (!audio.duration) return;
+              audio.currentTime = (Number(seekSlider.value) / 100) * audio.duration;
+            });
+
+            audio.addEventListener('ended', () => {
+              seekSlider.value = '0';
+              syncIcons();
+            });
+          }
+        </script>
       </div>
 
     </div>
