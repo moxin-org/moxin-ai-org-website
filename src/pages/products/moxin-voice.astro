@@ -1,0 +1,410 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Moxin Voice - Pure Rust AI Voice Synthesis - Moxin Org">
+  <!-- Hero -->
+  <div class="pt-32 pb-16 px-6 max-w-7xl mx-auto text-center">
+    <h1 class="text-5xl font-bold mb-8 text-text-primary dark:text-text-inverse animate-fade-in">
+      Moxin Voice <br />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600">
+        Real-Time Translation & Voice Synthesis in Pure Rust
+      </span>
+    </h1>
+    <p class="text-xl text-text-secondary dark:text-text-secondary-inverse max-w-3xl mx-auto mb-8 font-light">
+      Live bilingual translation, GPU-accelerated text-to-speech, and zero-shot voice cloning &mdash; all running locally on Apple Silicon. Built entirely in Rust with zero Python dependencies.
+    </p>
+
+    <!-- GOSIM Paris 2026 Banner -->
+    <div class="max-w-2xl mx-auto mb-12 animate-fade-in">
+      <div class="bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl p-[1px]">
+        <div class="bg-white dark:bg-[#1c1c1e] rounded-2xl px-6 py-4 flex items-center justify-center gap-3 flex-wrap">
+          <span class="text-xs font-bold text-white bg-violet-600 px-2.5 py-1 rounded-full uppercase tracking-wider">Live Demo</span>
+          <span class="text-sm font-semibold text-text-primary dark:text-text-inverse">Deploying at GOSIM Paris 2026</span>
+          <span class="text-xs text-text-secondary dark:text-text-secondary-inverse">&mdash; live translation for conference talks</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto mb-12 animate-fade-in relative z-10">
+      <div class="bg-white dark:bg-white/5 bg-gradient-to-r from-violet-600/10 to-fuchsia-600/10 dark:from-violet-900/20 dark:to-fuchsia-900/20 border border-violet-600/20 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all cursor-pointer text-center transform hover:scale-105" onclick="window.open('https://github.com/moxin-org/Moxin-Voice', '_blank')">
+        <h3 class="text-2xl font-bold mb-3 text-text-primary dark:text-text-inverse">Explore on GitHub</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse mb-4 text-lg">Open source under Apache 2.0. Clone, build, and run locally.</p>
+        <span class="text-violet-600 font-bold text-lg flex items-center justify-center gap-2">
+          github.com/moxin-org/Moxin-Voice
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- Performance Stats -->
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-4">
+      <div class="text-center">
+        <p class="text-4xl font-bold text-violet-600 dark:text-violet-400">2.3x</p>
+        <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mt-1">Real-time TTS Synthesis</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl font-bold text-violet-600 dark:text-violet-400">9</p>
+        <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mt-1">Preset Voices (4 Languages)</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl font-bold text-violet-600 dark:text-violet-400">0s</p>
+        <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mt-1">Training for Voice Cloning</p>
+      </div>
+    </div>
+    <p class="text-xs text-text-secondary dark:text-text-secondary-inverse mb-8">Benchmarked on Apple M3 Max &bull; Qwen3-TTS 1.7B 8-bit quantized</p>
+  </div>
+
+  <!-- Core Capabilities -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">Core Capabilities</h2>
+
+    <!-- Live Translation (Featured) -->
+    <div class="bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-900/10 dark:to-fuchsia-900/10 border-2 border-violet-200 dark:border-violet-800/30 rounded-3xl p-8 mb-6 shadow-md hover:shadow-lg transition-shadow relative overflow-hidden">
+      <div class="absolute top-4 right-4">
+        <span class="text-xs font-bold text-white bg-violet-600 px-3 py-1 rounded-full uppercase tracking-wider">Flagship Feature</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="h-12 w-12 bg-violet-100 dark:bg-violet-900/40 rounded-xl flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-text-primary dark:text-text-inverse">Live Translation</h3>
+              <p class="text-sm text-violet-600 dark:text-violet-400 font-medium">Real-time bilingual subtitles &mdash; deploying at GOSIM Paris 2026</p>
+            </div>
+          </div>
+          <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed mb-4 text-base">
+            A real-time bilingual subtitle overlay that captures any audio source and produces live translated subtitles in a floating window. Designed for conferences, meetings, and live events where language barriers matter.
+          </p>
+          <div class="grid md:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">ASR Pipeline</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                Powered by <strong>Qwen3-ASR-1.7B</strong> (8-bit quantized), running entirely in Rust via OminiX MLX on Metal GPU. VAD-segmented for accurate sentence boundaries with real-time streaming output.
+              </p>
+            </div>
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">Translation Engine</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                Rolling translation with context-aware windowing for coherent output. Bilingual subtitle pairs (e.g. Chinese &harr; English) render in a native overlay window that stays above all apps.
+              </p>
+            </div>
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">Audio Capture</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                Captures system audio directly via macOS <strong>ScreenCaptureKit</strong> &mdash; no virtual audio drivers, no kernel extensions. Also supports microphone input for in-person scenarios.
+              </p>
+            </div>
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">GOSIM Paris 2026</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                Being deployed for <strong>live conference translation</strong> at GOSIM Paris 2026, providing real-time bilingual subtitles for keynotes and technical sessions to a multilingual audience.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">Qwen3-ASR-1.7B</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">ScreenCaptureKit</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">Floating Overlay</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">VAD Segmentation</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">OminiX MLX</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">Zero Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TTS -->
+    <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 mb-6 shadow-sm hover:shadow-md transition-shadow">
+      <div class="flex flex-col md:flex-row md:items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="h-10 w-10 bg-violet-50 dark:bg-violet-900/30 rounded-lg flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">Text-to-Speech</h3>
+              <p class="text-sm text-violet-600 dark:text-violet-400 font-medium">9 preset voices, 4 languages</p>
+            </div>
+          </div>
+          <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed mb-4">
+            High-quality neural speech synthesis powered by <strong>Qwen3-TTS</strong> (1.7B parameters, 8-bit quantized) running on Metal GPU via OminiX MLX. 2.3x real-time synthesis speed. Supports Chinese, English, Japanese, and Korean with distinct voice characters.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">Qwen3-TTS-1.7B</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">Chinese</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">English</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">Japanese</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">Korean</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">WAV Export</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice Cloning -->
+    <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+      <div class="flex flex-col md:flex-row md:items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="h-10 w-10 bg-fuchsia-50 dark:bg-fuchsia-900/30 rounded-lg flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">Zero-Shot Voice Cloning</h3>
+              <p class="text-sm text-fuchsia-600 dark:text-fuchsia-400 font-medium">Clone any voice in seconds</p>
+            </div>
+          </div>
+          <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed mb-4">
+            Record or upload 5-30 seconds of reference audio and clone any voice instantly using In-Context Learning (ICL Express mode). Uses <strong>Qwen3-TTS-Base</strong> (1.7B, 8-bit) for synthesis and <strong>Qwen3-ASR</strong> (1.7B, 8-bit) for automatic reference audio transcription. No training, no fine-tuning, no cloud upload.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">5-30s Reference Audio</span>
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">ICL Express</span>
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">No Training</span>
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">Fully Local</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technology Stack -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">Built on the Moxin Stack</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">Makepad</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">GPU-accelerated UI framework, pure Rust</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">OminiX MLX</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Rust ML inference on Apple Metal GPU</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">DORA</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Dataflow orchestration for voice pipelines</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">Qwen3-TTS 1.7B</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Speech synthesis, 8-bit quantized</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">Qwen3-ASR 1.7B</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Speech recognition, 8-bit quantized</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">CPAL</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Cross-platform audio I/O in Rust</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison vs ElevenLabs & MiniMax -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-4 text-text-primary dark:text-text-inverse">How It Compares</h2>
+    <p class="text-center text-text-secondary dark:text-text-secondary-inverse mb-10 max-w-2xl mx-auto">
+      Leading TTS platforms like ElevenLabs and MiniMax offer powerful cloud APIs. Moxin Voice takes a fundamentally different approach: everything runs locally, in pure Rust, on your hardware.
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-200 dark:border-white/10">
+            <th class="text-left py-4 px-4 font-semibold text-text-primary dark:text-text-inverse"></th>
+            <th class="text-center py-4 px-4 font-bold text-violet-600 dark:text-violet-400">Moxin Voice</th>
+            <th class="text-center py-4 px-4 font-semibold text-text-secondary dark:text-text-secondary-inverse">ElevenLabs</th>
+            <th class="text-center py-4 px-4 font-semibold text-text-secondary dark:text-text-secondary-inverse">MiniMax TTS</th>
+          </tr>
+        </thead>
+        <tbody class="text-text-secondary dark:text-text-secondary-inverse">
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Runtime</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">100% Local</td>
+            <td class="py-3 px-4 text-center">Cloud API</td>
+            <td class="py-3 px-4 text-center">Cloud API</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Language</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Pure Rust</td>
+            <td class="py-3 px-4 text-center">Python (server)</td>
+            <td class="py-3 px-4 text-center">Python (server)</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Data Privacy</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Never leaves device</td>
+            <td class="py-3 px-4 text-center">Uploaded to cloud</td>
+            <td class="py-3 px-4 text-center">Uploaded to cloud</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Live Translation</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Built-in, on-device</td>
+            <td class="py-3 px-4 text-center">Dubbing Studio (cloud)</td>
+            <td class="py-3 px-4 text-center">Not available</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Voice Cloning</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Zero-shot, on-device</td>
+            <td class="py-3 px-4 text-center">Instant / Professional</td>
+            <td class="py-3 px-4 text-center">API-based</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Pricing</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Free & Open Source</td>
+            <td class="py-3 px-4 text-center">$5-$330/mo</td>
+            <td class="py-3 px-4 text-center">Pay-per-character</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Latency</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Instant (no network)</td>
+            <td class="py-3 px-4 text-center">Network-dependent</td>
+            <td class="py-3 px-4 text-center">Network-dependent</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Internet Required</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">No</td>
+            <td class="py-3 px-4 text-center">Yes</td>
+            <td class="py-3 px-4 text-center">Yes</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Memory Safety</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Rust ownership model</td>
+            <td class="py-3 px-4 text-center">N/A (cloud)</td>
+            <td class="py-3 px-4 text-center">N/A (cloud)</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">Source Code</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Apache 2.0</td>
+            <td class="py-3 px-4 text-center">Proprietary</td>
+            <td class="py-3 px-4 text-center">Proprietary</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Why Pure Rust -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">Why Pure Rust Matters</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">Zero Python, Zero Overhead</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          No Python runtime, no virtualenv, no pip conflicts. The entire TTS pipeline &mdash; from UI to GPU inference &mdash; compiles to a single native binary. No GIL, no garbage collection pauses during synthesis.
+        </p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">Memory Safety at the GPU Boundary</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          Rust's ownership model extends into Metal GPU operations via OminiX MLX. Buffer lifetimes, tensor shapes, and kernel dispatch are all checked at compile time &mdash; eliminating crashes from dangling pointers or buffer overflows.
+        </p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">Native Performance</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          2.3x real-time synthesis speed on Apple Silicon. No interpreter overhead, no FFI marshaling between Python and C. The audio pipeline runs at native speed from text input to speaker output.
+        </p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">Ship as a Single Binary</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          <code class="text-xs bg-gray-100 dark:bg-white/10 px-1 py-0.5 rounded">cargo build --release</code> produces one self-contained executable. No Docker, no conda environments, no system-wide library conflicts. Just download, build, and run.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voice Library -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">Voice Library</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full font-medium">ZH</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Vivian</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Bright, slightly edgy young female</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full font-medium">ZH</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Serena</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Warm, gentle young female</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full font-medium">ZH</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Uncle Fu</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Low, mellow seasoned male</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full font-medium">ZH</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Dylan</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Clear Beijing young male</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-medium">EN</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Ryan</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Dynamic male with rhythmic drive</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-medium">EN</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Aiden</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Sunny American male</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-pink-50 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full font-medium">JA</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Ono Anna</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Playful Japanese female</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">KO</span>
+          <span class="font-bold text-text-primary dark:text-text-inverse">Sohee</span>
+        </div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Warm Korean female</p>
+      </div>
+      <div class="bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-900/20 dark:to-fuchsia-900/20 p-5 rounded-2xl border border-violet-200 dark:border-violet-800/30">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs px-2 py-0.5 bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300 rounded-full font-medium">ICL</span>
+          <span class="font-bold text-violet-700 dark:text-violet-300">+ Your Voice</span>
+        </div>
+        <p class="text-xs text-violet-600 dark:text-violet-400">Clone any voice with 5-30s of audio</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Start -->
+  <div class="px-6 max-w-5xl mx-auto mb-24">
+    <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-lg">
+      <h2 class="text-2xl font-bold mb-2 text-text-primary dark:text-text-inverse">Quick Start</h2>
+      <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mb-6">
+        Requires macOS 14.0+ (Sonoma) &bull; Apple Silicon (M1/M2/M3/M4) &bull; Rust 1.82+ &bull; Dora CLI
+      </p>
+      <div class="bg-gray-900 dark:bg-black/40 rounded-xl p-5 font-mono text-sm text-violet-400 overflow-x-auto">
+        <p class="text-gray-500"># Install Dora CLI</p>
+        <p>cargo install dora-cli --locked</p>
+        <p class="mt-3 text-gray-500"># Clone the repository</p>
+        <p>git clone https://github.com/moxin-org/Moxin-Voice.git</p>
+        <p>cd Moxin-Voice</p>
+        <p class="mt-3 text-gray-500"># Download TTS models (~3.5 GB)</p>
+        <p>python3 scripts/download_models.py</p>
+        <p class="mt-3 text-gray-500"># Build and run</p>
+        <p>cargo build --release</p>
+        <p>dora up && dora start apps/moxin-voice/dataflow/tts.yml</p>
+      </div>
+    </div>
+  </div>
+</Layout>

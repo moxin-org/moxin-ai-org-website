@@ -126,7 +126,7 @@ const getNodes = (lang) => {
             connectable: false,
         },
 
-        // Application Layer - Moly, MoFA Studio, OminiX Studio
+        // Application Layer - Moly, MoFA Studio, Moxin Voice, OminiX Studio
         {
             id: 'app',
             position: { x: 125, y: 25 },
@@ -137,12 +137,12 @@ const getNodes = (lang) => {
                 />,
                 url: isZh ? '/zh/products/moly' : '/products/moly'
             },
-            style: { background: '#FF2D55', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(255, 45, 85, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#FF2D55', color: 'white', border: 'none', borderRadius: '14px', width: 130, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(255, 45, 85, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
         {
             id: 'mofa-studio',
-            position: { x: 310, y: 25 },
+            position: { x: 268, y: 25 },
             data: {
                 label: <NodeLabel
                     title="MoFA Studio"
@@ -150,12 +150,25 @@ const getNodes = (lang) => {
                 />,
                 url: isZh ? '/zh/products/mofa' : '/products/mofa'
             },
-            style: { background: '#30B0C7', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(48, 176, 199, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#30B0C7', color: 'white', border: 'none', borderRadius: '14px', width: 130, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(48, 176, 199, 0.3)', cursor: 'pointer', zIndex: 10 },
+            connectable: false,
+        },
+        {
+            id: 'moxin-voice',
+            position: { x: 411, y: 25 },
+            data: {
+                label: <NodeLabel
+                    title="Moxin Voice"
+                    description={isZh ? '实时翻译 & 语音合成' : 'Live Translation & TTS'}
+                />,
+                url: isZh ? '/zh/products/moxin-voice' : '/products/moxin-voice'
+            },
+            style: { background: '#8B5CF6', color: 'white', border: 'none', borderRadius: '14px', width: 130, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(139, 92, 246, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
         {
             id: 'ominix-studio',
-            position: { x: 495, y: 25 },
+            position: { x: 554, y: 25 },
             data: {
                 label: <NodeLabel
                     title="OminiX Studio"
@@ -163,7 +176,7 @@ const getNodes = (lang) => {
                 />,
                 url: isZh ? '/zh/products/ominix' : '/products/ominix'
             },
-            style: { background: '#059669', color: 'white', border: 'none', borderRadius: '14px', width: 170, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(5, 150, 105, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#059669', color: 'white', border: 'none', borderRadius: '14px', width: 130, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(5, 150, 105, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
 
@@ -233,6 +246,8 @@ const initialEdges = [
     { id: 'e-moly-mofa', source: 'app', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
     // MoFA Studio → MoFA
     { id: 'e-studio-mofa', source: 'mofa-studio', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
+    // Moxin Voice → OminiX (uses OminiX MLX for inference via Dora)
+    { id: 'e-voice-ominix', source: 'moxin-voice', target: 'ominix', animated: true, style: { stroke: '#8B5CF6', strokeWidth: 2 } },
     // OminiX Studio → OminiX (direct to runtime)
     { id: 'e-ominix-studio-runtime', source: 'ominix-studio', target: 'ominix', animated: true, style: { stroke: '#059669', strokeWidth: 2 } },
     // MoFA → Moxin LM

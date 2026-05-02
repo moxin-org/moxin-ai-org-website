@@ -1,0 +1,334 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Moxin Voice - 纯 Rust AI 语音合成 - Moxin Org">
+  <!-- Hero -->
+  <div class="pt-32 pb-16 px-6 max-w-7xl mx-auto text-center">
+    <h1 class="text-5xl font-bold mb-8 text-text-primary dark:text-text-inverse animate-fade-in">
+      Moxin Voice <br />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600">
+        纯 Rust 实时翻译与语音合成
+      </span>
+    </h1>
+    <p class="text-xl text-text-secondary dark:text-text-secondary-inverse max-w-3xl mx-auto mb-8 font-light">
+      实时双语翻译、GPU 加速文本转语音与零样本声音克隆 &mdash; 全部在 Apple Silicon 本地运行。完全使用 Rust 构建，零 Python 依赖。
+    </p>
+
+    <!-- GOSIM Paris 2026 Banner -->
+    <div class="max-w-2xl mx-auto mb-12 animate-fade-in">
+      <div class="bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl p-[1px]">
+        <div class="bg-white dark:bg-[#1c1c1e] rounded-2xl px-6 py-4 flex items-center justify-center gap-3 flex-wrap">
+          <span class="text-xs font-bold text-white bg-violet-600 px-2.5 py-1 rounded-full uppercase tracking-wider">现场演示</span>
+          <span class="text-sm font-semibold text-text-primary dark:text-text-inverse">即将亮相 GOSIM Paris 2026</span>
+          <span class="text-xs text-text-secondary dark:text-text-secondary-inverse">&mdash; 为大会演讲提供实时翻译</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto mb-12 animate-fade-in relative z-10">
+      <div class="bg-white dark:bg-white/5 bg-gradient-to-r from-violet-600/10 to-fuchsia-600/10 dark:from-violet-900/20 dark:to-fuchsia-900/20 border border-violet-600/20 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all cursor-pointer text-center transform hover:scale-105" onclick="window.open('https://github.com/moxin-org/Moxin-Voice', '_blank')">
+        <h3 class="text-2xl font-bold mb-3 text-text-primary dark:text-text-inverse">在 GitHub 上探索</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse mb-4 text-lg">Apache 2.0 开源协议。克隆、构建、本地运行。</p>
+        <span class="text-violet-600 font-bold text-lg flex items-center justify-center gap-2">
+          github.com/moxin-org/Moxin-Voice
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- Performance Stats -->
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-4">
+      <div class="text-center">
+        <p class="text-4xl font-bold text-violet-600 dark:text-violet-400">2.3x</p>
+        <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mt-1">实时语音合成速度</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl font-bold text-violet-600 dark:text-violet-400">9</p>
+        <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mt-1">预置声音 (4 种语言)</p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl font-bold text-violet-600 dark:text-violet-400">0s</p>
+        <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mt-1">声音克隆训练时间</p>
+      </div>
+    </div>
+    <p class="text-xs text-text-secondary dark:text-text-secondary-inverse mb-8">基于 Apple M3 Max 测试 &bull; Qwen3-TTS 1.7B 8-bit 量化</p>
+  </div>
+
+  <!-- Core Capabilities -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">核心能力</h2>
+
+    <!-- Live Translation (Featured) -->
+    <div class="bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-900/10 dark:to-fuchsia-900/10 border-2 border-violet-200 dark:border-violet-800/30 rounded-3xl p-8 mb-6 shadow-md hover:shadow-lg transition-shadow relative overflow-hidden">
+      <div class="absolute top-4 right-4">
+        <span class="text-xs font-bold text-white bg-violet-600 px-3 py-1 rounded-full uppercase tracking-wider">旗舰功能</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="h-12 w-12 bg-violet-100 dark:bg-violet-900/40 rounded-xl flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-text-primary dark:text-text-inverse">实时翻译</h3>
+              <p class="text-sm text-violet-600 dark:text-violet-400 font-medium">双语实时字幕 &mdash; 即将亮相 GOSIM Paris 2026</p>
+            </div>
+          </div>
+          <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed mb-4 text-base">
+            实时双语字幕悬浮窗，可捕获任意音频源并生成实时翻译字幕。专为大型会议、商务会议和现场活动设计，消除语言障碍。
+          </p>
+          <div class="grid md:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">ASR 管道</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                基于 <strong>Qwen3-ASR-1.7B</strong>（8-bit 量化），通过 OminiX MLX 在 Metal GPU 上完全以 Rust 运行。VAD 分段确保准确的句子边界，支持实时流式输出。
+              </p>
+            </div>
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">翻译引擎</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                上下文感知的滚动翻译，输出连贯流畅。双语字幕对（如中文 &harr; 英文）在原生悬浮窗中渲染，始终置顶显示。
+              </p>
+            </div>
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">音频捕获</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                通过 macOS <strong>ScreenCaptureKit</strong> 直接捕获系统音频，无需虚拟音频驱动或内核扩展。同时支持麦克风输入用于面对面场景。
+              </p>
+            </div>
+            <div class="bg-white/60 dark:bg-white/5 rounded-xl p-4 border border-violet-100 dark:border-violet-800/20">
+              <h4 class="font-bold text-sm text-text-primary dark:text-text-inverse mb-1">GOSIM Paris 2026</h4>
+              <p class="text-xs text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+                即将部署于 <strong>GOSIM Paris 2026 大会</strong>，为主题演讲和技术分享提供实时双语字幕，服务多语言观众。
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">Qwen3-ASR-1.7B</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">ScreenCaptureKit</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">悬浮窗字幕</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">VAD 分段</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">OminiX MLX</span>
+            <span class="text-xs px-2 py-1 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded-full font-medium">零 Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TTS -->
+    <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 mb-6 shadow-sm hover:shadow-md transition-shadow">
+      <div class="flex flex-col md:flex-row md:items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="h-10 w-10 bg-violet-50 dark:bg-violet-900/30 rounded-lg flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">文本转语音</h3>
+              <p class="text-sm text-violet-600 dark:text-violet-400 font-medium">9 种预置声音，4 种语言</p>
+            </div>
+          </div>
+          <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed mb-4">
+            基于 <strong>Qwen3-TTS</strong>（17 亿参数，8-bit 量化）的高质量神经语音合成，通过 OminiX MLX 在 Metal GPU 上运行。2.3 倍实时合成速度。支持中文、英文、日文和韩文。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">Qwen3-TTS-1.7B</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">中文</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">英文</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">日文</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">韩文</span>
+            <span class="text-xs px-2 py-1 bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full">WAV 导出</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice Cloning -->
+    <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+      <div class="flex flex-col md:flex-row md:items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="h-10 w-10 bg-fuchsia-50 dark:bg-fuchsia-900/30 rounded-lg flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-text-primary dark:text-text-inverse">零样本声音克隆</h3>
+              <p class="text-sm text-fuchsia-600 dark:text-fuchsia-400 font-medium">秒级克隆任意声音</p>
+            </div>
+          </div>
+          <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed mb-4">
+            录制或上传 5-30 秒参考音频，使用上下文学习（ICL Express 模式）即时克隆任意声音。使用 <strong>Qwen3-TTS-Base</strong>（1.7B, 8-bit）进行合成，<strong>Qwen3-ASR</strong>（1.7B, 8-bit）自动转录参考音频。无需训练、无需微调、无需上传云端。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">5-30 秒参考音频</span>
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">ICL Express</span>
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">无需训练</span>
+            <span class="text-xs px-2 py-1 bg-fuchsia-50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300 rounded-full">完全本地</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technology Stack -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">基于 Moxin 技术栈</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">Makepad</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">GPU 加速 UI 框架，纯 Rust</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">OminiX MLX</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">Rust ML 推理引擎，Apple Metal GPU</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">DORA</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">语音管道的数据流编排</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">Qwen3-TTS 1.7B</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">语音合成模型，8-bit 量化</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">Qwen3-ASR 1.7B</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">语音识别模型，8-bit 量化</p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-5 rounded-2xl border border-gray-200 dark:border-white/10 text-center">
+        <div class="text-xl mb-2 font-bold text-violet-600 dark:text-violet-400">CPAL</div>
+        <p class="text-xs text-text-secondary dark:text-text-secondary-inverse">跨平台 Rust 音频 I/O</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-4 text-text-primary dark:text-text-inverse">对比分析</h2>
+    <p class="text-center text-text-secondary dark:text-text-secondary-inverse mb-10 max-w-2xl mx-auto">
+      ElevenLabs 和 MiniMax 等领先 TTS 平台提供强大的云端 API。Moxin Voice 采用根本不同的方案：一切在本地运行，使用纯 Rust，在你自己的硬件上。
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-200 dark:border-white/10">
+            <th class="text-left py-4 px-4 font-semibold text-text-primary dark:text-text-inverse"></th>
+            <th class="text-center py-4 px-4 font-bold text-violet-600 dark:text-violet-400">Moxin Voice</th>
+            <th class="text-center py-4 px-4 font-semibold text-text-secondary dark:text-text-secondary-inverse">ElevenLabs</th>
+            <th class="text-center py-4 px-4 font-semibold text-text-secondary dark:text-text-secondary-inverse">MiniMax TTS</th>
+          </tr>
+        </thead>
+        <tbody class="text-text-secondary dark:text-text-secondary-inverse">
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">运行方式</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">100% 本地</td>
+            <td class="py-3 px-4 text-center">云端 API</td>
+            <td class="py-3 px-4 text-center">云端 API</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">开发语言</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">纯 Rust</td>
+            <td class="py-3 px-4 text-center">Python (服务端)</td>
+            <td class="py-3 px-4 text-center">Python (服务端)</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">数据隐私</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">数据不出设备</td>
+            <td class="py-3 px-4 text-center">上传至云端</td>
+            <td class="py-3 px-4 text-center">上传至云端</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">实时翻译</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">内置，本地运行</td>
+            <td class="py-3 px-4 text-center">Dubbing Studio (云端)</td>
+            <td class="py-3 px-4 text-center">不支持</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">声音克隆</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">零样本，本地运行</td>
+            <td class="py-3 px-4 text-center">即时 / 专业版</td>
+            <td class="py-3 px-4 text-center">API 调用</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">价格</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">免费开源</td>
+            <td class="py-3 px-4 text-center">$5-$330/月</td>
+            <td class="py-3 px-4 text-center">按字符计费</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">延迟</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">即时（无网络）</td>
+            <td class="py-3 px-4 text-center">取决于网络</td>
+            <td class="py-3 px-4 text-center">取决于网络</td>
+          </tr>
+          <tr class="border-b border-gray-100 dark:border-white/5">
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">需要联网</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">不需要</td>
+            <td class="py-3 px-4 text-center">需要</td>
+            <td class="py-3 px-4 text-center">需要</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-4 font-medium text-text-primary dark:text-text-inverse">源代码</td>
+            <td class="py-3 px-4 text-center font-semibold text-violet-600 dark:text-violet-400">Apache 2.0</td>
+            <td class="py-3 px-4 text-center">闭源</td>
+            <td class="py-3 px-4 text-center">闭源</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Why Pure Rust -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">为什么选择纯 Rust</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">零 Python，零开销</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          无需 Python 运行时、virtualenv 或 pip 冲突。从 UI 到 GPU 推理的整个 TTS 管道编译为单一原生二进制文件。无 GIL，合成过程中无垃圾回收暂停。
+        </p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">GPU 边界的内存安全</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          Rust 的所有权模型通过 OminiX MLX 延伸到 Metal GPU 操作。缓冲区生命周期、张量形状和内核调度均在编译时检查，杜绝悬空指针和缓冲区溢出。
+        </p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">原生性能</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          Apple Silicon 上 2.3 倍实时合成速度。无解释器开销，无 Python 和 C 之间的 FFI 封送。音频管道从文本输入到扬声器输出全程原生速度运行。
+        </p>
+      </div>
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-2 text-text-primary dark:text-text-inverse">单一二进制交付</h3>
+        <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
+          <code class="text-xs bg-gray-100 dark:bg-white/10 px-1 py-0.5 rounded">cargo build --release</code> 生成一个自包含可执行文件。无 Docker，无 conda 环境，无系统级库冲突。下载、构建、运行，就这么简单。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Start -->
+  <div class="px-6 max-w-5xl mx-auto mb-24">
+    <div class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-lg">
+      <h2 class="text-2xl font-bold mb-2 text-text-primary dark:text-text-inverse">快速开始</h2>
+      <p class="text-sm text-text-secondary dark:text-text-secondary-inverse mb-6">
+        需要 macOS 14.0+ (Sonoma) &bull; Apple Silicon (M1/M2/M3/M4) &bull; Rust 1.82+ &bull; Dora CLI
+      </p>
+      <div class="bg-gray-900 dark:bg-black/40 rounded-xl p-5 font-mono text-sm text-violet-400 overflow-x-auto">
+        <p class="text-gray-500"># 安装 Dora CLI</p>
+        <p>cargo install dora-cli --locked</p>
+        <p class="mt-3 text-gray-500"># 克隆仓库</p>
+        <p>git clone https://github.com/moxin-org/Moxin-Voice.git</p>
+        <p>cd Moxin-Voice</p>
+        <p class="mt-3 text-gray-500"># 下载 TTS 模型（约 3.5 GB）</p>
+        <p>python3 scripts/download_models.py</p>
+        <p class="mt-3 text-gray-500"># 构建并运行</p>
+        <p>cargo build --release</p>
+        <p>dora up && dora start apps/moxin-voice/dataflow/tts.yml</p>
+      </div>
+    </div>
+  </div>
+</Layout>

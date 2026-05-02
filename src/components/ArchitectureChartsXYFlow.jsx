@@ -177,6 +177,14 @@ const SystemArchitectureFlow = () => {
       sourcePosition: Position.Bottom,
       targetPosition: Position.Top,
     },
+    {
+      id: 'A6',
+      type: 'application',
+      position: { x: 1100, y: 50 },
+      data: { label: 'Moxin Voice', description: 'Pure Rust TTS App' },
+      sourcePosition: Position.Bottom,
+      targetPosition: Position.Top,
+    },
 
     // MolyKit Application Framework
     {
@@ -483,6 +491,8 @@ const SystemArchitectureFlow = () => {
     { id: 'A4-MK1', source: 'A4', target: 'MK1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
     // OminiX Studio connects directly to OminiX-API
     { id: 'A5-IE3', source: 'A5', target: 'IE3', animated: true, style: { stroke: '#059669', strokeWidth: 2, strokeDasharray: '4 4' } },
+    // Moxin Voice connects to OminiX-MLX (uses it for TTS/ASR inference via Dora)
+    { id: 'A6-IE2', source: 'A6', target: 'IE2', animated: true, style: { stroke: '#8B5CF6', strokeWidth: 2, strokeDasharray: '4 4' } },
 
     // From MolyKit to Moly Proxy (matching mermaid exactly)
     { id: 'MK1-MP1', source: 'MK1', target: 'MP1', animated: true, style: { stroke: '#7f8c8d', strokeWidth: 2, strokeDasharray: '4 4' } },
