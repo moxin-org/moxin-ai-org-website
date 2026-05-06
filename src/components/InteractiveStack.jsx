@@ -126,7 +126,7 @@ const getNodes = (lang) => {
             connectable: false,
         },
 
-        // Application Layer - Moly, MoFA Studio, Moxin Voice, OminiX Studio
+        // Application Layer - Moly, MoFA Studio, Moxin Voice, Moxin Studio
         {
             id: 'app',
             position: { x: 125, y: 25 },
@@ -167,16 +167,16 @@ const getNodes = (lang) => {
             connectable: false,
         },
         {
-            id: 'ominix-studio',
+            id: 'moxin-studio',
             position: { x: 554, y: 25 },
             data: {
                 label: <NodeLabel
-                    title="OminiX Studio"
+                    title="Moxin Studio"
                     description={isZh ? '原生多模态桌面应用' : 'Native Multimodal Desktop'}
                 />,
-                url: isZh ? '/zh/products/ominix' : '/products/ominix'
+                url: isZh ? '/zh/products/moxin-studio' : '/products/moxin-studio'
             },
-            style: { background: '#059669', color: 'white', border: 'none', borderRadius: '14px', width: 130, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(5, 150, 105, 0.3)', cursor: 'pointer', zIndex: 10 },
+            style: { background: '#14B8A6', color: 'white', border: 'none', borderRadius: '14px', width: 130, height: 60, padding: '6px', boxShadow: '0 6px 16px rgba(20, 184, 166, 0.3)', cursor: 'pointer', zIndex: 10 },
             connectable: false,
         },
 
@@ -248,8 +248,10 @@ const initialEdges = [
     { id: 'e-studio-mofa', source: 'mofa-studio', target: 'agents', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
     // Moxin Voice → OminiX (uses OminiX MLX for inference via Dora)
     { id: 'e-voice-ominix', source: 'moxin-voice', target: 'ominix', animated: true, style: { stroke: '#8B5CF6', strokeWidth: 2 } },
-    // OminiX Studio → OminiX (direct to runtime)
-    { id: 'e-ominix-studio-runtime', source: 'ominix-studio', target: 'ominix', animated: true, style: { stroke: '#059669', strokeWidth: 2 } },
+    // Moxin Studio → Moxin LM
+    { id: 'e-moxin-studio-models', source: 'moxin-studio', target: 'models', animated: true, style: { stroke: '#14B8A6', strokeWidth: 2 } },
+    // Moxin Studio → OminiX (direct to runtime)
+    { id: 'e-moxin-studio-runtime', source: 'moxin-studio', target: 'ominix', animated: true, style: { stroke: '#14B8A6', strokeWidth: 2 } },
     // MoFA → Moxin LM
     { id: 'e-mofa-models', source: 'agents', target: 'models', animated: true, style: { stroke: '#86868B', strokeWidth: 2 } },
     // DORA → Moxin LM
