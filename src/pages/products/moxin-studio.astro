@@ -53,6 +53,91 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </div>
 
+  <!-- Supported Models -->
+  <div class="px-6 max-w-5xl mx-auto mb-20">
+    <h2 class="text-3xl font-bold text-center mb-4 text-text-primary dark:text-text-inverse">Supported Local Models</h2>
+    <p class="text-center text-text-secondary dark:text-text-secondary-inverse mb-10 max-w-2xl mx-auto">
+      Every model has a dedicated, optimized implementation — not a generic wrapper. Pure Rust models run directly via OminiX-MLX with Metal GPU acceleration.
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- LLM -->
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+          LLM
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3 (0.6B–8B)</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3.5-27B</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">GLM-4 / 4.5 / 4.7</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Mistral / Nemo</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Mixtral</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">MiniCPM-SALA</span>
+        </div>
+      </div>
+      <!-- VLM -->
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+          Vision
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3-VL</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Moxin-7B</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">DeepSeek-OCR-2</span>
+        </div>
+      </div>
+      <!-- ASR -->
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+          Speech Recognition
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3-ASR (30+ langs)</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Paraformer</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">FunASR-Nano</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">SenseVoice + Qwen3</span>
+        </div>
+      </div>
+      <!-- TTS -->
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+          Text to Speech
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3-TTS</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">GPT-SoVITS</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Step-Audio 2</span>
+        </div>
+      </div>
+      <!-- Image Gen -->
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+          Image Generation
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">FLUX.2-klein</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Z-Image-Turbo</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen-Image</span>
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Cosmos Predict2 14B</span>
+        </div>
+      </div>
+      <!-- Video Gen -->
+      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
+        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+          Video Generation
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Wan2.2 5B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Screenshots -->
   <div class="px-6 max-w-5xl mx-auto mb-20">
     <h2 class="text-3xl font-bold text-center mb-10 text-text-primary dark:text-text-inverse">See It in Action</h2>
@@ -145,91 +230,6 @@ import Layout from '../../layouts/Layout.astro';
         <p class="text-text-secondary dark:text-text-secondary-inverse text-sm leading-relaxed">
           Persistent, searchable conversation history. Pick up where you left off across sessions.
         </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Supported Models -->
-  <div class="px-6 max-w-5xl mx-auto mb-20">
-    <h2 class="text-3xl font-bold text-center mb-4 text-text-primary dark:text-text-inverse">Supported Local Models</h2>
-    <p class="text-center text-text-secondary dark:text-text-secondary-inverse mb-10 max-w-2xl mx-auto">
-      Every model has a dedicated, optimized implementation — not a generic wrapper. Pure Rust models run directly via OminiX-MLX with Metal GPU acceleration.
-    </p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- LLM -->
-      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-          LLM
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3 (0.6B–8B)</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3.5-27B</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">GLM-4 / 4.5 / 4.7</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Mistral / Nemo</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Mixtral</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">MiniCPM-SALA</span>
-        </div>
-      </div>
-      <!-- VLM -->
-      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-          Vision
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3-VL</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Moxin-7B</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">DeepSeek-OCR-2</span>
-        </div>
-      </div>
-      <!-- ASR -->
-      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-          Speech Recognition
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3-ASR (30+ langs)</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Paraformer</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">FunASR-Nano</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">SenseVoice + Qwen3</span>
-        </div>
-      </div>
-      <!-- TTS -->
-      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-          Text to Speech
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen3-TTS</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">GPT-SoVITS</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Step-Audio 2</span>
-        </div>
-      </div>
-      <!-- Image Gen -->
-      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-          Image Generation
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">FLUX.2-klein</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Z-Image-Turbo</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Qwen-Image</span>
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Cosmos Predict2 14B</span>
-        </div>
-      </div>
-      <!-- Video Gen -->
-      <div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-        <h3 class="text-lg font-bold mb-3 text-text-primary dark:text-text-inverse flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-          Video Generation
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">Wan2.2 5B</span>
-        </div>
       </div>
     </div>
   </div>

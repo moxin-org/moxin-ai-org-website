@@ -59,87 +59,116 @@ const mkPath = (path) => {
       </div>
     </section>
 
-    <!-- Moxin LM Section -->
-    <section class="relative pt-32 lg:pb-32">
+    <!-- Moxin Studio Section -->
+    <section class="py-24 bg-canvas-grey dark:bg-canvas-dark-grey">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row gap-16 items-center">
-          <div class="flex-1 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-accent-purple text-sm font-bold">
-              <span class="w-2 h-2 rounded-full bg-accent-purple"></span>
-              核心技术
+          <div class="flex-1 relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-teal-100 to-cyan-50 dark:from-teal-900/30 dark:to-cyan-900/30 rounded-full blur-3xl opacity-30"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-white/10">
+              <video class="w-full" autoplay loop muted playsinline poster={mkPath("/images/moxin-studio/screenshot-image-gen.png")}>
+                <source src={mkPath("/videos/moxin-studio-demo.mp4")} type="video/mp4" />
+              </video>
             </div>
-            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin LM</h2>
+          </div>
+          <div class="flex-1 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-sm font-bold">
+              <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+              桌面应用
+            </div>
+            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin Studio</h2>
             <p class="text-xl text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
-              我们的旗舰开源语言模型系列，针对性能、效率和透明度进行了优化。
+              基于 <span class="text-text-primary dark:text-text-inverse font-medium">纯 Rust 和 Makepad</span> 构建的原生桌面 AI 应用。在 Mac 上本地运行一切，无需 Python。
             </p>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-accent-purple shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary dark:text-text-inverse">Moxin-7B 系列：</strong> 紧凑体积下的 SOTA 性能。提供 LLM 和 VLM 版本。
+                  <strong class="text-text-primary dark:text-text-inverse">20+ 本地模型：</strong> 大语言模型、视觉模型、图像生成、语音识别、语音合成和视频 — 全部在设备端运行。
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-accent-purple shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary dark:text-text-inverse">极致量化：</strong> 在消费级硬件上以最小的损失运行 70B+ 模型（如 Kimi K2）。
+                  <strong class="text-text-primary dark:text-text-inverse">模型中心：</strong> 一键发现、下载和运行模型。
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-accent-purple shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary dark:text-text-inverse">Moxin Voice：</strong> 本地、低延迟的 ASR 和 TTS，实现自然的人机交互。
+                  <strong class="text-text-primary dark:text-text-inverse">语音与视觉：</strong> 语音克隆、语音识别、图像生成和视觉理解。
                 </div>
               </li>
             </ul>
             <div class="pt-4">
-              <a href={mkPath("/zh/products/moxin-lm")} class="inline-flex items-center gap-2 text-accent-purple font-bold hover:gap-3 transition-all">
-                探索模型
+              <a href={mkPath("/zh/products/moxin-studio")} class="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold hover:gap-3 transition-all">
+                探索 Moxin Studio
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moxin Voice Section -->
+    <section class="relative py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+          <div class="flex-1 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-[#8B5CF6] text-sm font-bold">
+              <span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span>
+              语音 AI
+            </div>
+            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin Voice</h2>
+            <p class="text-xl text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+              纯 Rust 实现的<span class="text-text-primary dark:text-text-inverse font-medium">实时翻译、语音合成和声音克隆</span>，完全在设备端运行。
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="text-text-primary dark:text-text-inverse">零样本声音复刻：</strong> 仅需 5-10 秒参考音频即可创建语音画像。
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="text-text-primary dark:text-text-inverse">本地 TTS + ASR：</strong> 无需云端 API，零延迟。14+ 预置音色，支持自定义训练。
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="text-text-primary dark:text-text-inverse">原生性能：</strong> 基于 Rust、Makepad 和 GPT-SoVITS v2 构建。将在 GOSIM Paris 2026 部署。
+                </div>
+              </li>
+            </ul>
+            <div class="pt-4">
+              <a href={mkPath("/zh/products/moxin-voice")} class="inline-flex items-center gap-2 text-[#8B5CF6] font-bold hover:gap-3 transition-all">
+                探索 Moxin Voice
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
           </div>
           <div class="flex-1 relative">
-            <div class="absolute -inset-4 bg-gradient-to-r from-purple-100 to-blue-50 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full blur-3xl opacity-30"></div>
-            <div class="relative bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-xl">
-              <div class="space-y-6">
-                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">🧠</div>
-                    <div>
-                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin-7B-LLM</div>
-                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">指令与代码</div>
-                    </div>
-                  </div>
-                  <div class="text-accent-purple font-bold">SOTA</div>
-                </div>
-                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">👁️</div>
-                    <div>
-                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin-7B-VLM</div>
-                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">视觉理解</div>
-                    </div>
-                  </div>
-                  <div class="text-accent-purple font-bold">New</div>
-                </div>
-                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">🗣️</div>
-                    <div>
-                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin Voice</div>
-                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">实时 ASR 和 TTS</div>
-                    </div>
-                  </div>
-                  <div class="text-accent-purple font-bold">Local</div>
-                </div>
-              </div>
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-100 to-violet-50 dark:from-purple-900/30 dark:to-violet-900/30 rounded-full blur-3xl opacity-30"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-white/10">
+              <video class="w-full" autoplay loop muted playsinline preload="metadata">
+                <source src={mkPath("/resources/moxin-voice-demo-cn.mp4")} type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>

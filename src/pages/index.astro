@@ -59,87 +59,116 @@ const mkPath = (path) => {
       </div>
     </section>
 
-    <!-- Moxin LM Section -->
-    <section class="relative pt-32 lg:pb-32">
+    <!-- Moxin Studio Section -->
+    <section class="relative py-24 bg-canvas-grey dark:bg-canvas-dark-grey">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row gap-16 items-center">
-          <div class="flex-1 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-accent-purple text-sm font-bold">
-              <span class="w-2 h-2 rounded-full bg-accent-purple"></span>
-              Core Technology
+          <div class="flex-1 relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-teal-100 to-cyan-50 dark:from-teal-900/30 dark:to-cyan-900/30 rounded-full blur-3xl opacity-30"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-white/10">
+              <video class="w-full" autoplay loop muted playsinline poster={mkPath("/images/moxin-studio/screenshot-image-gen.png")}>
+                <source src={mkPath("/videos/moxin-studio-demo.mp4")} type="video/mp4" />
+              </video>
             </div>
-            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin LM</h2>
+          </div>
+          <div class="flex-1 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-sm font-bold">
+              <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+              Desktop App
+            </div>
+            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin Studio</h2>
             <p class="text-xl text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
-              Our flagship series of open-source language models, optimized for what matters most: <span class="text-text-primary dark:text-text-inverse font-medium">performance, efficiency, and transparency</span>.
+              A native desktop AI app built with <span class="text-text-primary dark:text-text-inverse font-medium">pure Rust and Makepad</span>. Run everything locally on your Mac, no Python required.
             </p>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-accent-purple shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary dark:text-text-inverse">Moxin-7B Series:</strong> SOTA performance in a compact size. Available as LLM and VLM.
+                  <strong class="text-text-primary dark:text-text-inverse">20+ Local Models:</strong> LLMs, VLMs, image generation, ASR, TTS, and video — all on-device.
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-accent-purple shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <strong class="text-text-primary dark:text-text-inverse">Extreme Quantization:</strong> Running 70B+ models (like Kimi K2) on consumer hardware with minimal loss.
+                  <strong class="text-text-primary dark:text-text-inverse">Model Hub:</strong> Discover, download, and run models with one click.
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-accent-purple shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <a href={mkPath("/products/moxin-voice")} class="hover:text-accent-purple transition-colors"><strong class="text-text-primary dark:text-text-inverse">Moxin Voice:</strong></a> Real-time live translation and TTS in pure Rust. Deploying at GOSIM Paris 2026.
+                  <strong class="text-text-primary dark:text-text-inverse">Voice & Vision:</strong> Voice cloning, speech recognition, image generation, and visual understanding.
                 </div>
               </li>
             </ul>
             <div class="pt-4">
-              <a href={mkPath("/products/moxin-lm")} class="inline-flex items-center gap-2 text-accent-purple font-bold hover:gap-3 transition-all">
-                Explore Models
+              <a href={mkPath("/products/moxin-studio")} class="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold hover:gap-3 transition-all">
+                Explore Moxin Studio
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moxin Voice Section -->
+    <section class="relative py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+          <div class="flex-1 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-[#8B5CF6] text-sm font-bold">
+              <span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span>
+              Voice AI
+            </div>
+            <h2 class="text-4xl font-bold text-text-primary dark:text-text-inverse">Moxin Voice</h2>
+            <p class="text-xl text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+              Real-time <span class="text-text-primary dark:text-text-inverse font-medium">live translation, TTS, and voice cloning</span> running entirely on-device in pure Rust.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="text-text-primary dark:text-text-inverse">Zero-Shot Voice Cloning:</strong> Create a voice profile from just 5-10 seconds of reference audio.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="text-text-primary dark:text-text-inverse">Local TTS + ASR:</strong> No cloud APIs, no latency. 14+ preset voices with custom training support.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="text-text-primary dark:text-text-inverse">Native Performance:</strong> Built with Rust, Makepad, and GPT-SoVITS v2. Deploying at GOSIM Paris 2026.
+                </div>
+              </li>
+            </ul>
+            <div class="pt-4">
+              <a href={mkPath("/products/moxin-voice")} class="inline-flex items-center gap-2 text-[#8B5CF6] font-bold hover:gap-3 transition-all">
+                Explore Moxin Voice
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
           </div>
           <div class="flex-1 relative">
-            <div class="absolute -inset-4 bg-gradient-to-r from-purple-100 to-blue-50 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full blur-3xl opacity-30"></div>
-            <div class="relative bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 shadow-xl">
-              <div class="space-y-6">
-                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">🧠</div>
-                    <div>
-                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin-7B-LLM</div>
-                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">Instruction & Coding</div>
-                    </div>
-                  </div>
-                  <div class="text-accent-purple font-bold">SOTA</div>
-                </div>
-                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">👁️</div>
-                    <div>
-                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin-7B-VLM</div>
-                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">Visual Understanding</div>
-                    </div>
-                  </div>
-                  <div class="text-accent-purple font-bold">New</div>
-                </div>
-                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white dark:bg-white/10 rounded-xl shadow-sm flex items-center justify-center text-2xl">🗣️</div>
-                    <div>
-                      <div class="font-bold text-text-primary dark:text-text-inverse">Moxin Voice</div>
-                      <div class="text-xs text-text-secondary dark:text-text-secondary-inverse">Real-time ASR and TTS</div>
-                    </div>
-                  </div>
-                  <div class="text-accent-purple font-bold">Local</div>
-                </div>
-              </div>
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-100 to-violet-50 dark:from-purple-900/30 dark:to-violet-900/30 rounded-full blur-3xl opacity-30"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-white/10">
+              <video class="w-full" autoplay loop muted playsinline preload="metadata">
+                <source src={mkPath("/resources/moxin-voice-demo-en.mp4")} type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
