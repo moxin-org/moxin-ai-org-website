@@ -41,7 +41,7 @@ const switchLangPath = isZh
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <!-- Dropdown -->
-        <div class="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-[#1c1c1e] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left py-2">
+        <div class="absolute top-full left-0 mt-2 w-80 bg-white dark:bg-[#1c1c1e] border border-gray-100 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left py-2">
 
           <!-- Application -->
           <div class="px-3 pt-2 pb-1 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">{isZh ? '应用层' : 'Application'}</div>
@@ -87,6 +87,22 @@ const switchLangPath = isZh
             <span class="w-2 h-2 rounded-full bg-[#5E5CE6] shrink-0"></span>
             <span class="text-sm font-semibold text-text-primary dark:text-text-inverse group-hover/models:text-[#5E5CE6] transition-colors">Moxin LM</span>
             <span class="ml-auto text-xs text-text-secondary dark:text-text-secondary-inverse">{isZh ? '权重 & 微调' : 'Weights & Tunes'}</span>
+          </a>
+
+          <!-- World Models & Embodied AI -->
+          <div class="mx-3 my-1.5 border-t border-gray-100 dark:border-white/5"></div>
+          <a href="https://github.com/NU-World-Model-Embodied-AI" target="_blank" rel="noopener noreferrer" class="block px-3 pb-1 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider hover:text-[#5E5CE6] transition-colors">
+            {isZh ? '世界模型与具身智能 ↗' : 'World Models & Embodied AI ↗'}
+          </a>
+          <a href="https://github.com/NU-World-Model-Embodied-AI/PhyGround" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 py-1.5 px-3 hover:bg-[#AF52DE]/5 transition-all group/phyground">
+            <span class="w-2 h-2 rounded-full bg-[#AF52DE] shrink-0"></span>
+            <span class="text-sm font-semibold text-text-primary dark:text-text-inverse group-hover/phyground:text-[#AF52DE] transition-colors">PhyGround</span>
+            <span class="ml-auto text-xs text-text-secondary dark:text-text-secondary-inverse">{isZh ? '物理评测基准' : 'Physics Benchmark'}</span>
+          </a>
+          <a href="https://github.com/NU-World-Model-Embodied-AI/PhyWorld" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 py-1.5 px-3 hover:bg-[#007AFF]/5 transition-all group/phyworld">
+            <span class="w-2 h-2 rounded-full bg-[#007AFF] shrink-0"></span>
+            <span class="text-sm font-semibold text-text-primary dark:text-text-inverse group-hover/phyworld:text-[#007AFF] transition-colors">PhyWorld</span>
+            <span class="ml-auto text-xs text-text-secondary dark:text-text-secondary-inverse">{isZh ? '视频世界模型' : 'Video World Model'}</span>
           </a>
 
           <!-- Inference -->
@@ -174,5 +190,4 @@ const switchLangPath = isZh
     </div>
   </div>
 </nav>
-
 

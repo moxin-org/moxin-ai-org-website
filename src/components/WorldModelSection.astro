@@ -1,0 +1,151 @@
+---
+export interface Props {
+  lang?: 'en' | 'zh';
+}
+
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+
+const copy = isZh
+  ? {
+      eyebrow: '物理智能',
+      title: '世界模型与具身智能',
+      description:
+        'Moxin 的开放 AI 生态正在从数字智能延伸到物理世界，探索能够模拟、预测并采取行动的系统。NU World Model & Embodied AI 团队开放发布模型、评测基准、数据集与具身智能研究。',
+      loopLabel: '共享的研究闭环',
+      loopTitle: '用物理现实衡量，再以此训练。',
+      loopDescription:
+        'PhyGround 提供物理真实性评测与人类偏好数据；PhyWorld 利用同一批信号，训练出物理一致性更强的视频生成世界模型。',
+      projectPage: '项目主页',
+      code: 'GitHub',
+      artifacts: 'Hugging Face',
+      exploreGithub: '探索全部世界模型与具身智能项目',
+      exploreHuggingFace: '查看模型与数据集',
+      projects: [
+        {
+          name: 'PhyGround',
+          kind: '物理评测基准',
+          description:
+            '用于评估文生视频与图生视频物理合理性的开放基准，包含 250 个精选提示词、覆盖 13 条物理规律的分类体系，以及 PhyJudge-9B 评测模型。',
+          projectUrl: 'https://phyground.github.io/',
+          githubUrl: 'https://github.com/NU-World-Model-Embodied-AI/PhyGround',
+          artifactUrl: 'https://huggingface.co/datasets/NU-World-Model-Embodied-AI/phyground',
+        },
+        {
+          name: 'PhyWorld',
+          kind: '视频世界模型',
+          description:
+            '面向物理规律的视频生成世界模型，通过时序一致性微调，以及源自 PhyGround 人类标注数据的偏好优化完成后训练。',
+          projectUrl: 'https://nu-world-model-embodied-ai.github.io/PhyWorld/',
+          githubUrl: 'https://github.com/NU-World-Model-Embodied-AI/PhyWorld',
+          artifactUrl: 'https://huggingface.co/NU-World-Model-Embodied-AI/phyworld',
+        },
+      ],
+    }
+  : {
+      eyebrow: 'Physical Intelligence',
+      title: 'World Models & Embodied AI',
+      description:
+        'Moxin extends its open AI ecosystem from digital intelligence into the physical world, exploring systems that simulate, predict, and act. NU World Model & Embodied AI openly releases models, benchmarks, datasets, and embodied-agent research.',
+      loopLabel: 'A shared research loop',
+      loopTitle: 'Measure physical reality. Train against it.',
+      loopDescription:
+        'PhyGround provides the physical benchmark and human preference data; PhyWorld uses the same signal to build a more physically coherent video-generation world model.',
+      projectPage: 'Project page',
+      code: 'GitHub',
+      artifacts: 'Hugging Face',
+      exploreGithub: 'Explore all World Model & Embodied AI projects',
+      exploreHuggingFace: 'View models and datasets',
+      projects: [
+        {
+          name: 'PhyGround',
+          kind: 'Physical benchmark',
+          description:
+            'An open benchmark for the physical plausibility of text-and-image-to-video generation, with 250 curated prompts, a 13-law physics taxonomy, and the PhyJudge-9B evaluator.',
+          projectUrl: 'https://phyground.github.io/',
+          githubUrl: 'https://github.com/NU-World-Model-Embodied-AI/PhyGround',
+          artifactUrl: 'https://huggingface.co/datasets/NU-World-Model-Embodied-AI/phyground',
+        },
+        {
+          name: 'PhyWorld',
+          kind: 'Video world model',
+          description:
+            'A physics-aware video-generation world model post-trained with temporal-coherence tuning and preference optimization derived from the PhyGround human-annotation pool.',
+          projectUrl: 'https://nu-world-model-embodied-ai.github.io/PhyWorld/',
+          githubUrl: 'https://github.com/NU-World-Model-Embodied-AI/PhyWorld',
+          artifactUrl: 'https://huggingface.co/NU-World-Model-Embodied-AI/phyworld',
+        },
+      ],
+    };
+---
+
+<section id="world-models" class="relative py-24 bg-canvas-grey dark:bg-canvas-dark-grey">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-[#5E5CE6] dark:text-indigo-300 text-sm font-bold mb-5">
+        <span class="w-2 h-2 rounded-full bg-[#5E5CE6]"></span>
+        {copy.eyebrow}
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-text-primary dark:text-text-inverse mb-6">
+        {copy.title}
+      </h2>
+      <p class="text-xl text-text-secondary dark:text-text-secondary-inverse leading-relaxed font-light">
+        {copy.description}
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+      {copy.projects.map((project, index) => (
+        <article class="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/10 bg-white/80 dark:bg-white/5 p-8 lg:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <div class="absolute top-6 right-7 text-sm font-mono text-gray-300 dark:text-white/20">
+            {String(index + 1).padStart(2, '0')}
+          </div>
+          <div class="text-sm font-bold uppercase tracking-wider text-[#5E5CE6] dark:text-indigo-300 mb-3">
+            {project.kind}
+          </div>
+          <h3 class="text-3xl font-bold text-text-primary dark:text-text-inverse mb-5">
+            {project.name}
+          </h3>
+          <p class="text-lg text-text-secondary dark:text-text-secondary-inverse leading-relaxed min-h-28">
+            {project.description}
+          </p>
+          <div class="mt-8 pt-6 border-t border-gray-100 dark:border-white/10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+            <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" class="text-[#5E5CE6] dark:text-indigo-300 hover:underline">
+              {copy.projectPage} ↗
+            </a>
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="text-text-secondary dark:text-text-secondary-inverse hover:text-text-primary dark:hover:text-text-inverse">
+              {copy.code} ↗
+            </a>
+            <a href={project.artifactUrl} target="_blank" rel="noopener noreferrer" class="text-text-secondary dark:text-text-secondary-inverse hover:text-text-primary dark:hover:text-text-inverse">
+              {copy.artifacts} ↗
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-6 rounded-3xl border border-indigo-200/60 dark:border-indigo-400/20 bg-indigo-50/70 dark:bg-indigo-900/10 px-8 py-8 lg:px-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+      <div class="shrink-0">
+        <div class="text-xs font-bold uppercase tracking-wider text-[#5E5CE6] dark:text-indigo-300 mb-2">
+          {copy.loopLabel}
+        </div>
+        <h3 class="text-2xl font-bold text-text-primary dark:text-text-inverse">
+          {copy.loopTitle}
+        </h3>
+      </div>
+      <div class="hidden lg:block w-px self-stretch bg-indigo-200 dark:bg-indigo-400/20"></div>
+      <p class="text-text-secondary dark:text-text-secondary-inverse leading-relaxed">
+        {copy.loopDescription}
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="https://github.com/NU-World-Model-Embodied-AI" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full text-center font-semibold bg-[#5E5CE6] text-white hover:bg-indigo-700 transition-colors">
+        {copy.exploreGithub} ↗
+      </a>
+      <a href="https://huggingface.co/NU-World-Model-Embodied-AI" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full text-center font-semibold border border-gray-300 dark:border-white/20 text-text-primary dark:text-text-inverse hover:bg-white dark:hover:bg-white/10 transition-colors">
+        {copy.exploreHuggingFace} ↗
+      </a>
+    </div>
+  </div>
+</section>

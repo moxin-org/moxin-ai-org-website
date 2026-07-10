@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import InteractiveStack from '../components/InteractiveStack.jsx';
 import TypingEffect from '../components/TypingEffect.jsx';
+import WorldModelSection from '../components/WorldModelSection.astro';
 
 const base = import.meta.env.BASE_URL;
 const mkPath = (path) => {
@@ -10,7 +11,10 @@ const mkPath = (path) => {
 };
 ---
 
-<Layout title="Open Ecosystem for Sovereign AI - Moxin Org">
+<Layout
+  title="Open Ecosystem for Sovereign AI - Moxin Org"
+  description="Moxin is a full-stack open AI ecosystem spanning applications, models, world models, embodied AI, frameworks, and edge inference."
+>
   <div class="relative overflow-hidden">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
@@ -58,6 +62,8 @@ const mkPath = (path) => {
         </div>
       </div>
     </section>
+
+    <WorldModelSection lang="en" />
 
     <!-- Moxin Studio Section -->
     <section class="relative py-24 bg-canvas-grey dark:bg-canvas-dark-grey">

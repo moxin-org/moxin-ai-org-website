@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveStack from '../../components/InteractiveStack.jsx';
 import TypingEffect from '../../components/TypingEffect.jsx';
+import WorldModelSection from '../../components/WorldModelSection.astro';
 
 const base = import.meta.env.BASE_URL;
 const mkPath = (path) => {
@@ -10,7 +11,10 @@ const mkPath = (path) => {
 };
 ---
 
-<Layout title="Moxin Org - 主权 AI 的开放生态系统">
+<Layout
+  title="Moxin Org - 主权 AI 的开放生态系统"
+  description="Moxin 是覆盖应用、模型、世界模型、具身智能、框架与边缘推理的全栈开放 AI 生态系统。"
+>
   <div class="relative overflow-hidden">
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
@@ -58,6 +62,8 @@ const mkPath = (path) => {
         </div>
       </div>
     </section>
+
+    <WorldModelSection lang="zh" />
 
     <!-- Moxin Studio Section -->
     <section class="py-24 bg-canvas-grey dark:bg-canvas-dark-grey">
